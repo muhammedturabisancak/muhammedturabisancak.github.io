@@ -1,0 +1,337 @@
+/* ---------------------------------------------------
+   Temel: Değişkenler & Tema
+--------------------------------------------------- */
+:root {
+  --bg: #121212;
+  --fg: #ffffff;
+  --muted: #bdbdbd;
+  --card: #1a1a1a;
+  --accent: #ff6a00;
+  --accent-2: #ee0979;
+  --ring: rgba(255, 255, 255, 0.12);
+  --gradient-bg: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+body[data-theme="light"] {
+  --bg: #f7f7f8;
+  --fg: #0e0e10;
+  --muted: #5b5b63;
+  --card: #ffffff;
+  --accent: #3366ff;
+  --accent-2: #8a2be2;
+  --ring: rgba(0, 0, 0, 0.08);
+  --gradient-bg: linear-gradient(135deg, #ffffff 0%, #f2f2f2 100%);
+}
+
+/* ---------------------------------------------------
+   Genel Ayarlar
+--------------------------------------------------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--gradient-bg);
+  color: var(--fg);
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Site iskeleti */
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------
+   Üst Bar
+--------------------------------------------------- */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+}
+
+.theme-toggle {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--ring);
+  color: var(--fg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+.theme-toggle:hover { 
+  transform: translateY(-2px) rotate(10deg);
+  background-color: var(--card);
+  box-shadow: 0 6px 20px var(--ring);
+}
+
+/* ---------------------------------------------------
+   Hero Alanı
+--------------------------------------------------- */
+.hero {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+  padding: 24px;
+  border-radius: 16px;
+  animation: fadeUp .6s ease both;
+  transform: translateY(-6vh);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------
+   Profil & Başlıklar
+--------------------------------------------------- */
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 3px solid var(--ring);
+  box-shadow: 0 8px 28px var(--ring);
+  transition: 0.3s ease;
+}
+.avatar:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 12px 36px var(--ring);
+  border-color: rgba(255,255,255,.22);
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 6px 0 4px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 26px;
+}
+
+/* ---------------------------------------------------
+   Sosyal Medya İkonları
+--------------------------------------------------- */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 0 28px;
+}
+
+.social-links a {
+  font-size: 32px;
+  color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; 
+  height: 48px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+.social-links a:hover {
+  transform: translateY(-4px) scale(1.05);
+  color: #fff;
+  background: linear-gradient(45deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 26px rgba(0,0,0,.25);
+}
+
+.social-links .fa-x-twitter {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------
+   Butonlar
+--------------------------------------------------- */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 28px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  background: linear-gradient(45deg, var(--accent), var(--accent-2));
+  background-size: 200% 200%;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: 0.35s ease;
+}
+.btn:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.3);
+}
+.btn:active { transform: translateY(0); opacity: .95; }
+
+/* ---------------------------------------------------
+   Footer
+--------------------------------------------------- */
+.footer {
+  padding: 16px 12px 22px;
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  border-top: 1px solid var(--ring);
+  backdrop-filter: blur(5px);
+}
+body[data-theme="light"] .footer { color: rgba(0,0,0,.65); }
+
+/* ---------------------------------------------------
+   Responsive
+--------------------------------------------------- */
+@media (max-width: 640px) {
+  .container { padding: 16px; max-width: 92vw; transform: translateY(-4vh); }
+  .avatar { width: 150px; height: 150px; }
+  .name { font-size: 26px; }
+  .social-links { gap: 14px; }
+  .social-links a { font-size: 28px; width: 42px; height: 42px; }
+  .btn { padding: 10px 18px; font-size: 13px; }
+}
+
+/* ---------------------------------------------------
+   Odak Durumu
+--------------------------------------------------- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+/* ----- Modal ----- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+.modal.show { display: flex; }
+
+.modal-content {
+  width: 100%;
+  max-width: 760px;
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  text-align: left;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--ring);
+  background: transparent;
+  color: var(--fg);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Var olan contact stillerini modal içi için de kullan */
+.contact-text { color: var(--muted); margin: 8px 0 16px; text-align: left; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--ring);
+  background: transparent; color: var(--fg); font: inherit;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; box-shadow: 0 0 0 3px var(--ring); }
+@media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* Modal açıkken kaydırmayı kilitle */
+body.modal-open { overflow: hidden; }
+
+/* Overlay: arka planı karart + arkadakini blurla; modal içeriği etkilenmez */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+.modal.show { display: flex; }
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  filter: none;             /* modal içeriği NET kalsın */
+}
+
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--ring);
+  background: transparent;
+  color: var(--fg);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Form içi (varsa mevcutlarını kullanabilirsin) */
+.contact-text { color: var(--muted); margin: 8px 0 16px; text-align: left; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--ring);
+  background: transparent; color: var(--fg); font: inherit;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: none; box-shadow: 0 0 0 3px var(--ring); }
+@media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+
+
+
+/* Mobil uyum */
+@media (max-width: 640px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
