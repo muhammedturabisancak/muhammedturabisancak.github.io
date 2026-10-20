@@ -65,6 +65,7 @@ Değişken adı = Figma code syntax. Koyu `:root`; açık tema bloğunda yalnız
 | color/clockTop | `--color-clock-top` | #1A1F3A | #DDE7FF |
 | color/clockBottom | `--color-clock-bottom` | #0E1020 | #F3F6FF |
 | color/celestial | `--color-celestial` | #F3EED8 (ay) | #FFD98A (güneş) |
+| color/scrim | `--color-scrim` | #00000080 (black/a50) | #00000033 (black/a20) |
 
 İsim gradyanı: `linear-gradient(90deg, var(--color-name-from), var(--color-name-to))` + `background-clip: text`.
 Duvar kâğıdı (HomeScreen): `linear-gradient(135deg, var(--color-wall-top), var(--color-wall-mid) 55%, var(--color-wall-bottom))` + ışıklar.
@@ -137,7 +138,8 @@ Metin sayfalarında gövde 17 / 165%.
 | NowStatus | 45:241 | `.now-status` | data.json |
 | TimelineItem | 45:298 (Update/Video/Post) | `.timeline-item` | data.json |
 | DocHeader · DocSection · ContactCard | 50:241 · 50:257 · 50:264 | `.doc-header` `.doc-section` `.contact-card` | |
-| Nav | 23:162 (Desktop/Mobile) | `.site-nav` | mobilde menü düğmesi → tam ekran liste |
+| Nav | 23:162 (Desktop/Mobile) | `.site-nav` | tema düğmesi her durumda güneş ikonu; mobilde menü düğmesi → Nav/MobileMenu |
+| Nav/MobileMenu | 71:306 | `.site-menu` (`__scrim`, `__panel`) | sağdan panel (%82, en çok 320), arkası `color/scrim` + 6 px bulanık, sayfa 24 px sola; seçilmeyen akışlar: Arşiv · Mobil menü |
 | Footer | 23:217 (Desktop/Mobile) | `.site-footer` | 4 sütun / 2×2 |
 
 ## Hareket (K-15) — Motion token'ları

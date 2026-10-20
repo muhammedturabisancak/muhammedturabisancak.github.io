@@ -55,21 +55,47 @@
   });
   applyTheme(current);
 
-  // ---------- Mobil menü ----------
+  // ---------- Mobil menü: sağdan panel ----------
+  // Açılış: hidden kalkar, sonra .is-open ile panel kayar. Kapanış: kayma bitince hidden.
   var menu = document.getElementById("site-menu");
+  var panel = menu && menu.querySelector(".site-menu__panel");
   var menuOpeners = document.querySelectorAll("[data-menu-open]");
+  var menuOpen = false;
+
+  function hideWhenClosed() {
+    if (parseFloat(getComputedStyle(panel).transitionDuration) === 0) {
+      menu.hidden = true;
+      return;
+    }
+    panel.addEventListener("transitionend", function onEnd(event) {
+      if (event.target !== panel) return;
+      panel.removeEventListener("transitionend", onEnd);
+      if (!menuOpen) menu.hidden = true;
+    });
+  }
 
   function setMenu(open) {
-    if (!menu) return;
-    menu.hidden = !open;
+    if (!menu || open === menuOpen) return;
+    menuOpen = open;
+    // Menü açıkken arkadaki sayfa klavye ve dokunuşa kapalı.
+    document.querySelectorAll(".site-nav, main, .site-footer").forEach(function (el) {
+      el.inert = open;
+    });
     document.body.style.overflow = open ? "hidden" : "";
     menuOpeners.forEach(function (button) {
       button.setAttribute("aria-expanded", String(open));
     });
     if (open) {
-      menu.querySelector("[data-menu-close]").focus();
-    } else if (menuOpeners[0]) {
-      menuOpeners[0].focus();
+      menu.hidden = false;
+      void menu.offsetWidth; // kayma animasyonu için ilk durumu çizdir
+      menu.classList.add("is-open");
+      root.classList.add("menu-open");
+      menu.querySelector(".site-menu__top [data-menu-close]").focus();
+    } else {
+      menu.classList.remove("is-open");
+      root.classList.remove("menu-open");
+      hideWhenClosed();
+      if (menuOpeners[0]) menuOpeners[0].focus();
     }
   }
 
@@ -78,16 +104,24 @@
       setMenu(true);
     });
   });
-  document.querySelectorAll("[data-menu-close]").forEach(function (button) {
-    button.addEventListener("click", function () {
+  document.querySelectorAll("[data-menu-close]").forEach(function (el) {
+    el.addEventListener("click", function () {
       setMenu(false);
     });
   });
+  // Aynı sayfadaki bir bölüme (ör. /#hakkimda) gidilirse menü kapanır.
+  if (menu) {
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setMenu(false);
+      });
+    });
+  }
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && menu && !menu.hidden) setMenu(false);
+    if (event.key === "Escape" && menuOpen) setMenu(false);
   });
   // Masaüstü genişliğe geçilirse menü kapanır.
   window.matchMedia("(min-width: 721px)").addEventListener("change", function (event) {
-    if (event.matches && menu && !menu.hidden) setMenu(false);
+    if (event.matches && menuOpen) setMenu(false);
   });
 })();

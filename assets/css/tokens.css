@@ -31,6 +31,7 @@
   --color-clock-top: #1A1F3A;
   --color-clock-bottom: #0E1020;
   --color-celestial: #F3EED8;
+  --color-scrim: #00000080;
 
   /* Apps (temadan bağımsız) */
   --app-levh-primary: #0E5A3C;
@@ -132,6 +133,7 @@
     --color-clock-top: #DDE7FF;
     --color-clock-bottom: #F3F6FF;
     --color-celestial: #FFD98A;
+    --color-scrim: #00000033;
   }
 }
 
@@ -163,6 +165,7 @@
   --color-clock-top: #DDE7FF;
   --color-clock-bottom: #F3F6FF;
   --color-celestial: #FFD98A;
+  --color-scrim: #00000033;
 }
 
 /* Layout · Mobile */
