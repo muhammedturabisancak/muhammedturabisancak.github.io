@@ -58,6 +58,8 @@
   --device-to: #0E100F;
   --device-border: #FFFFFF1A;
   --device-island: #000000;
+  --store-badge-bg: #000000;          /* StoreBadge (yer tutucu, temadan bağımsız) */
+  --store-badge-border: #FFFFFF33;
 
   /* Layout · Desktop */
   --space-4: 4px;

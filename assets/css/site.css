@@ -472,6 +472,7 @@ button {
   height: var(--h);
   border-radius: 50%;
   background: var(--c);
+  opacity: var(--o, 1);
   filter: blur(var(--b));
   pointer-events: none;
 }
@@ -1137,6 +1138,182 @@ button {
   list-style: none;
 }
 
+/* ---------- Telefon ekranı: koyu/açık tema görüntüsü ---------- */
+.phone__screen--light {
+  display: none;
+}
+
+/* ---------- StoreBadge (Figma 36:233) — yer tutucu (K-21) ---------- */
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+.store-badge {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8) 18px;
+  border: 1px solid var(--store-badge-border);
+  border-radius: 12px;
+  background: var(--store-badge-bg);
+  color: var(--app-levh-cream);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.store-badge__state {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.store-badge__store {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+/* ---------- FeatureRow (Figma 36:267: Desktop-Left/Right 1200×520, Mobile 350×740) ---------- */
+.feature-row {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 36px;
+  background: var(--color-surface);
+}
+
+.feature-row .glow {
+  --b: var(--blur-glow);
+}
+
+.feature-row__glow--1 { --x: -80px; --y: 120px; --w: 640px; --h: 460px; }
+.feature-row__glow--2 { --x: 200px; --y: -120px; --w: 420px; --h: 300px; }
+
+.feature-row--right .feature-row__glow--1 { --x: 640px; }
+.feature-row--right .feature-row__glow--2 { --x: 520px; }
+
+.feature-row .phone {
+  --phone-w: 253px;
+  position: absolute;
+  left: 170px;
+  top: 60px;
+  transform-origin: 0 0;
+  transform: rotate(4deg);
+}
+
+.feature-row--right .phone {
+  left: 780px;
+  transform: rotate(-4deg);
+}
+
+.feature-row__text {
+  position: absolute;
+  right: 100px;
+  top: 183px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 480px;
+}
+
+.feature-row--right .feature-row__text {
+  left: 100px;
+  right: auto;
+}
+
+.feature-row__label {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.feature-row__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.feature-row__body {
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* ---------- PrivacyCard (Figma 36:271) ---------- */
+.privacy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 24px;
+  background: var(--color-surface);
+}
+
+.privacy-card h3 {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.privacy-card p {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ---------- DownloadCTA (Figma 36:303: Desktop 1200×300, Mobile 350×300) ---------- */
+.download-cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 36px;
+  background: var(--app-levh-deep);
+  color: var(--app-levh-cream);
+  text-align: center;
+}
+
+.download-cta > :not(.glow) {
+  position: relative;
+}
+
+.download-cta .glow {
+  --b: var(--blur-glow);
+}
+
+.download-cta__glow--1 { --x: -100px; --y: -120px; --w: 720px; --h: 500px; --c: var(--app-levh-primary); }
+.download-cta__glow--2 { --x: 792px; --y: -120px; --w: 420px; --h: 320px; --c: var(--app-levh-gold); }
+
+.download-cta__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 17px;
+}
+
+.download-cta__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.download-cta .store-badges {
+  justify-content: center;
+  gap: 10px;
+}
+
 /* ---------- SectionHeader (Figma 22:212) ---------- */
 .section-header {
   display: flex;
@@ -1364,13 +1541,33 @@ main,
 }
 
 :root[data-theme="light"] .tile,
-:root[data-theme="light"] .app-card {
+:root[data-theme="light"] .app-card,
+:root[data-theme="light"] .feature-row,
+:root[data-theme="light"] .privacy-card {
   box-shadow: var(--shadow-card-light);
 }
 
+:root[data-theme="light"] .phone__screen--dark {
+  display: none;
+}
+
+:root[data-theme="light"] .phone__screen--light {
+  display: block;
+}
+
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .app-card {
+  :root:not([data-theme="dark"]) .app-card,
+  :root:not([data-theme="dark"]) .feature-row,
+  :root:not([data-theme="dark"]) .privacy-card {
     box-shadow: var(--shadow-card-light);
+  }
+
+  :root:not([data-theme="dark"]) .phone__screen--dark {
+    display: none;
+  }
+
+  :root:not([data-theme="dark"]) .phone__screen--light {
+    display: block;
   }
 
   :root:not([data-theme="dark"]) .home-screen {
@@ -1877,5 +2074,294 @@ main,
 
   .app-card {
     align-items: flex-start;
+  }
+}
+
+/* ---------- S03 Levh (Figma 37:1490 / 38:1735) ---------- */
+.levh-glow--a { --x: 620px; --y: 40px; --w: 760px; --h: 600px; --c: var(--app-levh-primary); }
+.levh-glow--b { --x: 960px; --y: -40px; --w: 420px; --h: 320px; --c: var(--app-levh-gold); }
+.levh-glow--c { --x: -200px; --y: 400px; --w: 600px; --h: 400px; --c: var(--app-levh-primary); }
+
+/* Açık tema (Figma 37:1653): uygulama renkli ışıklar hafifletilmiş ve metinden uzaklaştırılmış (yalnız masaüstü) */
+@media (min-width: 721px) {
+  :root[data-theme="light"] .levh-glow--a { --x: 760px; --o: .55; }
+  :root[data-theme="light"] .levh-glow--c { --x: -300px; --y: 560px; --o: .25; }
+}
+
+@media (min-width: 721px) and (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .levh-glow--a { --x: 760px; --o: .55; }
+  :root:not([data-theme="dark"]) .levh-glow--c { --x: -300px; --y: 560px; --o: .25; }
+}
+
+.levh-hero-wrap {
+  overflow-x: clip;
+}
+
+.levh-hero {
+  position: relative;
+  height: 694px;
+}
+
+.levh-hero__text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  max-width: 500px;
+  padding-top: 104px;
+}
+
+.levh-hero__icon {
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 22px;
+  box-shadow: var(--shadow-icon);
+}
+
+.levh-hero__label {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+}
+
+.levh-hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 84px;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+
+.levh-hero__lead {
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Üç telefon: Figma'daki dönmemiş sol üst köşe + dönme (CSS yönü Figma'nın tersi) */
+.levh-hero__phones {
+  position: absolute;
+  top: 0;
+  right: -60px;
+  width: 660px;
+  height: 100%;
+}
+
+.levh-hero__phones .phone {
+  position: absolute;
+  transform-origin: 0 0;
+}
+
+.levh-hero__phones .phone:nth-child(1) { --phone-w: 218.5px; left: 0; top: 154px; transform: rotate(9deg); }
+.levh-hero__phones .phone:nth-child(3) { --phone-w: 218.5px; left: 370px; top: 154px; transform: rotate(-9deg); }
+.levh-hero__phones .phone:nth-child(2) { --phone-w: 264.5px; left: 160px; top: 54px; z-index: 1; }
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding-top: var(--space-40);
+}
+
+.levh-privacy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding-top: 140px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.levh-privacy__label {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.levh-privacy__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.levh-privacy__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-20);
+  width: 100%;
+  text-align: left;
+}
+
+.levh-privacy__links {
+  display: flex;
+  gap: var(--space-24);
+}
+
+.levh-privacy__links a {
+  color: var(--color-accent);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.levh-privacy__links a:hover {
+  text-decoration: underline;
+}
+
+.levh-cta {
+  padding-bottom: var(--space-section);
+}
+
+/* Figma'da çizim yok: 1240 altında giriş ve satırlar mobil düzende, ortalı */
+@media (max-width: 1239px) {
+  .levh-hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20);
+    height: auto;
+  }
+
+  .levh-hero__phones {
+    position: relative;
+    right: auto;
+    width: 350px;
+    height: 470px;
+    margin-inline: auto;
+  }
+
+  .levh-hero__phones .phone:nth-child(1) { --phone-w: 142.6px; left: 6px; top: 64px; transform: rotate(7deg); }
+  .levh-hero__phones .phone:nth-child(3) { --phone-w: 142.6px; left: 200px; top: 50px; transform: rotate(-7deg); }
+  .levh-hero__phones .phone:nth-child(2) { --phone-w: 193.2px; left: 78.4px; top: 6px; }
+
+  .feature-row,
+  .feature-row--right {
+    height: 740px;
+    border-radius: var(--radius-xl);
+  }
+
+  .feature-row .phone,
+  .feature-row--right .phone {
+    --phone-w: 218px;
+    left: calc(50% - 109px);
+    top: 238px;
+    transform: none;
+  }
+
+  .feature-row__text,
+  .feature-row--right .feature-row__text {
+    left: 28px;
+    right: 28px;
+    top: 32px;
+    gap: 10px;
+    width: auto;
+    max-width: 480px;
+  }
+
+  .feature-row__glow--1,
+  .feature-row--right .feature-row__glow--1 { --x: -60px; --y: 320px; --w: 470px; --h: 440px; }
+  .feature-row__glow--2,
+  .feature-row--right .feature-row__glow--2 { --x: 150px; --y: -60px; --w: 320px; --h: 260px; }
+
+  .features {
+    gap: var(--space-20);
+    padding-top: var(--space-20);
+  }
+
+  .levh-privacy__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-glow--levh {
+    --page-glow-h: 900px;
+  }
+
+  .levh-glow--a { --x: 60px; --y: 420px; --w: 420px; --h: 420px; }
+  .levh-glow--b { --x: 180px; --y: 340px; --w: 240px; --h: 200px; }
+  .levh-glow--c { display: none; }
+
+  .levh-hero {
+    padding-top: var(--space-20);
+  }
+
+  .levh-hero__text {
+    gap: var(--space-16);
+    padding-top: var(--space-24);
+  }
+
+  .levh-hero__icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 17px;
+  }
+
+  .levh-hero__title {
+    font-size: 56px;
+    line-height: 1.06;
+  }
+
+  .levh-hero__lead {
+    font-size: 17px;
+  }
+
+  .levh-hero__phones {
+    margin-inline: 0;
+  }
+
+  .feature-row__title {
+    font-size: 26px;
+  }
+
+  .feature-row__body {
+    font-size: 16px;
+  }
+
+  .levh-privacy {
+    align-items: flex-start;
+    gap: 14px;
+    padding-top: 56px;
+    padding-bottom: 52px;
+    text-align: left;
+  }
+
+  .levh-privacy__title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .levh-privacy__cards {
+    gap: 14px;
+  }
+
+  .levh-privacy__links {
+    gap: var(--space-20);
+  }
+
+  .download-cta {
+    border-radius: 36px;
+  }
+
+  .download-cta__glow--1 { --x: -100px; --y: -120px; --w: 210px; --h: 500px; }
+  .download-cta__glow--2 { --x: 231px; --y: -120px; --w: 122.5px; --h: 320px; }
+
+  .download-cta__title {
+    font-size: 32px;
+  }
+
+  .levh-cta {
+    padding-bottom: 60px;
   }
 }

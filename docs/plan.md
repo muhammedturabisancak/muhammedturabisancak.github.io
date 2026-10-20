@@ -10,15 +10,15 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
 | 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (2a PR #4, menü PR #5; 2b commit bekliyor) |
 | 3 | S01 Ana sayfa (TR) | bitti (commit atıldı; `main`'e toplu çıkışta, K-26) |
-| 4 | S02 Uygulamalar (TR) | bitti (commit bekliyor) |
-| 5 | S03 Levh (TR) | bekliyor |
+| 4 | S02 Uygulamalar (TR) | bitti (commit atıldı) |
+| 5 | S03 Levh (TR) | bitti (commit bekliyor; ekranlar 1x, 2x bekleniyor) |
 | 6 | S04 Şu an (TR) + `now/data.json` | bekliyor |
 | 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bekliyor |
 | 8 | İngilizce sayfalar `/en/…` | bekliyor |
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 3 ve 4 `index-page` dalında (K-26, toplu çıkış). Aşama 4: `apps/index.html` (S02), site.css'e `.stat`, `.filter`, `.app-card`, `.page-head`, `.stats-row`, `.filters`, `.apps-section`, `.apps-featured`, `.app-list`; site.js'e filtreler (`[data-filter]` → `[data-tags]` gizle/göster). Yakında kutucuğu `#yakinda`. Başlık/alt bilgi ana sayfadan kopyalanıyor (derleme yok); diğer sayfalarda Hakkımda bağlantısı `/#hakkimda`, EN bağlantısı karşı sayfaya (`/en/apps/`). Kontrol: sayfa yüksekliği Figma'yla aynı (1670 / ~2261), 1240/1000/721'de taşma yok, filtre testi geçti, konsol temiz. Sıradaki: Aşama 5 (S03 Levh).
+Son oturum: 20 Ekim 2026 — Aşama 5 `index-page` dalında. `levh/index.html` (S03): giriş (3 telefon; Figma'daki dönmemiş sol üst köşe + transform-origin 0 0, CSS dönme yönü Figma'nın tersi), 5 × FeatureRow (sol/sağ; 1240 altında mobil düzen), Gizlilik (3 PrivacyCard), DownloadCTA. Yeni: `.store-badge`, `.feature-row`, `.privacy-card`, `.download-cta`, `.phone__screen--dark/--light` (temaya göre ekran), `.glow` artık `--o` (opaklık) alıyor; S03 açık temada giriş ışıkları Figma 37:1653'teki gibi farklı. tokens: `--store-badge-bg/-border`. Levh ekranları `assets/img/levh/{bugun,kesfet,kible,zikir,kaza-takibi,dini-gun}-{dark,light}.jpg` (Figma MCP'den 1x 390 px; 2x kullanıcıdan bekleniyor). Not: `text-transform: uppercase` Türkçe sayfada 'iOS'u 'İOS' yapar; bu etikette metin elle büyük yazıldı. Kontrol betiği artık önce sayfayı kaydırıp tembel yüklenen görselleri bekliyor. Sıradaki: Aşama 6 (S04 Şu an + now/data.json).
 
 ## Aşama ayrıntıları
 
