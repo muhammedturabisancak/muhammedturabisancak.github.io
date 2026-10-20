@@ -7,8 +7,8 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | Aşama | İş | Durum |
 |---|---|---|
 | 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
-| 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (commit bekliyor) |
-| 2 | Ortak bileşenler: Nav, Footer, Button, Chip, Avatar, AppIcon, Dock, Widget'lar, HomeScreen, Phone, Tile'lar, SectionHeader | bekliyor |
+| 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
+| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | 2a bitti (commit bekliyor), 2b bekliyor |
 | 3 | S01 Ana sayfa (TR) | bekliyor |
 | 4 | S02 Uygulamalar (TR) | bekliyor |
 | 5 | S03 Levh (TR) | bekliyor |
@@ -18,7 +18,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 0 (PR #2) ve Aşama 1 bitti. Dal: `feat/turabi/muhammedturabisancak.github.io/foundation` (dal adları artık İngilizce). Eklendi: `_config.yml` (docs/ ve CLAUDE.md yayına çıkmasın), eski `index.html`'den Blog/Resume düğmeleri çıkarıldı, `assets/css/tokens.css` (Figma değişkenleriyle karşılaştırıldı, fark yok), `assets/css/site.css` (font-face, temel, `.type-*` sınıfları, `.container`, `.name-gradient`), `assets/js/site.js` (tema düğmesi: `[data-theme-toggle]`), `assets/fonts/` (Fontsource 5.3.0: Inter değişken, Unbounded 600/700; latin + latin-ext; OFL dosyaları). Geçici deneme sayfası `_temel.html` (Aşama 2 sonunda silinecek). Tema testi: Sistem→Koyu→Açık, yeniden yüklemede seçim korunuyor; konsolda yalnız favicon 404 (Aşama 10). Not: başsız Chrome 500 px'ten dar pencere açmıyor; mobil ekran görüntüsü 390 px iframe ile alınıyor. Sıradaki: Aşama 2.
+Son oturum: 20 Ekim 2026 — Aşama 1 main'de (PR #3). Aşama 2a bitti, dal `feat/turabi/muhammedturabisancak.github.io/components`. Eklendi: `site.css`'e `.icon`, `.btn`, `.icon-btn`, `.chip`, `.avatar`, `.app-icon`, `.section-header`, `.site-nav` + `.site-menu` (mobil tam ekran menü), `.site-footer`; `site.js`'e mobil menü (aç/kapat, Esc, odak); `assets/img/levh-icon-192/384.png`; geçici `_bilesenler.html` (Aşama 2 sonunda `_temel.html` ile birlikte silinecek). `--blur-glass` 30→15 px (Figma'nın CSS çıktısı). Lucide ikonları lucide-static 1.60.0'dan; GitHub/LinkedIn marka ikonları Lucide'dan kalkmış, Figma'daki SVG kullanılacak (2b, Dock). Kontrol: Node ile DevTools protokolü üzerinden başsız Chrome (1440/390 × koyu/açık tam sayfa görüntü, yatay taşma, konsol); betik oturumun geçici klasöründe, depoda değil. Kullanıcıya sorulan açık noktalar son mesajda. Sıradaki: 2b.
 
 ## Aşama ayrıntıları
 

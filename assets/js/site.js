@@ -54,4 +54,40 @@
     });
   });
   applyTheme(current);
+
+  // ---------- Mobil menü ----------
+  var menu = document.getElementById("site-menu");
+  var menuOpeners = document.querySelectorAll("[data-menu-open]");
+
+  function setMenu(open) {
+    if (!menu) return;
+    menu.hidden = !open;
+    document.body.style.overflow = open ? "hidden" : "";
+    menuOpeners.forEach(function (button) {
+      button.setAttribute("aria-expanded", String(open));
+    });
+    if (open) {
+      menu.querySelector("[data-menu-close]").focus();
+    } else if (menuOpeners[0]) {
+      menuOpeners[0].focus();
+    }
+  }
+
+  menuOpeners.forEach(function (button) {
+    button.addEventListener("click", function () {
+      setMenu(true);
+    });
+  });
+  document.querySelectorAll("[data-menu-close]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      setMenu(false);
+    });
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && menu && !menu.hidden) setMenu(false);
+  });
+  // Masaüstü genişliğe geçilirse menü kapanır.
+  window.matchMedia("(min-width: 721px)").addEventListener("change", function (event) {
+    if (event.matches && menu && !menu.hidden) setMenu(false);
+  });
 })();
