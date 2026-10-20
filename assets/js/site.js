@@ -125,6 +125,22 @@
     if (event.matches && menuOpen) setMenu(false);
   });
 
+  // ---------- Uygulama filtreleri (FilterChip) ----------
+  // Seçilen etiketi taşımayan [data-tags] öğeleri gizlenir; "Hepsi" (boş) hepsini gösterir.
+  var filters = document.querySelectorAll("[data-filter]");
+  filters.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var tag = button.getAttribute("data-filter");
+      filters.forEach(function (other) {
+        other.setAttribute("aria-pressed", String(other === button));
+      });
+      document.querySelectorAll("[data-tags]").forEach(function (item) {
+        var tags = item.getAttribute("data-tags").split(" ");
+        item.hidden = tag !== "" && tags.indexOf(tag) === -1;
+      });
+    });
+  });
+
   // ---------- Kopyala (ör. "Bana yaz" → e-posta adresi) ----------
   // Pano kullanılamazsa bağlantı normal çalışır (mailto).
   document.querySelectorAll("[data-copy]").forEach(function (el) {

@@ -9,8 +9,8 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
 | 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
 | 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (2a PR #4, menü PR #5; 2b commit bekliyor) |
-| 3 | S01 Ana sayfa (TR) | bitti (commit bekliyor; `main`'e toplu çıkışta, K-26) |
-| 4 | S02 Uygulamalar (TR) | bekliyor |
+| 3 | S01 Ana sayfa (TR) | bitti (commit atıldı; `main`'e toplu çıkışta, K-26) |
+| 4 | S02 Uygulamalar (TR) | bitti (commit bekliyor) |
 | 5 | S03 Levh (TR) | bekliyor |
 | 6 | S04 Şu an (TR) + `now/data.json` | bekliyor |
 | 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bekliyor |
@@ -18,7 +18,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 2 main'de (PR #6 + #7 düzeltme). Aşama 3 bitti, dal `feat/turabi/muhammedturabisancak.github.io/index-page`: yeni `index.html` (S01), site.css'e sayfa bölümü (`.site-header`, `.page-glow`, `.intro`, `.home-tiles`), site.js'e `[data-copy]` (Bana yaz → adresi kopyalar, pano yoksa mailto). tokens.css: `--space-gutter` akışkan clamp(20px…120px), `--blur-glow` 65px (Figma 130'un CSS karşılığı). Eski `style.css` ve kökteki `avatar.jpg` silindi. Ara genişlik kararı (Figma'da yok): 1240 altında giriş alt alta ve kutucuklar 2 sütun. Kontrol: 1440/1300/1240/1200/1000/800/721/600/390'da yatay taşma yok, konsol temiz, menü testi geçti. Canlıya çıkış toplu (K-26): sonraki aşamalar da bu dalda, her biri ayrı commit (kullanıcı atar). Sıradaki: Aşama 4 (S02 Uygulamalar).
+Son oturum: 20 Ekim 2026 — Aşama 3 ve 4 `index-page` dalında (K-26, toplu çıkış). Aşama 4: `apps/index.html` (S02), site.css'e `.stat`, `.filter`, `.app-card`, `.page-head`, `.stats-row`, `.filters`, `.apps-section`, `.apps-featured`, `.app-list`; site.js'e filtreler (`[data-filter]` → `[data-tags]` gizle/göster). Yakında kutucuğu `#yakinda`. Başlık/alt bilgi ana sayfadan kopyalanıyor (derleme yok); diğer sayfalarda Hakkımda bağlantısı `/#hakkimda`, EN bağlantısı karşı sayfaya (`/en/apps/`). Kontrol: sayfa yüksekliği Figma'yla aynı (1670 / ~2261), 1240/1000/721'de taşma yok, filtre testi geçti, konsol temiz. Sıradaki: Aşama 5 (S03 Levh).
 
 ## Aşama ayrıntıları
 
