@@ -8,7 +8,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 |---|---|---|
 | 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
 | 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
-| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | 2a bitti (PR #4, main'de); mobil menü düzeltmesi bitti (commit bekliyor); 2b bekliyor |
+| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (2a PR #4, menü PR #5; 2b commit bekliyor) |
 | 3 | S01 Ana sayfa (TR) | bekliyor |
 | 4 | S02 Uygulamalar (TR) | bekliyor |
 | 5 | S03 Levh (TR) | bekliyor |
@@ -18,7 +18,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — 2a main'de (PR #4). Dal `feat/turabi/muhammedturabisancak.github.io/nav-menu`: tema düğmesi her durumda güneş (K-25); mobil menü sağdan panel (K-24) — önce Figma'da çizildi (Nav/MobileMenu 71:306, yeni token color/scrim + Primitives black/a50, black/a20), sonra koda: `.site-menu__scrim/__panel`, `--color-scrim`, `site.js` (aç/kapat animasyonlu, Esc, arka plana dokunma, odak, arkadaki sayfa inert). CLAUDE.md'ye iki kural: değişkene bağlı olmayan Figma ölçüleri px ile aynen yazılır; Figma'da olmayan şey önce Figma'da çizilir. Açık not: reduced-motion'da panel anında açılıyor (kısa solma Aşama 9'da). Sıradaki: 2b (Dock, Widget'lar, HomeScreen, Phone, Tile'lar).
+Son oturum: 20 Ekim 2026 — Aşama 2 bitti. 2b dal `feat/turabi/muhammedturabisancak.github.io/home-screen`: `.glow` (Figma 'Işık' = bulanık elips; konum/ölçü/renk/bulanıklık değişkenle), `.dock`, `.widget--levh/--now`, `.progress`, `.home-screen` (Figma'daki mutlak konumlar; mobilde widget'lar zoom .6, dock zoom .62), `.phone` (`--phone-w` ile ölçeklenir), `.tile` + `--app/--principles/--clock/--process/--content/--about/--upcoming` (`.stats`, `.steps`, `.thumbs`). Yeni sabitler tokens.css'te: `--on-app-border(-soft/-strong)`, `--device-*`. İkonlar Figma SVG'lerinden (github, linkedin, figma, pen, x, play, moon, mail, plus, user). `assets/img/levh/kaza-takibi-dark.png` 1x yer tutucu (Aşama 5'te 2x ile değişecek). Geçici `_temel.html` ve `_bilesenler.html` silindi. Açık: Tasarımlar (Figma) ve Videolar (YouTube) ikonlarının adresi yok (şimdilik #). Sıradaki: Aşama 3 (S01 Ana sayfa).
 
 ## Aşama ayrıntıları
 
@@ -108,4 +108,5 @@ Sık sorulanlar:
 - Gerçek video/yazı bağlantıları (K-22).
 - Hakkımda metninin son hâli (Figma'daki: "Bilgisayar mühendisiyim; kampüste GDG topluluğunu yönettim, DevFest Erzurum ekibindeydim.") — kullanıcı onaylasın.
 - Gizlilik metnine "Verilerim" yedeği cümlesi (yukarıdaki not).
+- Ana ekrandaki Tasarımlar (Figma profili?) ve Videolar (YouTube kanalı) ikonlarının adresleri.
 - Levh ekranlarının 2x dışa aktarımı (Figma MCP ekran görüntüsü 1x veriyor; gerekirse kullanıcı Figma'dan 2x PNG verir).

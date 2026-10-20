@@ -440,7 +440,7 @@ button {
 }
 
 .app-icon--glyph .app-icon__tile {
-  border-color: var(--app-icon-glyph-border);
+  border-color: var(--on-app-border);
   color: var(--app-icon-glyph);
 }
 
@@ -458,6 +458,566 @@ button {
 
 .app-icon--sm .app-icon__label {
   font-size: 12px;
+}
+
+/* ---------- Işık (Figma "Işık": bulanık elips) ---------- */
+/* Konum, ölçü, renk ve bulanıklık her örnekte değişken olarak verilir. */
+.glow {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  border-radius: 50%;
+  background: var(--c);
+  filter: blur(var(--b));
+  pointer-events: none;
+}
+
+/* ---------- Dock (Figma 21:37) ---------- */
+.dock {
+  display: flex;
+  gap: 30px;
+  padding: 18px 26px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-2xl);
+  background: var(--color-glass);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+}
+
+.dock .app-icon {
+  --app-icon-size: 84px;
+}
+
+/* ---------- Widget (Figma 21:70, 21:85) ---------- */
+.widget {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  text-decoration: none;
+}
+
+.widget__body {
+  position: absolute;
+  left: 23px;
+  top: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.widget--levh {
+  border: 1px solid var(--on-app-border);
+  background: var(--app-levh-deep);
+  color: var(--app-levh-cream);
+}
+
+.widget--levh .widget__body {
+  top: 21px;
+  gap: 6px;
+}
+
+.widget__app {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: 38px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.widget__app img {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+}
+
+.widget__prayer {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.widget__countdown {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.widget__meta {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.widget--now {
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-glass);
+  color: var(--color-text);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+}
+
+.widget--now .widget__body {
+  gap: 10px;
+  width: 200px;
+}
+
+.widget__label {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.widget__title {
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.progress {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--color-border);
+}
+
+.progress__fill {
+  display: block;
+  width: var(--value);
+  height: 100%;
+  border-radius: 3px;
+  background: var(--color-accent);
+}
+
+.widget--now .widget__meta {
+  color: var(--color-text-secondary);
+}
+
+/* ---------- HomeScreen (Figma 25:260: Desktop 600×840, Mobile 350×620) ---------- */
+.home-screen {
+  position: relative;
+  isolation: isolate;
+  width: 600px;
+  height: 840px;
+  overflow: hidden;
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-screen);
+  background: var(--color-wall-bottom);
+  box-shadow: var(--shadow-screen);
+}
+
+.home-screen > * {
+  position: absolute;
+}
+
+.home-screen__status {
+  left: 38.5px;
+  top: 24.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 520px;
+  height: 20px;
+}
+
+.home-screen__time {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-screen__place {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.home-screen__widgets {
+  left: 38.5px;
+  top: 78.5px;
+  display: flex;
+  gap: 20px;
+}
+
+.home-screen__icons {
+  left: 58.5px;
+  top: 370.5px;
+  display: grid;
+  grid-template-columns: repeat(4, 96px);
+  gap: 26px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-screen .dock {
+  left: 58.5px;
+  top: 690.5px;
+}
+
+/* Işıklar (Desktop) */
+.home-screen__glow--1 { --x: -201.5px; --y: -261.5px; --w: 800px; --h: 600px; --c: var(--color-wall-top); --b: 80px; }
+.home-screen__glow--2 { --x: -121.5px; --y: 258.5px; --w: 760px; --h: 520px; --c: var(--color-wall-mid); --b: 80px; }
+.home-screen__glow--3 { --x: 248.5px; --y: -101.5px; --w: 420px; --h: 360px; --c: var(--color-glow-a); --b: 60px; }
+.home-screen__glow--4 { --x: -81.5px; --y: 418.5px; --w: 420px; --h: 360px; --c: var(--color-glow-b); --b: 60px; }
+
+.widget--levh .widget__glow--1 { --x: -61px; --y: -81px; --w: 320px; --h: 260px; --c: var(--app-levh-primary); --b: 35px; }
+.widget--levh .widget__glow--2 { --x: 119px; --y: -61px; --w: 200px; --h: 160px; --c: var(--app-levh-gold); --b: 30px; }
+
+/* ---------- Phone (Figma 22:110) ---------- */
+/* Genişlik --phone-w ile verilir; bütün ölçüler 230 px'lik çizime oranlıdır. */
+.phone {
+  --phone-w: 230px;
+  position: relative;
+  width: var(--phone-w);
+  aspect-ratio: 230 / 498;
+  border: 1px solid var(--device-border);
+  border-radius: calc(var(--phone-w) * 41 / 230);
+  background: linear-gradient(180deg, var(--device-from), var(--device-to));
+  filter: drop-shadow(0 30px 30px rgba(0, 0, 0, .5));
+}
+
+.phone__screen {
+  position: absolute;
+  inset: calc(var(--phone-w) * 6 / 230);
+  width: calc(100% - var(--phone-w) * 12 / 230);
+  height: calc(100% - var(--phone-w) * 12 / 230);
+  border-radius: calc(var(--phone-w) * 34 / 230);
+  object-fit: cover;
+}
+
+.phone__island {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--phone-w) * 15 / 230);
+  width: calc(var(--phone-w) * 69 / 230);
+  height: calc(var(--phone-w) * 20 / 230);
+  border-radius: var(--radius-full);
+  background: var(--device-island);
+  transform: translateX(-50%);
+}
+
+/* ---------- Tile (Figma 22:113 › Tile/*) ---------- */
+/* Genişliği sayfa ızgarası verir; yükseklik Figma'daki gibi. */
+.tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.tile__body {
+  position: absolute;
+  left: 29px;
+  right: 29px;
+  top: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tile__label {
+  color: var(--color-text-tertiary);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.tile--sm {
+  height: 210px;
+}
+
+.tile--md {
+  height: 280px;
+}
+
+/* Tile/App (25:156) */
+.tile--app {
+  height: 440px;
+  border-color: var(--on-app-border-soft);
+  background: var(--app-levh-deep);
+  color: var(--app-levh-cream);
+}
+
+.tile--app .tile__body {
+  left: 39px;
+  right: auto;
+  top: 39px;
+  gap: 14px;
+}
+
+.tile__icon {
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--on-app-border-strong);
+  border-radius: 17px;
+}
+
+.tile--app .tile__label {
+  color: var(--app-levh-cream);
+}
+
+.tile__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.tile__text {
+  width: 330px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.tile__more {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.tile__more .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tile--app .phone {
+  position: absolute;
+  left: 451.35px;
+  top: 56.4px;
+  transform: rotate(4deg);
+}
+
+.tile--app .tile__glow--1 { --x: -121px; --y: -161px; --w: 700px; --h: 520px; --c: var(--app-levh-primary); --b: 70px; }
+.tile--app .tile__glow--2 { --x: 419px; --y: -141px; --w: 420px; --h: 320px; --c: var(--app-levh-gold); --b: 55px; }
+
+/* Tile/Principles (22:130) */
+.tile--principles .tile__body {
+  gap: 10px;
+}
+
+.stats {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+}
+
+.stats dd {
+  margin: 0;
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.stats dt {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Tile/Clock (22:143) */
+.tile--clock {
+  background: var(--color-clock-bottom);
+}
+
+.tile--clock .tile__body {
+  gap: 6px;
+}
+
+.tile--clock .tile__label {
+  color: var(--color-accent-alt);
+}
+
+.tile__clock {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 1;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tile__meta {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tile__celestial {
+  position: absolute;
+  right: 33px;
+  top: 29px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-celestial);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--color-celestial) 45%, transparent);
+}
+
+.tile--clock .tile__glow { --x: -61px; --y: -121px; --w: 420px; --h: 260px; --c: var(--color-clock-top); --b: 45px; }
+
+/* Tile/Process (22:150) */
+.tile--process .tile__body {
+  gap: var(--space-16);
+}
+
+.tile__heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -.03em;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.steps li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+/* Tile/Content (22:164) */
+.tile--content .tile__body {
+  gap: 14px;
+}
+
+.thumbs {
+  display: flex;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.thumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+}
+
+.thumb .glow { --x: -20px; --y: -60px; --w: 180px; --h: 120px; --b: 20px; }
+
+.thumb__play {
+  position: relative;
+  display: flex;
+  padding: 9px;
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+}
+
+.thumb__play .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.tile__title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.tile--content .tile__meta {
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Tile/About (22:180) */
+.tile--about .tile__body {
+  gap: 14px;
+}
+
+.tile--about p {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Tile/Upcoming (29:251) */
+.tile--upcoming {
+  height: 440px;
+  border: 1.5px dashed var(--color-text-tertiary);
+  background: var(--color-glass);
+}
+
+.tile--upcoming .tile__body {
+  left: 38.5px;
+  right: auto;
+  top: 42.5px;
+  gap: var(--space-12);
+}
+
+.tile__placeholder {
+  width: 76px;
+  height: 76px;
+  border: 1.5px dashed var(--color-text-tertiary);
+  border-radius: 18px;
+  background: var(--color-surface-raised);
+}
+
+.tile--upcoming .tile__heading {
+  color: var(--color-text-secondary);
+}
+
+.tile--upcoming p {
+  width: 310px;
+  color: var(--color-text-tertiary);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 /* ---------- SectionHeader (Figma 22:212) ---------- */
@@ -681,6 +1241,25 @@ main,
   color: var(--color-text);
 }
 
+/* Açık temada ana ekran gölgesi hafif, kutucuklara kart gölgesi (koyuda yalnız çizgi) */
+:root[data-theme="light"] .home-screen {
+  box-shadow: var(--shadow-screen-light);
+}
+
+:root[data-theme="light"] .tile {
+  box-shadow: var(--shadow-card-light);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .home-screen {
+    box-shadow: var(--shadow-screen-light);
+  }
+
+  :root:not([data-theme="dark"]) .tile {
+    box-shadow: var(--shadow-card-light);
+  }
+}
+
 /* ---------- Footer (Figma 23:217) ---------- */
 .site-footer {
   border-top: 1px solid var(--color-border);
@@ -758,6 +1337,95 @@ main,
 
   .app-icon__label {
     font-size: 12px;
+  }
+
+  .home-screen {
+    width: 350px;
+    height: 620px;
+    border-radius: var(--radius-2xl);
+  }
+
+  .home-screen__status {
+    left: 22.5px;
+    top: 16.5px;
+    justify-content: space-between;
+    width: 302px;
+    height: 18px;
+  }
+
+  /* Widget'lar ve dock masaüstündekinin küçültülmüşü (Figma: 0.6 ve 0.62) */
+  .home-screen__widgets {
+    left: 22.5px;
+    top: 50.5px;
+    gap: 2px;
+  }
+
+  .home-screen__widgets .widget {
+    zoom: .6;
+  }
+
+  .home-screen__icons {
+    left: 27.5px;
+    top: 218.5px;
+    grid-template-columns: repeat(4, 64px);
+    gap: 16px 12px;
+  }
+
+  /* zoom konumu da küçülttüğü için Figma'daki konum orana bölünür */
+  .home-screen .dock {
+    left: calc(24.7px / .62);
+    top: calc(526.86px / .62);
+    zoom: .62;
+  }
+
+  .home-screen__glow--1 { --x: -141.5px; --y: -181.5px; --w: 520px; --h: 420px; --b: 55px; }
+  .home-screen__glow--2 { --x: -81.5px; --y: 198.5px; --w: 500px; --h: 380px; --b: 55px; }
+  .home-screen__glow--3 { --x: 148.5px; --y: -61.5px; --w: 260px; --h: 220px; --b: 40px; }
+  .home-screen__glow--4 { --x: -61.5px; --y: 298.5px; --w: 260px; --h: 220px; --b: 40px; }
+
+  .tile--app {
+    height: 600px;
+  }
+
+  .tile--app .tile__body {
+    left: 27px;
+    top: 27px;
+  }
+
+  .tile__name {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .tile__text {
+    width: 290px;
+  }
+
+  .tile--app .phone {
+    --phone-w: 211.6px;
+    left: 61.96px;
+    top: 335.82px;
+  }
+
+  .tile--app .tile__glow--2 { --x: 139px; --y: -121px; }
+
+  .tile--upcoming {
+    height: 220px;
+  }
+
+  .tile--upcoming .tile__body {
+    left: 26.5px;
+    top: 26.5px;
+  }
+
+  .tile__placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 13px;
+  }
+
+  .tile--upcoming p {
+    width: 270px;
   }
 
   .site-footer {

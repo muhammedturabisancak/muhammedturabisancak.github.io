@@ -49,9 +49,15 @@
   --brand-flutter: #4FC3F7;
   --brand-slate: #4A5568;
 
-  /* Figma bileşenlerinde değişkene bağlı olmayan sabitler (AppIcon Glyph) */
-  --app-icon-glyph: #FFFFFF;
-  --app-icon-glyph-border: #FFFFFF1F;
+  /* Figma bileşenlerinde değişkene bağlı olmayan sabitler (temadan bağımsız) */
+  --app-icon-glyph: #FFFFFF;          /* AppIcon Glyph çizgi ikonu */
+  --on-app-border: #FFFFFF1F;         /* renkli zemin üstü ince çerçeve (Primitives white/a12) */
+  --on-app-border-soft: #FFFFFF12;    /* Tile/App çerçevesi (%7) */
+  --on-app-border-strong: #FFFFFF26;  /* Tile/App ikon çerçevesi (%15) */
+  --device-from: #2A2E2C;             /* Phone çerçevesi */
+  --device-to: #0E100F;
+  --device-border: #FFFFFF1A;
+  --device-island: #000000;
 
   /* Layout · Desktop */
   --space-4: 4px;
