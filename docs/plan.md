@@ -6,8 +6,8 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 ## Durum
 | Aşama | İş | Durum |
 |---|---|---|
-| 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (commit bekliyor) |
-| 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bekliyor |
+| 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
+| 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (commit bekliyor) |
 | 2 | Ortak bileşenler: Nav, Footer, Button, Chip, Avatar, AppIcon, Dock, Widget'lar, HomeScreen, Phone, Tile'lar, SectionHeader | bekliyor |
 | 3 | S01 Ana sayfa (TR) | bekliyor |
 | 4 | S02 Uygulamalar (TR) | bekliyor |
@@ -18,7 +18,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 0 bitti. Depo bağlandı (`origin` = muhammedturabisancak.github.io), dal `feat/turabi/muhammedturabisancak.github.io/site-yenileme`. `resume.pdf` silindi; avatar `assets/img/avatar-256.jpg` ve `avatar-512.jpg` olarak eklendi. Eski `index.html`, `style.css`, `avatar.jpg` yeni sayfalar gelene kadar duruyor (eski `index.html` hâlâ `resume.pdf` ve `/blog`'a bağlanıyor; Aşama 3'te tamamen değişecek). Yeni depo açma fikri konuşuldu, var olan depoda kalındı. Sıradaki: Aşama 1.
+Son oturum: 20 Ekim 2026 — Aşama 0 (PR #2) ve Aşama 1 bitti. Dal: `feat/turabi/muhammedturabisancak.github.io/foundation` (dal adları artık İngilizce). Eklendi: `_config.yml` (docs/ ve CLAUDE.md yayına çıkmasın), eski `index.html`'den Blog/Resume düğmeleri çıkarıldı, `assets/css/tokens.css` (Figma değişkenleriyle karşılaştırıldı, fark yok), `assets/css/site.css` (font-face, temel, `.type-*` sınıfları, `.container`, `.name-gradient`), `assets/js/site.js` (tema düğmesi: `[data-theme-toggle]`), `assets/fonts/` (Fontsource 5.3.0: Inter değişken, Unbounded 600/700; latin + latin-ext; OFL dosyaları). Geçici deneme sayfası `_temel.html` (Aşama 2 sonunda silinecek). Tema testi: Sistem→Koyu→Açık, yeniden yüklemede seçim korunuyor; konsolda yalnız favicon 404 (Aşama 10). Not: başsız Chrome 500 px'ten dar pencere açmıyor; mobil ekran görüntüsü 390 px iframe ile alınıyor. Sıradaki: Aşama 2.
 
 ## Aşama ayrıntıları
 
