@@ -76,7 +76,7 @@ Marka (ikon zeminleri): `--brand-github #24292F` · `--brand-linkedin #0A66C2` �
 Levh zemini: `linear-gradient(180deg, var(--app-levh-primary), var(--app-levh-deep))` + altın ışık.
 
 ### Layout (Desktop / Mobile)
-space 4·8·12·16·20·24·32·40·56·80 (`--space-16` …) · `--space-section` 110 / 64 · `--space-gutter` 120 / 20
+space 4·8·12·16·20·24·32·40·56·80 (`--space-16` …) · `--space-section` 110 / 64 · `--space-gutter` 120 / 20 (masaüstünde `clamp(20px, (100vw − 1200px)/2, 120px)` ile akışkan)
 radius: sm 8 · md 14 · lg 22 · xl 30 · 2xl 40 · screen 56 · full 999 (`--radius-xl` …)
 size: page 1440 / 390 · container 1200 / 350 · appIcon 96 / 64 · appIconLarge 72 / 56
 
@@ -105,7 +105,7 @@ Metin sayfalarında gövde 17 / 165%.
 - shadow/icon: 0 10 24 −6 rgba(0,0,0,.35)
 - shadow/card-light: 0 8 30 −8 rgba(0,0,0,.06) — **yalnız açık tema**; koyuda gölge yok, 1 px çizgi var
 - blur/glass: Figma radius 30 → `backdrop-filter: blur(15px)` (Figma'nın kendi CSS çıktısı yarıya böler; `--blur-glass`) (widget, dock, menü)
-- blur/glow: ışık lekeleri `filter: blur(130px)` (mobilde daha küçük)
+- blur/glow: Figma 130 → `filter: blur(65px)` (`--blur-glow`; mobilde de aynı). Bileşen içi ışıklarda Figma SVG'sindeki stdDeviation = CSS blur değeri.
 
 ## Bileşenler (02_Components) → CSS
 | Figma | Kimlik | CSS sınıfı (öneri) | Not |

@@ -9,7 +9,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
 | 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
 | 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (2a PR #4, menü PR #5; 2b commit bekliyor) |
-| 3 | S01 Ana sayfa (TR) | bekliyor |
+| 3 | S01 Ana sayfa (TR) | bitti (commit bekliyor; `main`'e toplu çıkışta, K-26) |
 | 4 | S02 Uygulamalar (TR) | bekliyor |
 | 5 | S03 Levh (TR) | bekliyor |
 | 6 | S04 Şu an (TR) + `now/data.json` | bekliyor |
@@ -18,7 +18,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 2 bitti. 2b dal `feat/turabi/muhammedturabisancak.github.io/home-screen`: `.glow` (Figma 'Işık' = bulanık elips; konum/ölçü/renk/bulanıklık değişkenle), `.dock`, `.widget--levh/--now`, `.progress`, `.home-screen` (Figma'daki mutlak konumlar; mobilde widget'lar zoom .6, dock zoom .62), `.phone` (`--phone-w` ile ölçeklenir), `.tile` + `--app/--principles/--clock/--process/--content/--about/--upcoming` (`.stats`, `.steps`, `.thumbs`). Yeni sabitler tokens.css'te: `--on-app-border(-soft/-strong)`, `--device-*`. İkonlar Figma SVG'lerinden (github, linkedin, figma, pen, x, play, moon, mail, plus, user). `assets/img/levh/kaza-takibi-dark.png` 1x yer tutucu (Aşama 5'te 2x ile değişecek). Geçici `_temel.html` ve `_bilesenler.html` silindi. Açık: Tasarımlar (Figma) ve Videolar (YouTube) ikonlarının adresi yok (şimdilik #). Sıradaki: Aşama 3 (S01 Ana sayfa).
+Son oturum: 20 Ekim 2026 — Aşama 2 main'de (PR #6 + #7 düzeltme). Aşama 3 bitti, dal `feat/turabi/muhammedturabisancak.github.io/index-page`: yeni `index.html` (S01), site.css'e sayfa bölümü (`.site-header`, `.page-glow`, `.intro`, `.home-tiles`), site.js'e `[data-copy]` (Bana yaz → adresi kopyalar, pano yoksa mailto). tokens.css: `--space-gutter` akışkan clamp(20px…120px), `--blur-glow` 65px (Figma 130'un CSS karşılığı). Eski `style.css` ve kökteki `avatar.jpg` silindi. Ara genişlik kararı (Figma'da yok): 1240 altında giriş alt alta ve kutucuklar 2 sütun. Kontrol: 1440/1300/1240/1200/1000/800/721/600/390'da yatay taşma yok, konsol temiz, menü testi geçti. Canlıya çıkış toplu (K-26): sonraki aşamalar da bu dalda, her biri ayrı commit (kullanıcı atar). Sıradaki: Aşama 4 (S02 Uygulamalar).
 
 ## Aşama ayrıntıları
 

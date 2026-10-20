@@ -63,6 +63,8 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
@@ -1438,5 +1440,176 @@ main,
 
   .site-footer__copy {
     margin-top: var(--space-32);
+  }
+}
+
+/* ==========================================================================
+   Sayfalar
+   ========================================================================== */
+
+/* ---------- Ortak: üst bilgi ve sayfa ışıkları ---------- */
+.site-header {
+  padding-top: 26px;
+}
+
+/* Sayfanın üstündeki büyük ışıklar; konumlar Figma çerçevesine (--size-page) göre */
+.page-glow {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: var(--page-glow-h, 1000px);
+  overflow-x: clip;
+  pointer-events: none;
+}
+
+.page-glow__inner {
+  position: relative;
+  width: var(--size-page);
+  height: 100%;
+  margin-inline: auto;
+}
+
+.page-glow .glow {
+  --b: var(--blur-glow);
+}
+
+/* ---------- S01 Ana sayfa (Figma 26:3 / 27:553) ---------- */
+.home-glow--a { --x: 700px; --y: 80px; --w: 700px; --h: 600px; --c: var(--color-glow-a); }
+.home-glow--b { --x: 900px; --y: 400px; --w: 600px; --h: 500px; --c: var(--color-glow-b); }
+.home-glow--c { --x: -200px; --y: 500px; --w: 600px; --h: 400px; --c: var(--color-glow-c); }
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  gap: 0 var(--space-40);
+  padding-top: 44px;
+  padding-bottom: 50px;
+}
+
+.intro__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+  margin-top: 140px;
+}
+
+.intro__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+  white-space: nowrap;
+}
+
+.intro__lead {
+  max-width: 470px;
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+.home-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-20);
+  padding-top: 10px;
+  padding-bottom: var(--space-section);
+}
+
+.home-tiles .tile--app {
+  grid-column: span 2;
+}
+
+.home-tiles__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+/* Figma'da çizim yok: 1240 altında (ad + 600 px ana ekran sığmaz) giriş alt alta, kutucuklar iki sütun */
+@media (max-width: 1239px) {
+  .intro {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: var(--space-56);
+  }
+
+  .intro__text {
+    justify-self: stretch;
+    margin-top: 96px;
+  }
+
+  .home-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-tiles__stack {
+    display: contents;
+  }
+
+  .home-tiles .tile--about {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    padding-top: var(--space-16);
+  }
+
+  .page-glow {
+    --page-glow-h: 1100px;
+  }
+
+  .home-glow--a { --x: 80px; --y: 380px; --w: 420px; --h: 420px; }
+  .home-glow--b { --x: -120px; --y: 700px; --w: 420px; --h: 380px; }
+  .home-glow--c { --x: -160px; --y: 120px; --w: 360px; --h: 300px; }
+
+  .intro {
+    justify-items: start;
+    gap: var(--space-20);
+    padding-top: var(--space-20);
+    padding-bottom: 52px;
+  }
+
+  .intro__text {
+    gap: 18px;
+    margin-top: 0;
+    padding-top: 28px;
+  }
+
+  .intro__name {
+    font-size: 40px;
+    line-height: 1.06;
+  }
+
+  .intro__lead {
+    font-size: 17px;
+  }
+
+  .home-tiles {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .home-tiles .tile--app,
+  .home-tiles .tile--about {
+    grid-column: auto;
+  }
+
+  .home-tiles .tile--process {
+    height: 250px;
+  }
+
+  .home-tiles .tile--about {
+    height: 260px;
   }
 }

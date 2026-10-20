@@ -1,154 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Muhammed Turabi Sancak</title>
-  <meta name="description" content="Muhammed Turabi Sancak - Yazılım Mühendisi | Mobil & Web Geliştirme, iOS, Swift, Flutter, Web Teknolojileri" />
-  <meta property="og:title" content="Muhammed Turabi Sancak" />
-  <meta property="og:description" content="Yazılım Mühendisi · Mobil & Web" />
-  <meta property="og:image" content="avatar.jpg" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#121212" />
-
-  <!-- Font & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome (stabil sürüm) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Styles (style.css aynı klasördeyse böyle kalmalı) -->
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Muhammed Turabi Sancak · Mobil uygulama geliştirici</title>
+  <meta name="description" content="Telefonunuzun ana ekranına girecek uygulamalar yapıyorum. Tasarım Figma'da, kod Flutter'da, yayın benden.">
+  <link rel="canonical" href="https://muhammedturabisancak.dev/">
+  <link rel="alternate" hreflang="tr" href="https://muhammedturabisancak.dev/">
+  <link rel="alternate" hreflang="en" href="https://muhammedturabisancak.dev/en/">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/unbounded-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
 </head>
-<body data-theme="dark">
-  <div class="animated-bg" aria-hidden="true">
-    <div class="sweep"></div>
-    <div class="grain"></div>
+<body>
+  <div class="page-glow" aria-hidden="true">
+    <div class="page-glow__inner">
+      <span class="glow home-glow--a"></span>
+      <span class="glow home-glow--b"></span>
+      <span class="glow home-glow--c"></span>
+    </div>
   </div>
-  <div class="site">
 
-    <!-- Üst bar -->
-    <header class="topbar" aria-label="Üst menü">
-      <button id="themeToggle" class="theme-toggle" aria-label="Tema değiştir (Açık/Koyu)">
-        <span aria-hidden="true">🌙</span>
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Ana menü">
+      <a class="site-nav__brand" href="/">Turabi Sancak</a>
+      <div class="site-nav__links">
+        <a href="/apps/">Uygulamalar</a>
+        <a href="/now/">Şu an</a>
+        <a href="#hakkimda">Hakkımda</a>
+      </div>
+      <a class="site-nav__lang" href="/en/" hreflang="en" lang="en">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        EN
+      </a>
+      <button type="button" class="icon-btn" data-theme-toggle>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
       </button>
-    </header>
+      <button type="button" class="icon-btn site-nav__menu-btn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+    </nav>
+    <div class="site-menu" id="site-menu" hidden>
+      <div class="site-menu__scrim" data-menu-close></div>
+      <nav class="site-menu__panel" aria-label="Mobil menü">
+        <div class="site-menu__top">
+          <button type="button" class="icon-btn" aria-label="Menüyü kapat" data-menu-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <ul class="site-menu__list">
+          <li><a href="/" aria-current="page">Ana sayfa <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/apps/">Uygulamalar <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/now/">Şu an <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="#hakkimda">Hakkımda <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+        </ul>
+        <div class="site-menu__foot">
+          <div class="site-menu__pills">
+            <a class="site-nav__lang" href="/en/" hreflang="en" lang="en">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              English
+            </a>
+            <button type="button" class="icon-btn" data-theme-toggle>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+          </div>
+          <ul class="site-menu__social">
+            <li><a href="https://x.com/mturabisancak" rel="me noopener">X</a></li>
+            <li><a href="https://github.com/muhammedturabisancak" rel="me noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@muhammedturabisancak" rel="me noopener">Medium</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Ana içerik -->
-    <main class="hero" role="main">
-      <div class="container">
-        <img 
-          src="avatar.jpg" 
-          alt="Muhammed Turabi Sancak profil fotoğrafı" 
-          class="avatar" 
-          loading="lazy" 
-          decoding="async"
-        />
-
-        <h1 class="name">Muhammed Turabi Sancak</h1>
-        <p class="subtitle">Yazılım Mühendisi · Mobil &amp; Web</p>
-
-        <nav class="social-links" aria-label="Sosyal bağlantılar">
-          <a href="https://linkedin.com/in/muhammedturabisancak/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-
-          <a href="https://x.com/mturabisancak" target="_blank" rel="noopener noreferrer" aria-label="X">
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-
-          <a href="https://github.com/muhammedturabisancak" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-
-          <a href="https://medium.com/@muhammedturabisancak" target="_blank" rel="noopener noreferrer" aria-label="Medium">
-            <i class="fa-brands fa-medium"></i>
-          </a>
-
-          <a href="mailto:muhammedturabisancak@gmail.com" aria-label="E-posta">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        </nav>
-
-        <div class="buttons" role="group" aria-label="Eylem butonları">
-          <button type="button" class="btn" id="openContact">Contact</button>
+  <main>
+    <section class="intro container">
+      <div class="intro__text">
+        <img class="avatar" src="/assets/img/avatar-256.jpg" width="84" height="84" alt="Muhammed Turabi Sancak">
+        <h1 class="intro__name name-gradient">Muhammed<br>Turabi Sancak</h1>
+        <p class="intro__lead">Telefonunuzun ana ekranına girecek uygulamalar yapıyorum. Tasarım Figma'da, kod Flutter'da, yayın benden.</p>
+        <div class="intro__actions">
+          <a class="btn btn--primary" href="/apps/">Uygulamaları gör</a>
+          <a class="btn btn--secondary" href="mailto:muhammedturabisancak@gmail.com" data-copy="muhammedturabisancak@gmail.com" data-copied="Adres kopyalandı">Bana yaz</a>
         </div>
       </div>
-    </main>
 
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="modal-content" role="document">
-        <button class="modal-close" id="closeContact" aria-label="Kapat">×</button>
-        <h2>İletişim</h2>
-        <p class="contact-text">Her türlü soru veya iş birliği için formu doldurabilirsiniz.</p>
-
-        <form class="contact-form"
-              action="mailto:muhammedturabisancak@gmail.com"
-              method="POST"
-              enctype="text/plain">
-          <div class="grid-2">
-            <input type="text" name="name" placeholder="Adınız" required>
-            <input type="email" name="email" placeholder="E-posta" required>
-          </div>
-          <textarea name="message" rows="5" placeholder="Mesajınız" required></textarea>
-          <button type="submit" class="btn">Gönder</button>
-        </form>
+      <div class="home-screen" aria-label="Ana ekran">
+        <span class="glow home-screen__glow--1"></span>
+        <span class="glow home-screen__glow--2"></span>
+        <span class="glow home-screen__glow--3"></span>
+        <span class="glow home-screen__glow--4"></span>
+        <div class="home-screen__status">
+          <span class="home-screen__time">20:42</span>
+          <span class="home-screen__place">İstanbul</span>
+        </div>
+        <div class="home-screen__widgets">
+          <a class="widget widget--levh" href="/levh/">
+            <span class="glow widget__glow--1"></span>
+            <span class="glow widget__glow--2"></span>
+            <span class="widget__body">
+              <span class="widget__app"><img src="/assets/img/levh-icon-192.png" width="28" height="28" alt="">Levh</span>
+              <span class="widget__prayer">Akşam'a</span>
+              <span class="widget__countdown">01:12</span>
+              <span class="widget__meta">İstanbul · 18:23</span>
+            </span>
+          </a>
+          <a class="widget widget--now" href="/now/">
+            <span class="widget__body">
+              <span class="widget__label">Şu an</span>
+              <span class="widget__title">Levh 1.0'ı App Store'a hazırlıyorum</span>
+              <span class="progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="İlerleme"><span class="progress__fill" style="--value: 80%"></span></span>
+              <span class="widget__meta">%80</span>
+            </span>
+          </a>
+        </div>
+        <ul class="home-screen__icons">
+          <li><a class="app-icon" href="/levh/"><span class="app-icon__tile"><img src="/assets/img/levh-icon-192.png" width="96" height="96" alt=""></span><span class="app-icon__label">Levh</span></a></li>
+          <li><a class="app-icon app-icon--placeholder" href="/apps/#yakinda"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M9.16667 22H34.8333"/><path d="M22 9.16667V34.8333"/></svg></span><span class="app-icon__label">Yakında</span></a></li>
+          <li><a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-github)" href="https://github.com/muhammedturabisancak" rel="me noopener"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M27.5 40.3333V33C27.7551 30.7034 27.0965 28.3986 25.6667 26.5833C31.1667 26.5833 36.6667 22.9167 36.6667 16.5C36.8133 14.2083 36.1717 11.9533 34.8333 10.0833C35.3467 7.975 35.3467 5.775 34.8333 3.66667C34.8333 3.66667 33 3.66667 29.3333 6.41667C24.4933 5.5 19.5067 5.5 14.6667 6.41667C11 3.66667 9.16667 3.66667 9.16667 3.66667C8.61667 5.775 8.61667 7.975 9.16667 10.0833C7.83177 11.9458 7.18387 14.2134 7.33333 16.5C7.33333 22.9167 12.8333 26.5833 18.3333 26.5833C17.6183 27.4817 17.0867 28.5083 16.775 29.6083C16.4633 30.7083 16.3717 31.8633 16.5 33V40.3333"/><path d="M16.5 33C8.23167 36.6667 7.33333 29.3333 3.66667 29.3333"/></svg></span><span class="app-icon__label">GitHub</span></a></li>
+          <li><a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-x)" href="https://medium.com/@muhammedturabisancak" rel="me noopener"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 36.6667H38.5"/><path d="M30.0227 6.64033C30.7525 5.9105 31.7424 5.50049 32.7745 5.50049C33.8066 5.50049 34.7965 5.9105 35.5263 6.64033C36.2562 7.37016 36.6662 8.36003 36.6662 9.39217C36.6662 10.4243 36.2562 11.4142 35.5263 12.144L13.508 34.1642C13.0718 34.6003 12.5327 34.9194 11.9405 35.0918L6.67517 36.6282C6.51741 36.6742 6.35019 36.6769 6.191 36.6362C6.03181 36.5954 5.88652 36.5125 5.77032 36.3964C5.65412 36.2802 5.5713 36.1349 5.53051 35.9757C5.48973 35.8165 5.49249 35.6493 5.5385 35.4915L7.07483 30.2262C7.24757 29.6346 7.56662 29.0961 8.0025 28.6605L30.0227 6.64033Z"/></svg></span><span class="app-icon__label">Yazılar</span></a></li>
+          <li><a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-linkedin)" href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M29.3333 14.6667C32.2507 14.6667 35.0486 15.8256 37.1115 17.8885C39.1744 19.9514 40.3333 22.7493 40.3333 25.6667V38.5H33V25.6667C33 24.6942 32.6137 23.7616 31.9261 23.0739C31.2384 22.3863 30.3058 22 29.3333 22C28.3609 22 27.4282 22.3863 26.7406 23.0739C26.053 23.7616 25.6667 24.6942 25.6667 25.6667V38.5H18.3333V25.6667C18.3333 22.7493 19.4923 19.9514 21.5552 17.8885C23.6181 15.8256 26.416 14.6667 29.3333 14.6667Z"/><path d="M3.66667 16.5H11V38.5H3.66667V16.5Z"/><path d="M11 7.33333C11 9.35838 9.35838 11 7.33333 11C5.30829 11 3.66667 9.35838 3.66667 7.33333C3.66667 5.30829 5.30829 3.66667 7.33333 3.66667C9.35838 3.66667 11 5.30829 11 7.33333Z"/></svg></span><span class="app-icon__label">LinkedIn</span></a></li>
+          <li><a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-x)" href="https://x.com/mturabisancak" rel="me noopener"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M7.33333 7.33333L36.6667 36.6667"/><path d="M36.6667 7.33333L7.33333 36.6667"/></svg></span><span class="app-icon__label">X</span></a></li>
+          <li><a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-figma)" href="#"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M9.16667 10.0833C9.16667 8.38153 9.84271 6.74942 11.0461 5.54606C12.2494 4.34271 13.8815 3.66667 15.5833 3.66667H22V16.5H15.5833C13.8815 16.5 12.2494 15.824 11.0461 14.6206C9.84271 13.4172 9.16667 11.7851 9.16667 10.0833Z"/><path d="M22 3.66667H28.4167C29.2593 3.66667 30.0937 3.83264 30.8722 4.15511C31.6507 4.47757 32.3581 4.95022 32.9539 5.54606C33.5498 6.14191 34.0224 6.84928 34.3449 7.62778C34.6674 8.40629 34.8333 9.24068 34.8333 10.0833C34.8333 10.926 34.6674 11.7604 34.3449 12.5389C34.0224 13.3174 33.5498 14.0248 32.9539 14.6206C32.3581 15.2164 31.6507 15.6891 30.8722 16.0116C30.0937 16.334 29.2593 16.5 28.4167 16.5H22V3.66667Z"/><path d="M22 22.9167C22 22.074 22.166 21.2396 22.4884 20.4611C22.8109 19.6826 23.2836 18.9752 23.8794 18.3794C24.4752 17.7836 25.1826 17.3109 25.9611 16.9884C26.7396 16.666 27.574 16.5 28.4167 16.5C29.2593 16.5 30.0937 16.666 30.8722 16.9884C31.6507 17.3109 32.3581 17.7836 32.9539 18.3794C33.5498 18.9752 34.0224 19.6826 34.3449 20.4611C34.6674 21.2396 34.8333 22.074 34.8333 22.9167C34.8333 23.7593 34.6674 24.5937 34.3449 25.3722C34.0224 26.1507 33.5498 26.8581 32.9539 27.4539C32.3581 28.0498 31.6507 28.5224 30.8722 28.8449C30.0937 29.1674 29.2593 29.3333 28.4167 29.3333C27.574 29.3333 26.7396 29.1674 25.9611 28.8449C25.1826 28.5224 24.4752 28.0498 23.8794 27.4539C23.2836 26.8581 22.8109 26.1507 22.4884 25.3722C22.166 24.5937 22 23.7593 22 22.9167Z"/><path d="M9.16667 35.75C9.16667 34.0482 9.84271 32.4161 11.0461 31.2127C12.2494 30.0094 13.8815 29.3333 15.5833 29.3333H22V35.75C22 37.4518 21.324 39.0839 20.1206 40.2873C18.9172 41.4906 17.2851 42.1667 15.5833 42.1667C13.8815 42.1667 12.2494 41.4906 11.0461 40.2873C9.84271 39.0839 9.16667 37.4518 9.16667 35.75Z"/><path d="M9.16667 22.9167C9.16667 21.2149 9.84271 19.5828 11.0461 18.3794C12.2494 17.176 13.8815 16.5 15.5833 16.5H22V29.3333H15.5833C13.8815 29.3333 12.2494 28.6573 11.0461 27.4539C9.84271 26.2506 9.16667 24.6185 9.16667 22.9167Z"/></svg></span><span class="app-icon__label">Tasarımlar</span></a></li>
+          <li><a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-slate)" href="#hakkimda"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M31.1667 14.6667C31.1667 19.7293 27.0626 23.8333 22 23.8333C16.9374 23.8333 12.8333 19.7293 12.8333 14.6667C12.8333 9.60406 16.9374 5.5 22 5.5C27.0626 5.5 31.1667 9.60406 31.1667 14.6667Z"/><path d="M36.6667 38.5C36.6667 34.6102 35.1214 30.8796 32.3709 28.1291C29.6204 25.3786 25.8898 23.8333 22 23.8333C18.1102 23.8333 14.3796 25.3786 11.6291 28.1291C8.87857 30.8796 7.33333 34.6102 7.33333 38.5"/></svg></span><span class="app-icon__label">Hakkımda</span></a></li>
+        </ul>
+        <nav class="dock" aria-label="Dock">
+          <a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-mail)" href="mailto:muhammedturabisancak@gmail.com"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 38.5 38.5" aria-hidden="true"><path d="M6.41667 6.41667H32.0833C33.8552 6.41667 35.2917 7.85309 35.2917 9.625V28.875C35.2917 30.6469 33.8552 32.0833 32.0833 32.0833H6.41667C4.64475 32.0833 3.20833 30.6469 3.20833 28.875V9.625C3.20833 7.85309 4.64475 6.41667 6.41667 6.41667Z"/><path d="M35.2917 11.2292L20.9023 20.3729C20.407 20.6832 19.8344 20.8478 19.25 20.8478C18.6656 20.8478 18.093 20.6832 17.5977 20.3729L3.20833 11.2292"/></svg></span><span class="app-icon__label visually-hidden">E-posta</span></a>
+          <a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-youtube)" href="#"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 38.5 38.5" aria-hidden="true"><path d="M9.625 4.8125L32.0833 19.25L9.625 33.6875V4.8125Z"/></svg></span><span class="app-icon__label visually-hidden">Videolar</span></a>
+          <a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--brand-github)" href="https://github.com/muhammedturabisancak" rel="me noopener"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 44 44" aria-hidden="true"><path d="M27.5 40.3333V33C27.7551 30.7034 27.0965 28.3986 25.6667 26.5833C31.1667 26.5833 36.6667 22.9167 36.6667 16.5C36.8133 14.2083 36.1717 11.9533 34.8333 10.0833C35.3467 7.975 35.3467 5.775 34.8333 3.66667C34.8333 3.66667 33 3.66667 29.3333 6.41667C24.4933 5.5 19.5067 5.5 14.6667 6.41667C11 3.66667 9.16667 3.66667 9.16667 3.66667C8.61667 5.775 8.61667 7.975 9.16667 10.0833C7.83177 11.9458 7.18387 14.2134 7.33333 16.5C7.33333 22.9167 12.8333 26.5833 18.3333 26.5833C17.6183 27.4817 17.0867 28.5083 16.775 29.6083C16.4633 30.7083 16.3717 31.8633 16.5 33V40.3333"/><path d="M16.5 33C8.23167 36.6667 7.33333 29.3333 3.66667 29.3333"/></svg></span><span class="app-icon__label visually-hidden">GitHub</span></a>
+          <a class="app-icon app-icon--glyph" style="--app-icon-bg: var(--app-levh-primary)" href="/levh/"><span class="app-icon__tile"><svg class="icon" viewBox="0 0 38.5 38.5" aria-hidden="true"><path d="M19.25 4.8125C17.3355 6.72703 16.2599 9.32369 16.2599 12.0312C16.2599 14.7388 17.3355 17.3355 19.25 19.25C21.1645 21.1645 23.7612 22.2401 26.4687 22.2401C29.1763 22.2401 31.773 21.1645 33.6875 19.25C33.6875 22.1055 32.8408 24.8968 31.2543 27.271C29.6679 29.6453 27.4131 31.4958 24.775 32.5885C22.1369 33.6813 19.234 33.9672 16.4334 33.4101C13.6328 32.853 11.0603 31.478 9.04115 29.4589C7.02202 27.4397 5.64699 24.8672 5.08991 22.0666C4.53284 19.266 4.81875 16.3631 5.91149 13.725C7.00423 11.0869 8.85472 8.83207 11.229 7.24566C13.6032 5.65924 16.3945 4.8125 19.25 4.8125Z"/></svg></span><span class="app-icon__label visually-hidden">Levh</span></a>
+        </nav>
       </div>
+    </section>
+
+    <section class="home-tiles container" aria-label="Kutucuklar">
+      <a class="tile tile--app" href="/levh/">
+        <span class="glow tile__glow--1"></span>
+        <span class="glow tile__glow--2"></span>
+        <span class="tile__body">
+          <img class="tile__icon" src="/assets/img/levh-icon-192.png" width="72" height="72" alt="">
+          <span class="tile__label">Uygulama</span>
+          <span class="tile__name">Levh</span>
+          <span class="tile__text">Namaz vakti, kıble, zikir, kaza takibi ve dini günler.</span>
+          <span class="tile__more">Keşfet <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12L10 8L6 4"/></svg></span>
+        </span>
+        <span class="phone"><img class="phone__screen" src="/assets/img/levh/kaza-takibi-dark.png" width="390" height="851" alt="" loading="lazy"><span class="phone__island"></span></span>
+      </a>
+      <div class="home-tiles__stack">
+        <div class="tile tile--sm tile--principles">
+          <div class="tile__body">
+            <h2 class="tile__label">İlkeler</h2>
+            <dl class="stats">
+              <div><dt>reklam</dt><dd>0</dd></div>
+              <div><dt>veri toplama</dt><dd>0</dd></div>
+              <div><dt>dil</dt><dd>2</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="tile tile--sm tile--clock">
+          <span class="glow tile__glow"></span>
+          <span class="tile__celestial" aria-hidden="true"></span>
+          <div class="tile__body">
+            <h2 class="tile__label">İstanbul · Şu an</h2>
+            <span class="tile__clock">20:42</span>
+            <span class="tile__meta">Yatsı'ya 01:02 · gece</span>
+          </div>
+        </div>
+      </div>
+      <div class="tile tile--md tile--process">
+        <div class="tile__body">
+          <h2 class="tile__label">Tasarımdan mağazaya</h2>
+          <p class="tile__heading">Her adım tek elden.</p>
+          <ul class="steps">
+            <li style="--dot: var(--brand-figma)">Figma</li>
+            <li style="--dot: var(--brand-flutter)">Flutter</li>
+            <li style="--dot: var(--color-accent)">App Store · Google Play</li>
+          </ul>
+        </div>
+      </div>
+      <a class="tile tile--md tile--content" href="/now/#icerik">
+        <span class="tile__body">
+          <span class="tile__label">İçerik</span>
+          <span class="thumbs">
+            <span class="thumb"><span class="glow" style="--c: var(--color-glow-a)"></span><span class="thumb__play"><svg class="icon" viewBox="0 0 38.5 38.5" aria-hidden="true"><path d="M9.625 4.8125L32.0833 19.25L9.625 33.6875V4.8125Z"/></svg></span></span>
+            <span class="thumb"><span class="glow" style="--c: var(--color-glow-c)"></span><span class="thumb__play"><svg class="icon" viewBox="0 0 38.5 38.5" aria-hidden="true"><path d="M9.625 4.8125L32.0833 19.25L9.625 33.6875V4.8125Z"/></svg></span></span>
+          </span>
+          <span class="tile__title">Uygulama geliştirme üzerine videolar ve yazılar</span>
+          <span class="tile__meta">Son içerik · YouTube / Medium</span>
+        </span>
+      </a>
+      <section class="tile tile--md tile--about" id="hakkimda" aria-labelledby="hakkimda-baslik">
+        <div class="tile__body">
+          <img class="avatar avatar--64" src="/assets/img/avatar-256.jpg" width="64" height="64" alt="" loading="lazy">
+          <h2 class="tile__label" id="hakkimda-baslik">Hakkımda</h2>
+          <p>Bilgisayar mühendisiyim; kampüste GDG topluluğunu yönettim, DevFest Erzurum ekibindeydim.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Uygulamalar</h2>
+          <ul>
+            <li><a href="/apps/">Tüm uygulamalar</a></li>
+            <li><a href="/levh/">Levh</a></li>
+            <li><a href="/apps/#yakinda">Yakında</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Yardım</h2>
+          <ul>
+            <li><a href="/levh/support/">Destek</a></li>
+            <li><a href="/levh/privacy/">Gizlilik</a></li>
+            <li><a href="/levh/support/#sss">SSS</a></li>
+            <li><a href="mailto:muhammedturabisancak@gmail.com">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Hakkımda</h2>
+          <ul>
+            <li><a href="#hakkimda">Hakkımda</a></li>
+            <li><a href="/now/">Şu an</a></li>
+            <li><a href="/now/#icerik">İçerik</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Takip et</h2>
+          <ul>
+            <li><a href="https://x.com/mturabisancak" rel="me noopener">X</a></li>
+            <li><a href="https://github.com/muhammedturabisancak" rel="me noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@muhammedturabisancak" rel="me noopener">Medium</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__copy">© 2026 Muhammed Turabi Sancak · İstanbul</p>
     </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-      © <span id="year"></span> Muhammed Turabi Sancak · Tüm Hakları Saklıdır.
-    </footer>
-  </div>
-
-  <!-- JS -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const root = document.body;
-    const btn  = document.getElementById('themeToggle');
-    btn.addEventListener('click', () => {
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      root.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      btn.innerHTML = isDark 
-        ? '<span aria-hidden="true">☀️</span>' 
-        : '<span aria-hidden="true">🌙</span>';
-    });
-
-    // ---- Contact Modal Aç/Kapat ----
-    const contactModal = document.getElementById('contactModal');
-    const openBtn = document.getElementById('openContact');
-    const closeBtn = document.getElementById('closeContact');
-
-    function openModal() {
-      contactModal.classList.add('show');
-      contactModal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-    }
-    function closeModal() {
-      contactModal.classList.remove('show');
-      contactModal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-    }
-
-    if (openBtn && contactModal && closeBtn) {
-      openBtn.addEventListener('click', openModal);
-      closeBtn.addEventListener('click', closeModal);
-
-      contactModal.addEventListener('click', (e) => {
-        if (e.target === contactModal) closeModal();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && contactModal.classList.contains('show')) {
-          closeModal();
-        }
-      });
-    }
-  </script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>

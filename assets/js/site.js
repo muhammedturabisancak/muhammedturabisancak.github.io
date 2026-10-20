@@ -124,4 +124,24 @@
   window.matchMedia("(min-width: 721px)").addEventListener("change", function (event) {
     if (event.matches && menuOpen) setMenu(false);
   });
+
+  // ---------- Kopyala (ör. "Bana yaz" → e-posta adresi) ----------
+  // Pano kullanılamazsa bağlantı normal çalışır (mailto).
+  document.querySelectorAll("[data-copy]").forEach(function (el) {
+    var label = el.textContent;
+    var timer;
+    el.addEventListener("click", function (event) {
+      if (!navigator.clipboard) return;
+      event.preventDefault();
+      navigator.clipboard.writeText(el.getAttribute("data-copy")).then(function () {
+        el.textContent = el.getAttribute("data-copied") || label;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          el.textContent = label;
+        }, 2000);
+      }, function () {
+        if (el.href) window.location.href = el.href;
+      });
+    });
+  });
 })();

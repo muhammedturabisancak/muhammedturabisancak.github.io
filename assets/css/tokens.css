@@ -71,7 +71,7 @@
   --space-56: 56px;
   --space-80: 80px;
   --space-section: 110px;
-  --space-gutter: 120px;
+  --space-gutter: clamp(20px, (100vw - 1200px) / 2, 120px); /* 1440'ta 120; arada akışkan (Figma'da yalnız 1440 ve 390 var) */
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -97,7 +97,7 @@
   --shadow-icon: 0 10px 24px -6px rgba(0, 0, 0, .35);
   --shadow-card-light: 0 8px 30px -8px rgba(0, 0, 0, .06);
   --blur-glass: 15px; /* Figma blur/glass "radius 30" = CSS blur(15px) (Figma'nın kendi CSS çıktısı) */
-  --blur-glow: 130px;
+  --blur-glow: 65px; /* Figma blur/glow 130 = CSS blur(65px) */
 
   /* Motion */
   --duration-fast: 300ms;
