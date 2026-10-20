@@ -27,3 +27,5 @@ Tasarım oturumunda (19–20 Ekim 2026) kullanıcıyla alınan kararlar. Bir kar
 | K-21 | Mağaza düğmeleri şimdilik "Yakında" yer tutucu; yayında Apple/Google resmî rozetleri ve marka kuralları kullanılır. | |
 | K-22 | Video/yazı kayıtları şimdilik "örnek" yer tutucu; gerçek içerik bağlantıları kullanıcı verince `now/data.json`'a girer. | |
 | K-23 | Çalışma şekli: açık tasarım kararları alternatifli sunulur, kullanıcı seçer; seçilmeyenler silinmez (Figma'da "Arşiv · …"). Kod tarafında da tasarım dışı bir karar çıkarsa sor. | |
+| K-24 | Mobil menü: **A Sağdan panel** (4 akış laboratuvarından: A sağdan panel, B açılır cam kart, C alttan sayfa, D tam ekran sahne). Figma: Nav/MobileMenu 71:306; ilk tam ekran taslak ve not "Arşiv · Mobil menü" sayfasında. | Laboratuvar: https://claude.ai/artifact/DAEbtUyyY4EhYhs3AZsAGa |
+| K-25 | Tema düğmesi Figma'daki gibi her durumda güneş ikonu; hangi modda olduğu yalnız erişilebilir etikette. | Kullanıcı: "Figma'da nasılsa öyle". |

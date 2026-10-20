@@ -8,7 +8,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 |---|---|---|
 | 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
 | 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
-| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | 2a bitti (commit bekliyor), 2b bekliyor |
+| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | 2a bitti (PR #4, main'de); mobil menü düzeltmesi bitti (commit bekliyor); 2b bekliyor |
 | 3 | S01 Ana sayfa (TR) | bekliyor |
 | 4 | S02 Uygulamalar (TR) | bekliyor |
 | 5 | S03 Levh (TR) | bekliyor |
@@ -18,7 +18,7 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 1 main'de (PR #3). Aşama 2a bitti, dal `feat/turabi/muhammedturabisancak.github.io/components`. Eklendi: `site.css`'e `.icon`, `.btn`, `.icon-btn`, `.chip`, `.avatar`, `.app-icon`, `.section-header`, `.site-nav` + `.site-menu` (mobil tam ekran menü), `.site-footer`; `site.js`'e mobil menü (aç/kapat, Esc, odak); `assets/img/levh-icon-192/384.png`; geçici `_bilesenler.html` (Aşama 2 sonunda `_temel.html` ile birlikte silinecek). `--blur-glass` 30→15 px (Figma'nın CSS çıktısı). Lucide ikonları lucide-static 1.60.0'dan; GitHub/LinkedIn marka ikonları Lucide'dan kalkmış, Figma'daki SVG kullanılacak (2b, Dock). Kontrol: Node ile DevTools protokolü üzerinden başsız Chrome (1440/390 × koyu/açık tam sayfa görüntü, yatay taşma, konsol); betik oturumun geçici klasöründe, depoda değil. Kullanıcıya sorulan açık noktalar son mesajda. Sıradaki: 2b.
+Son oturum: 20 Ekim 2026 — 2a main'de (PR #4). Dal `feat/turabi/muhammedturabisancak.github.io/nav-menu`: tema düğmesi her durumda güneş (K-25); mobil menü sağdan panel (K-24) — önce Figma'da çizildi (Nav/MobileMenu 71:306, yeni token color/scrim + Primitives black/a50, black/a20), sonra koda: `.site-menu__scrim/__panel`, `--color-scrim`, `site.js` (aç/kapat animasyonlu, Esc, arka plana dokunma, odak, arkadaki sayfa inert). CLAUDE.md'ye iki kural: değişkene bağlı olmayan Figma ölçüleri px ile aynen yazılır; Figma'da olmayan şey önce Figma'da çizilir. Açık not: reduced-motion'da panel anında açılıyor (kısa solma Aşama 9'da). Sıradaki: 2b (Dock, Widget'lar, HomeScreen, Phone, Tile'lar).
 
 ## Aşama ayrıntıları
 
