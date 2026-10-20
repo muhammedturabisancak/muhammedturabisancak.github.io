@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="noindex">
+  <title>Temel · deneme</title>
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <!-- Geçici deneme sayfası (Aşama 1–2); Aşama 2 sonunda silinir. Aşağıdaki stiller yalnız bu sayfa için. -->
+  <style>
+    .t-section { padding-block: var(--space-56); border-bottom: 1px solid var(--color-border); }
+    .t-head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-16); }
+    .t-toggle { min-height: 44px; padding: 0 var(--space-20); border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-button-secondary); cursor: pointer; }
+    .t-toggle::after { content: attr(aria-label); }
+    .t-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-16); margin-top: var(--space-24); }
+    .t-swatch { height: 64px; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); }
+    .t-name { margin-top: var(--space-8); color: var(--color-text-secondary); word-break: break-all; }
+    .t-type > * + * { margin-top: var(--space-20); }
+    .t-meta { color: var(--color-text-tertiary); margin-bottom: var(--space-4); }
+    .t-box { height: 96px; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); }
+    .t-wall { height: 200px; border-radius: var(--radius-xl); background: linear-gradient(135deg, var(--color-wall-top), var(--color-wall-mid) 55%, var(--color-wall-bottom)); }
+    .t-levh { height: 200px; border-radius: var(--radius-xl); background: linear-gradient(180deg, var(--app-levh-primary), var(--app-levh-deep)); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="t-section">
+      <div class="t-head">
+        <h1 class="type-display-lg name-gradient">Temel</h1>
+        <button type="button" class="t-toggle type-button" data-theme-toggle></button>
+      </div>
+      <p class="type-body-lg" style="margin-top: var(--space-16); color: var(--color-text-secondary)">tokens.css + yazı tipleri + tema düğmesi. Türkçe harf denemesi: ğüşıöç ĞÜŞİÖÇ</p>
+    </section>
+
+    <section class="t-section">
+      <h2 class="type-label" style="color: var(--color-text-tertiary)">Semantic renkler</h2>
+      <div class="t-grid" id="semantic"></div>
+    </section>
+
+    <section class="t-section">
+      <h2 class="type-label" style="color: var(--color-text-tertiary)">Uygulama ve marka renkleri</h2>
+      <div class="t-grid" id="apps"></div>
+    </section>
+
+    <section class="t-section t-type">
+      <h2 class="type-label" style="color: var(--color-text-tertiary)">Tipografi</h2>
+      <div><p class="type-caption t-meta">display/xl · Unbounded 700 · 64 (mobil 40)</p><p class="type-display-xl name-gradient">Muhammed Turabi</p></div>
+      <div><p class="type-caption t-meta">display/lg · Unbounded 700 · 46 (mobil 32)</p><p class="type-display-lg">Muhammed Turabi</p></div>
+      <div><p class="type-caption t-meta">display/clock · Unbounded 700 · 58</p><p class="type-display-clock">20:42</p></div>
+      <div><p class="type-caption t-meta">display/md · Unbounded 600 · 24</p><p class="type-display-md">Muhammed Turabi</p></div>
+      <div><p class="type-caption t-meta">title · Inter 700 · 34 (mobil 26)</p><p class="type-title">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">headline · Inter 600 · 19</p><p class="type-headline">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">body/lg · Inter 400 · 20 (mobil 17)</p><p class="type-body-lg">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">body · Inter 400 · 16</p><p class="type-body">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">body/strong · Inter 500 · 16</p><p class="type-body-strong">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">button · Inter 600 · 15</p><p class="type-button">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">nav · nav/active · Inter 400/500 · 14</p><p class="type-nav">Uygulamalar · Şu an · <span class="type-nav-active">Hakkımda</span></p></div>
+      <div><p class="type-caption t-meta">caption · Inter 400 · 13</p><p class="type-caption">Telefonunuzun ana ekranına girecek uygulamalar</p></div>
+      <div><p class="type-caption t-meta">label · Inter 600 · 12 · +6%</p><p class="type-label">İlkeler · Şu an</p></div>
+      <div><p class="type-caption t-meta">icon-label · Inter 500 · 14 (mobil 12)</p><p class="type-icon-label">Levh · GitHub · Yazılar</p></div>
+    </section>
+
+    <section class="t-section">
+      <h2 class="type-label" style="color: var(--color-text-tertiary)">Yüzey ve duvar kâğıdı</h2>
+      <div class="t-grid">
+        <div><div class="t-box"></div><p class="type-caption t-name">surface + border</p></div>
+        <div><div class="t-box" style="box-shadow: var(--shadow-card-light)"></div><p class="type-caption t-name">shadow/card-light</p></div>
+        <div><div class="t-wall"></div><p class="type-caption t-name">duvar kâğıdı</p></div>
+        <div><div class="t-levh"></div><p class="type-caption t-name">Levh zemini</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var semantic = ["bg","surface","surface-raised","glass","border","border-subtle","text","text-secondary","text-tertiary","accent","accent-alt","button-primary","on-button-primary","button-secondary","name-from","name-to","wall-top","wall-mid","wall-bottom","glow-a","glow-b","glow-c","clock-top","clock-bottom","celestial"];
+      var apps = ["app-levh-primary","app-levh-deep","app-levh-gold","app-levh-cream","brand-github","brand-linkedin","brand-x","brand-youtube","brand-mail","brand-figma","brand-flutter","brand-slate"];
+      function fill(id, names, prefix) {
+        document.getElementById(id).innerHTML = names.map(function (n) {
+          return '<div><div class="t-swatch" style="background: var(--' + prefix + n + ')"></div><p class="type-caption t-name">--' + prefix + n + '</p></div>';
+        }).join("");
+      }
+      fill("semantic", semantic, "color-");
+      fill("apps", apps, "");
+    })();
+  </script>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

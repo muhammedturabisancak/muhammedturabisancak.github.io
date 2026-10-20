@@ -1,0 +1,185 @@
+/* Figma token'ları (czHsywqWMyme7d5sNtZ7pK › 01_Foundations). Ad = Figma code syntax.
+   Koyu tema :root'ta; açık tema yalnız Semantic renkleri değiştirir.
+   Layout'ta Desktop varsayılan, Mobile değerleri 720 px altında. */
+
+:root {
+  color-scheme: dark;
+
+  /* Semantic · Dark */
+  --color-bg: #0A0B0F;
+  --color-surface: #14151B;
+  --color-surface-raised: #1B1C23;
+  --color-glass: #FFFFFF14;
+  --color-border: #26272F;
+  --color-border-subtle: #FFFFFF14;
+  --color-text: #F4F5F7;
+  --color-text-secondary: #A4A7B0;
+  --color-text-tertiary: #6E717B;
+  --color-accent: #7FE3BE;
+  --color-accent-alt: #7FB5FF;
+  --color-button-primary: #FFFFFF;
+  --color-on-button-primary: #0A0B0F;
+  --color-button-secondary: #FFFFFF0F;
+  --color-name-from: #FFFFFF;
+  --color-name-to: #DDE7FF;
+  --color-wall-top: #0D2A55;
+  --color-wall-mid: #0A3A2C;
+  --color-wall-bottom: #05140F;
+  --color-glow-a: #1F4FA8;
+  --color-glow-b: #0E5A3C;
+  --color-glow-c: #5B3FA0;
+  --color-clock-top: #1A1F3A;
+  --color-clock-bottom: #0E1020;
+  --color-celestial: #F3EED8;
+
+  /* Apps (temadan bağımsız) */
+  --app-levh-primary: #0E5A3C;
+  --app-levh-deep: #022D1A;
+  --app-levh-gold: #E5BA72;
+  --app-levh-cream: #FDFAEB;
+
+  /* Marka (ikon zeminleri) */
+  --brand-github: #24292F;
+  --brand-linkedin: #0A66C2;
+  --brand-x: #000000;
+  --brand-youtube: #E02020;
+  --brand-mail: #007AFF;
+  --brand-figma: #A259FF;
+  --brand-flutter: #4FC3F7;
+  --brand-slate: #4A5568;
+
+  /* Layout · Desktop */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-56: 56px;
+  --space-80: 80px;
+  --space-section: 110px;
+  --space-gutter: 120px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-2xl: 40px;
+  --radius-screen: 56px;
+  --radius-full: 999px;
+
+  --size-page: 1440px;
+  --size-container: 1200px;
+  --size-app-icon: 96px;
+  --size-app-icon-large: 72px;
+
+  /* Tipografi */
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-text: "Inter", system-ui, sans-serif;
+
+  /* Efektler */
+  --shadow-screen: 0 40px 90px -20px rgba(0, 0, 0, .55);
+  --shadow-screen-light: 0 40px 90px -20px rgba(0, 0, 0, .18);
+  --shadow-phone: 0 30px 60px -12px rgba(0, 0, 0, .5);
+  --shadow-icon: 0 10px 24px -6px rgba(0, 0, 0, .35);
+  --shadow-card-light: 0 8px 30px -8px rgba(0, 0, 0, .06);
+  --blur-glass: 30px;
+  --blur-glow: 130px;
+
+  /* Motion */
+  --duration-fast: 300ms;
+  --duration-base: 700ms;
+  --duration-slow: 1100ms;
+  --duration-stagger: 45ms;
+  --tilt-max: 8deg;
+  --ease-expo: cubic-bezier(.16, 1, .3, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-in-out: cubic-bezier(.7, 0, .2, 1);
+}
+
+/* Semantic · Light — sistem açık temadaysa (kullanıcı koyu seçmediyse) */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --color-bg: #F5F6F8;
+    --color-surface: #FFFFFF;
+    --color-surface-raised: #ECEEF2;
+    --color-glass: #FFFFFFB8;
+    --color-border: #E3E6EB;
+    --color-border-subtle: #0000000F;
+    --color-text: #0D0F14;
+    --color-text-secondary: #596070;
+    --color-text-tertiary: #8A909C;
+    --color-accent: #178A63;
+    --color-accent-alt: #2F6BFF;
+    --color-button-primary: #0D0F14;
+    --color-on-button-primary: #FFFFFF;
+    --color-button-secondary: #0000000F;
+    --color-name-from: #0D0F14;
+    --color-name-to: #2F6BFF;
+    --color-wall-top: #BFD6FF;
+    --color-wall-mid: #D6F2EA;
+    --color-wall-bottom: #F4F7FB;
+    --color-glow-a: #9CC0FF;
+    --color-glow-b: #A8E8D4;
+    --color-glow-c: #C7B8FF;
+    --color-clock-top: #DDE7FF;
+    --color-clock-bottom: #F3F6FF;
+    --color-celestial: #FFD98A;
+  }
+}
+
+/* Semantic · Light — kullanıcı açık temayı seçtiyse */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #F5F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #ECEEF2;
+  --color-glass: #FFFFFFB8;
+  --color-border: #E3E6EB;
+  --color-border-subtle: #0000000F;
+  --color-text: #0D0F14;
+  --color-text-secondary: #596070;
+  --color-text-tertiary: #8A909C;
+  --color-accent: #178A63;
+  --color-accent-alt: #2F6BFF;
+  --color-button-primary: #0D0F14;
+  --color-on-button-primary: #FFFFFF;
+  --color-button-secondary: #0000000F;
+  --color-name-from: #0D0F14;
+  --color-name-to: #2F6BFF;
+  --color-wall-top: #BFD6FF;
+  --color-wall-mid: #D6F2EA;
+  --color-wall-bottom: #F4F7FB;
+  --color-glow-a: #9CC0FF;
+  --color-glow-b: #A8E8D4;
+  --color-glow-c: #C7B8FF;
+  --color-clock-top: #DDE7FF;
+  --color-clock-bottom: #F3F6FF;
+  --color-celestial: #FFD98A;
+}
+
+/* Layout · Mobile */
+@media (max-width: 720px) {
+  :root {
+    --space-section: 64px;
+    --space-gutter: 20px;
+    --size-page: 390px;
+    --size-container: 350px;
+    --size-app-icon: 64px;
+    --size-app-icon-large: 56px;
+  }
+}
+
+/* Motion › ReducedMotion: süreler 0 (yalnız kısa solma bileşenlerde ayrıca) */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-stagger: 0ms;
+    --tilt-max: 0deg;
+  }
+}
