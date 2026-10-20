@@ -48,6 +48,10 @@
   --brand-flutter: #4FC3F7;
   --brand-slate: #4A5568;
 
+  /* Figma bileşenlerinde değişkene bağlı olmayan sabitler (AppIcon Glyph) */
+  --app-icon-glyph: #FFFFFF;
+  --app-icon-glyph-border: #FFFFFF1F;
+
   /* Layout · Desktop */
   --space-4: 4px;
   --space-8: 8px;
@@ -85,7 +89,7 @@
   --shadow-phone: 0 30px 60px -12px rgba(0, 0, 0, .5);
   --shadow-icon: 0 10px 24px -6px rgba(0, 0, 0, .35);
   --shadow-card-light: 0 8px 30px -8px rgba(0, 0, 0, .06);
-  --blur-glass: 30px;
+  --blur-glass: 15px; /* Figma blur/glass "radius 30" = CSS blur(15px) (Figma'nın kendi CSS çıktısı) */
   --blur-glow: 130px;
 
   /* Motion */

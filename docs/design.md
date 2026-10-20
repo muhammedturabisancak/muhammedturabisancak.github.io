@@ -103,7 +103,7 @@ Metin sayfalarında gövde 17 / 165%.
 - shadow/phone: 0 30 60 −12 rgba(0,0,0,.5)
 - shadow/icon: 0 10 24 −6 rgba(0,0,0,.35)
 - shadow/card-light: 0 8 30 −8 rgba(0,0,0,.06) — **yalnız açık tema**; koyuda gölge yok, 1 px çizgi var
-- blur/glass: `backdrop-filter: blur(30px)` (widget, dock, menü)
+- blur/glass: Figma radius 30 → `backdrop-filter: blur(15px)` (Figma'nın kendi CSS çıktısı yarıya böler; `--blur-glass`) (widget, dock, menü)
 - blur/glow: ışık lekeleri `filter: blur(130px)` (mobilde daha küçük)
 
 ## Bileşenler (02_Components) → CSS
