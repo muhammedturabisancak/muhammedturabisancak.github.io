@@ -1,0 +1,19 @@
+{
+  "status": {
+    "title": "Levh 1.0'ı App Store'a hazırlıyorum",
+    "progress": 80,
+    "updated": "2026-10-19",
+    "todo": [
+      { "text": "Uygulama App Store Connect'e yüklendi", "done": true },
+      { "text": "Geliştirici sözleşmesi kabul edildi", "done": true },
+      { "text": "Gizlilik ve destek sayfaları", "done": false },
+      { "text": "Mağaza ekran görüntüleri ve açıklama", "done": false }
+    ]
+  },
+  "timeline": [
+    { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Levh 1.0.0 App Store Connect'e yüklendi", "text": "İnceleme öncesi son adımlar: gizlilik sayfası ve ekran görüntüleri." },
+    { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Alt menüde canlı kıble halkası", "text": "Kıble'ye ne kadar yakın olduğunu alt menüden gösteren halka." },
+    { "date": "2026-10-19", "kind": "update", "app": "site", "title": "muhammedturabisancak.dev baştan tasarlanıyor", "text": "Bu sayfa da onun bir parçası." },
+    { "date": "2026-10-18", "kind": "update", "app": "levh", "title": "Dini günlerde tebrik kartı", "text": "Kandil ve bayramlarda tek dokunuşla paylaşılan kart." }
+  ]
+}

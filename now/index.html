@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Şu an · Muhammed Turabi Sancak</title>
+  <meta name="description" content="Ne üzerinde çalıştığım, ne öğrendiğim ve ne paylaştığım.">
+  <link rel="canonical" href="https://muhammedturabisancak.dev/now/">
+  <link rel="alternate" hreflang="tr" href="https://muhammedturabisancak.dev/now/">
+  <link rel="alternate" hreflang="en" href="https://muhammedturabisancak.dev/en/now/">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/unbounded-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/now/data.json" as="fetch" type="application/json" crossorigin>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div class="page-glow" style="--page-glow-h: 500px" aria-hidden="true">
+    <div class="page-glow__inner">
+      <span class="glow now-glow--a"></span>
+      <span class="glow now-glow--b"></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Ana menü">
+      <a class="site-nav__brand" href="/">Turabi Sancak</a>
+      <div class="site-nav__links">
+        <a href="/apps/">Uygulamalar</a>
+        <a href="/now/" aria-current="page">Şu an</a>
+        <a href="/#hakkimda">Hakkımda</a>
+      </div>
+      <a class="site-nav__lang" href="/en/now/" hreflang="en" lang="en">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        EN
+      </a>
+      <button type="button" class="icon-btn" data-theme-toggle>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+      <button type="button" class="icon-btn site-nav__menu-btn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+    </nav>
+    <div class="site-menu" id="site-menu" hidden>
+      <div class="site-menu__scrim" data-menu-close></div>
+      <nav class="site-menu__panel" aria-label="Mobil menü">
+        <div class="site-menu__top">
+          <button type="button" class="icon-btn" aria-label="Menüyü kapat" data-menu-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <ul class="site-menu__list">
+          <li><a href="/">Ana sayfa <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/apps/">Uygulamalar <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/now/" aria-current="page">Şu an <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/#hakkimda">Hakkımda <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+        </ul>
+        <div class="site-menu__foot">
+          <div class="site-menu__pills">
+            <a class="site-nav__lang" href="/en/now/" hreflang="en" lang="en">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              English
+            </a>
+            <button type="button" class="icon-btn" data-theme-toggle>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+          </div>
+          <ul class="site-menu__social">
+            <li><a href="https://x.com/mturabisancak" rel="me noopener">X</a></li>
+            <li><a href="https://github.com/muhammedturabisancak" rel="me noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@muhammedturabisancak" rel="me noopener">Medium</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="now-board container" data-now>
+    <aside class="now-side">
+      <div class="now-side__head">
+        <img class="avatar" src="/assets/img/avatar-256.jpg" width="84" height="84" alt="Muhammed Turabi Sancak">
+        <p class="now-side__date" data-today></p>
+        <h1 class="now-side__title">Şu an</h1>
+        <p class="now-side__lead">Ne üzerinde çalıştığım, ne öğrendiğim ve ne paylaştığım.</p>
+      </div>
+      <section class="now-status" aria-labelledby="now-status-baslik">
+        <h2 class="now-status__label" id="now-status-baslik">Üzerinde çalıştığım</h2>
+        <p class="now-status__title" data-now-title></p>
+        <span class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="İlerleme"><span class="progress__fill" data-now-progress></span></span>
+        <p class="now-status__meta" data-now-meta></p>
+        <ul class="todo" data-now-todo></ul>
+      </section>
+      <div class="tile tile--sm tile--clock">
+        <span class="glow tile__glow"></span>
+        <span class="tile__celestial" aria-hidden="true"></span>
+        <div class="tile__body">
+          <h2 class="tile__label">İstanbul · Şu an</h2>
+          <span class="tile__clock">20:42</span>
+          <span class="tile__meta">Yatsı'ya 01:02 · gece</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="now-feed" id="icerik" aria-label="Zaman çizelgesi">
+      <div class="filters" role="group" aria-label="Kayıtları süz">
+        <button type="button" class="filter" aria-pressed="true" data-kind="">Tümü</button>
+        <button type="button" class="filter" aria-pressed="false" data-kind="video">Videolar</button>
+        <button type="button" class="filter" aria-pressed="false" data-kind="post">Yazılar</button>
+        <button type="button" class="filter" aria-pressed="false" data-kind="update">Güncellemeler</button>
+      </div>
+      <div data-now-timeline></div>
+      <p class="now-feed__empty" data-now-empty hidden>Bu türde henüz kayıt yok.</p>
+      <noscript><p class="now-feed__empty">Kayıtlar JavaScript ile yükleniyor; tarayıcında JavaScript kapalı görünüyor.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Uygulamalar</h2>
+          <ul>
+            <li><a href="/apps/">Tüm uygulamalar</a></li>
+            <li><a href="/levh/">Levh</a></li>
+            <li><a href="/apps/#yakinda">Yakında</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Yardım</h2>
+          <ul>
+            <li><a href="/levh/support/">Destek</a></li>
+            <li><a href="/levh/privacy/">Gizlilik</a></li>
+            <li><a href="/levh/support/#sss">SSS</a></li>
+            <li><a href="mailto:muhammedturabisancak@gmail.com">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Hakkımda</h2>
+          <ul>
+            <li><a href="/#hakkimda">Hakkımda</a></li>
+            <li><a href="/now/">Şu an</a></li>
+            <li><a href="/now/#icerik">İçerik</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Takip et</h2>
+          <ul>
+            <li><a href="https://x.com/mturabisancak" rel="me noopener">X</a></li>
+            <li><a href="https://github.com/muhammedturabisancak" rel="me noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@muhammedturabisancak" rel="me noopener">Medium</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__copy">© 2026 Muhammed Turabi Sancak · İstanbul</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

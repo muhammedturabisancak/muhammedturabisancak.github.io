@@ -1314,6 +1314,200 @@ button {
   gap: 10px;
 }
 
+/* ---------- NowStatus (Figma 45:241) ---------- */
+.now-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-24);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 24px;
+  background: var(--color-surface);
+}
+
+.now-status__label {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.now-status__title {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.now-status__meta {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0 0;
+  list-style: none;
+}
+
+.todo li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.todo li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 5px;
+  border: 1.5px solid var(--color-text-tertiary);
+  border-radius: 50%;
+}
+
+.todo li.is-done {
+  color: var(--color-text-secondary);
+}
+
+.todo li.is-done::before {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+/* ---------- TimelineItem (Figma 45:298) ---------- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline__date {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: var(--space-12) 0 10px;
+}
+
+.timeline__date strong {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.timeline__date span {
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+}
+
+/* Hat ve nokta */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--dot, var(--color-accent));
+}
+
+.timeline-item__card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+  min-width: 0;
+  margin: 6px 0 6px 34px;
+  padding: 18px var(--space-20);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.timeline-item__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.timeline-item__thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 120px;
+  height: 72px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--color-surface-raised);
+}
+
+.timeline-item__thumb .glow { --x: -10px; --y: -40px; --w: 140px; --h: 90px; --b: 14px; }
+
+.timeline-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.timeline-item__kind {
+  color: var(--kind, var(--color-accent));
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.timeline-item__title {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.timeline-item__meta {
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.timeline-item--video,
+.timeline-item--post {
+  --kind: var(--color-accent-alt);
+}
+
+.timeline-item--video { --dot: var(--color-accent-alt); }
+.timeline-item--post { --dot: var(--color-glow-c); }
+
 /* ---------- SectionHeader (Figma 22:212) ---------- */
 .section-header {
   display: flex;
@@ -1542,6 +1736,8 @@ main,
 
 :root[data-theme="light"] .tile,
 :root[data-theme="light"] .app-card,
+:root[data-theme="light"] .now-status,
+:root[data-theme="light"] .timeline-item__card,
 :root[data-theme="light"] .feature-row,
 :root[data-theme="light"] .privacy-card {
   box-shadow: var(--shadow-card-light);
@@ -1557,6 +1753,8 @@ main,
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) .app-card,
+  :root:not([data-theme="dark"]) .now-status,
+  :root:not([data-theme="dark"]) .timeline-item__card,
   :root:not([data-theme="dark"]) .feature-row,
   :root:not([data-theme="dark"]) .privacy-card {
     box-shadow: var(--shadow-card-light);
@@ -2363,5 +2561,129 @@ main,
 
   .levh-cta {
     padding-bottom: 60px;
+  }
+}
+
+/* ---------- S04 Şu an (Figma 46:1976 / 47:2269) ---------- */
+.now-glow--a { --x: -120px; --y: -80px; --w: 560px; --h: 420px; --c: var(--color-glow-a); }
+.now-glow--b { --x: 200px; --y: 120px; --w: 420px; --h: 320px; --c: var(--color-glow-c); }
+
+.now-board {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-40);
+  padding-top: 74px;
+  padding-bottom: 138px;
+}
+
+.now-side {
+  position: sticky;
+  top: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-20);
+}
+
+.now-side__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-20);
+}
+
+.now-side__date {
+  color: var(--color-text-tertiary);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.now-side__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+
+.now-side__lead {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.now-feed .filters {
+  justify-content: flex-start;
+  padding: var(--space-8) 0 var(--space-24);
+}
+
+.now-feed__empty {
+  padding: var(--space-24) 0;
+  color: var(--color-text-tertiary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 999px) {
+  .now-board {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .now-side {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .now-glow--a { --x: -120px; --y: -60px; --w: 380px; --h: 320px; }
+  .now-glow--b { --x: 140px; --y: 80px; --w: 300px; --h: 240px; }
+
+  .now-board {
+    padding-top: 38px;
+    padding-bottom: 58px;
+  }
+
+  .now-side {
+    gap: 18px;
+  }
+
+  .now-side__head {
+    gap: var(--space-12);
+  }
+
+  .now-side .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .now-side__title {
+    font-size: 40px;
+    line-height: 1.06;
+  }
+
+  .now-side .tile--clock {
+    height: 200px;
+  }
+
+  .now-feed .filters {
+    padding: var(--space-12) 0 18px;
+  }
+
+  .timeline__date {
+    padding: 10px 0 8px;
+  }
+
+  .timeline-item__card {
+    align-items: flex-start;
+  }
+
+  .timeline-item__thumb {
+    width: 88px;
+    height: 56px;
   }
 }

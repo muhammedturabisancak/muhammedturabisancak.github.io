@@ -11,14 +11,14 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (2a PR #4, menü PR #5; 2b commit bekliyor) |
 | 3 | S01 Ana sayfa (TR) | bitti (commit atıldı; `main`'e toplu çıkışta, K-26) |
 | 4 | S02 Uygulamalar (TR) | bitti (commit atıldı) |
-| 5 | S03 Levh (TR) | bitti (commit bekliyor; ekranlar 1x, 2x bekleniyor) |
-| 6 | S04 Şu an (TR) + `now/data.json` | bekliyor |
+| 5 | S03 Levh (TR) | bitti (commit atıldı; ekranlar 1x, 2x bekleniyor) |
+| 6 | S04 Şu an (TR) + `now/data.json` | bitti (commit bekliyor) |
 | 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bekliyor |
 | 8 | İngilizce sayfalar `/en/…` | bekliyor |
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 20 Ekim 2026 — Aşama 5 `index-page` dalında. `levh/index.html` (S03): giriş (3 telefon; Figma'daki dönmemiş sol üst köşe + transform-origin 0 0, CSS dönme yönü Figma'nın tersi), 5 × FeatureRow (sol/sağ; 1240 altında mobil düzen), Gizlilik (3 PrivacyCard), DownloadCTA. Yeni: `.store-badge`, `.feature-row`, `.privacy-card`, `.download-cta`, `.phone__screen--dark/--light` (temaya göre ekran), `.glow` artık `--o` (opaklık) alıyor; S03 açık temada giriş ışıkları Figma 37:1653'teki gibi farklı. tokens: `--store-badge-bg/-border`. Levh ekranları `assets/img/levh/{bugun,kesfet,kible,zikir,kaza-takibi,dini-gun}-{dark,light}.jpg` (Figma MCP'den 1x 390 px; 2x kullanıcıdan bekleniyor). Not: `text-transform: uppercase` Türkçe sayfada 'iOS'u 'İOS' yapar; bu etikette metin elle büyük yazıldı. Kontrol betiği artık önce sayfayı kaydırıp tembel yüklenen görselleri bekliyor. Sıradaki: Aşama 6 (S04 Şu an + now/data.json).
+Son oturum: 21 Ekim 2026 — Aşama 6 `index-page` dalında. `now/index.html` (S04) + `now/data.json` (plandaki biçim; K-22 gereği örnek video/yazı yok). site.css: `.now-status`, `.todo`, `.timeline`, `.timeline-item` (+ --video/--post), `.now-board` (sol sütun yapışkan; 1000 altında tek sütun). site.js: data.json'u okuyup durum kartını, yapılacakları, zaman çizelgesini (tarihe göre gruplu) ve ana sayfa widget'ını (`[data-now-title/-percent/-progress]`) doldurur; `[data-today]` İstanbul saatine göre bugünün tarihi; sekmeler `[data-kind]`, boş türde 'Bu türde henüz kayıt yok.' (Figma'da çizim yok). Metinler textContent ile (innerHTML yok). 'Daha eski kayıtlar →' konmadı (eski kayıt sayfası yok). Kontrol: 1440/1240/1000/800/721/600/390 taşma yok (uzun kelime için overflow-wrap), sekme ve widget testi geçti. Sıradaki: Aşama 7 (S05 Gizlilik, S06 Destek, S07 404).
 
 ## Aşama ayrıntıları
 
