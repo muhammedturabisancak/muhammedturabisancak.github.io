@@ -13,12 +13,12 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 4 | S02 Uygulamalar (TR) | bitti (commit atıldı) |
 | 5 | S03 Levh (TR) | bitti (commit atıldı; ekranlar 1x, 2x bekleniyor) |
 | 6 | S04 Şu an (TR) + `now/data.json` | bitti (commit atıldı) |
-| 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bitti (commit bekliyor; gizlilik metni kullanıcı onayı bekliyor) |
-| 8 | İngilizce sayfalar `/en/…` | bekliyor |
+| 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bitti (commit atıldı; gizlilik metni kullanıcı onayı bekliyor) |
+| 8 | İngilizce sayfalar `/en/…` | bitti (commit bekliyor) |
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 21 Ekim 2026 — Aşama 7 `index-page` dalında. `levh/privacy/index.html` (S05), `levh/support/index.html` (S06, SSS `#sss`), `404.html` (S07, noindex, alt bilgisiz). Metinler bu dosyadaki 'İçerik' bölümlerinden birebir. site.css: `.doc-header` (TR/EN dil düğmeleri), `.doc-section`, `.contact-card` (Kopyala → `[data-copy]`), `.doc`, `.not-found`, `.nf-moon`. Kontrol: sayfa yükseklikleri Figma'yla aynı (Gizlilik 1913/2359, Destek 1986/2247); 1440/1000/721/390 taşma yok; kopyalama testi geçti; konsol temiz. Açık: gizlilik metnine 'Verilerim' yedeği cümlesi (kullanıcıya soruldu); gizlilik metni yayından önce kullanıcı okuyacak. Sıradaki: Aşama 8 (İngilizce sayfalar).
+Son oturum: 21 Ekim 2026 — Aşama 8 `index-page` dalında. `en/` altında 6 sayfa (ana sayfa, apps, levh, levh/privacy, levh/support, now); TR sayfalardan bir Python betiğiyle üretildi (metin düğümü/öznitelik eşleştirmesi, iç bağlantılar /en/'e, dil düğmesi TR'ye döner, html lang=en, canonical EN). Betik oturumun geçici klasöründe, depoda değil: TR sayfa değişirse EN elle güncellenir ya da betik yeniden yazılır. `now/data.json`'a `title_en`/`text_en` eklendi; site.js `lang=en`'de bunları ve İngilizce tarih/yüzde biçimini kullanıyor. 404 tek (TR). Düzeltme: 1240 altında FeatureRow metin üstte, telefon altta akıyor (uzun EN metin telefonun üstüne binmesin; TR'de telefon ~238 px'te kalıyor). Kontrol: 6 EN sayfa koyu/açık × 1440/390, taşma yok, konsol temiz, EN Şu an + widget testi geçti. Sıradaki: Aşama 9 (hareketler + canlı saat/vakit).
 
 ## Aşama ayrıntıları
 

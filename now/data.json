@@ -1,19 +1,20 @@
 {
   "status": {
     "title": "Levh 1.0'ı App Store'a hazırlıyorum",
+    "title_en": "Getting Levh 1.0 ready for the App Store",
     "progress": 80,
     "updated": "2026-10-19",
     "todo": [
-      { "text": "Uygulama App Store Connect'e yüklendi", "done": true },
-      { "text": "Geliştirici sözleşmesi kabul edildi", "done": true },
-      { "text": "Gizlilik ve destek sayfaları", "done": false },
-      { "text": "Mağaza ekran görüntüleri ve açıklama", "done": false }
+      { "text": "Uygulama App Store Connect'e yüklendi", "text_en": "App uploaded to App Store Connect", "done": true },
+      { "text": "Geliştirici sözleşmesi kabul edildi", "text_en": "Developer agreement accepted", "done": true },
+      { "text": "Gizlilik ve destek sayfaları", "text_en": "Privacy and support pages", "done": false },
+      { "text": "Mağaza ekran görüntüleri ve açıklama", "text_en": "Store screenshots and description", "done": false }
     ]
   },
   "timeline": [
-    { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Levh 1.0.0 App Store Connect'e yüklendi", "text": "İnceleme öncesi son adımlar: gizlilik sayfası ve ekran görüntüleri." },
-    { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Alt menüde canlı kıble halkası", "text": "Kıble'ye ne kadar yakın olduğunu alt menüden gösteren halka." },
-    { "date": "2026-10-19", "kind": "update", "app": "site", "title": "muhammedturabisancak.dev baştan tasarlanıyor", "text": "Bu sayfa da onun bir parçası." },
-    { "date": "2026-10-18", "kind": "update", "app": "levh", "title": "Dini günlerde tebrik kartı", "text": "Kandil ve bayramlarda tek dokunuşla paylaşılan kart." }
+    { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Levh 1.0.0 App Store Connect'e yüklendi", "text": "İnceleme öncesi son adımlar: gizlilik sayfası ve ekran görüntüleri.", "title_en": "Levh 1.0.0 uploaded to App Store Connect", "text_en": "Last steps before review: the privacy page and screenshots." },
+    { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Alt menüde canlı kıble halkası", "text": "Kıble'ye ne kadar yakın olduğunu alt menüden gösteren halka.", "title_en": "A live qibla ring in the tab bar", "text_en": "A ring in the tab bar that shows how close you are to the qibla." },
+    { "date": "2026-10-19", "kind": "update", "app": "site", "title": "muhammedturabisancak.dev baştan tasarlanıyor", "text": "Bu sayfa da onun bir parçası.", "title_en": "muhammedturabisancak.dev is being redesigned", "text_en": "This page is part of it." },
+    { "date": "2026-10-18", "kind": "update", "app": "levh", "title": "Dini günlerde tebrik kartı", "text": "Kandil ve bayramlarda tek dokunuşla paylaşılan kart.", "title_en": "Greeting cards for religious days", "text_en": "A card you can share with one tap on holy nights and Eids." }
   ]
 }

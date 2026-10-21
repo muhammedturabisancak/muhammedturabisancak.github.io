@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Now · Muhammed Turabi Sancak</title>
+  <meta name="description" content="What I'm working on, learning and sharing.">
+  <link rel="canonical" href="https://muhammedturabisancak.dev/en/now/">
+  <link rel="alternate" hreflang="tr" href="https://muhammedturabisancak.dev/now/">
+  <link rel="alternate" hreflang="en" href="https://muhammedturabisancak.dev/en/now/">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/unbounded-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/now/data.json" as="fetch" type="application/json" crossorigin>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div class="page-glow" style="--page-glow-h: 500px" aria-hidden="true">
+    <div class="page-glow__inner">
+      <span class="glow now-glow--a"></span>
+      <span class="glow now-glow--b"></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main menu">
+      <a class="site-nav__brand" href="/en/">Turabi Sancak</a>
+      <div class="site-nav__links">
+        <a href="/en/apps/">Apps</a>
+        <a href="/en/now/" aria-current="page">Now</a>
+        <a href="/en/#hakkimda">About</a>
+      </div>
+      <a class="site-nav__lang" href="/now/" hreflang="tr" lang="tr">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        TR
+      </a>
+      <button type="button" class="icon-btn" data-theme-toggle>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+      <button type="button" class="icon-btn site-nav__menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+    </nav>
+    <div class="site-menu" id="site-menu" hidden>
+      <div class="site-menu__scrim" data-menu-close></div>
+      <nav class="site-menu__panel" aria-label="Mobile menu">
+        <div class="site-menu__top">
+          <button type="button" class="icon-btn" aria-label="Close menu" data-menu-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <ul class="site-menu__list">
+          <li><a href="/en/">Home <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/en/apps/">Apps <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/en/now/" aria-current="page">Now <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+          <li><a href="/en/#hakkimda">About <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+        </ul>
+        <div class="site-menu__foot">
+          <div class="site-menu__pills">
+            <a class="site-nav__lang" href="/now/" hreflang="tr" lang="tr">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              Türkçe
+            </a>
+            <button type="button" class="icon-btn" data-theme-toggle>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+          </div>
+          <ul class="site-menu__social">
+            <li><a href="https://x.com/mturabisancak" rel="me noopener">X</a></li>
+            <li><a href="https://github.com/muhammedturabisancak" rel="me noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@muhammedturabisancak" rel="me noopener">Medium</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="now-board container" data-now>
+    <aside class="now-side">
+      <div class="now-side__head">
+        <img class="avatar" src="/assets/img/avatar-256.jpg" width="84" height="84" alt="Muhammed Turabi Sancak">
+        <p class="now-side__date" data-today></p>
+        <h1 class="now-side__title">Now</h1>
+        <p class="now-side__lead">What I'm working on, learning and sharing.</p>
+      </div>
+      <section class="now-status" aria-labelledby="now-status-baslik">
+        <h2 class="now-status__label" id="now-status-baslik">Working on</h2>
+        <p class="now-status__title" data-now-title></p>
+        <span class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progress"><span class="progress__fill" data-now-progress></span></span>
+        <p class="now-status__meta" data-now-meta></p>
+        <ul class="todo" data-now-todo></ul>
+      </section>
+      <div class="tile tile--sm tile--clock">
+        <span class="glow tile__glow"></span>
+        <span class="tile__celestial" aria-hidden="true"></span>
+        <div class="tile__body">
+          <h2 class="tile__label">Istanbul · Now</h2>
+          <span class="tile__clock">20:42</span>
+          <span class="tile__meta">Isha in 01:02 · night</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="now-feed" id="icerik" aria-label="Timeline">
+      <div class="filters" role="group" aria-label="Filter entries">
+        <button type="button" class="filter" aria-pressed="true" data-kind="">All</button>
+        <button type="button" class="filter" aria-pressed="false" data-kind="video">Videos</button>
+        <button type="button" class="filter" aria-pressed="false" data-kind="post">Writing</button>
+        <button type="button" class="filter" aria-pressed="false" data-kind="update">Updates</button>
+      </div>
+      <div data-now-timeline></div>
+      <p class="now-feed__empty" data-now-empty hidden>Nothing here yet.</p>
+      <noscript><p class="now-feed__empty">Entries load with JavaScript, which seems to be turned off in your browser.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Apps</h2>
+          <ul>
+            <li><a href="/en/apps/">All apps</a></li>
+            <li><a href="/en/levh/">Levh</a></li>
+            <li><a href="/en/apps/#yakinda">Coming soon</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Help</h2>
+          <ul>
+            <li><a href="/en/levh/support/">Support</a></li>
+            <li><a href="/en/levh/privacy/">Privacy</a></li>
+            <li><a href="/en/levh/support/#sss">FAQ</a></li>
+            <li><a href="mailto:muhammedturabisancak@gmail.com">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">About</h2>
+          <ul>
+            <li><a href="/en/#hakkimda">About</a></li>
+            <li><a href="/en/now/">Now</a></li>
+            <li><a href="/en/now/#icerik">Content</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Follow</h2>
+          <ul>
+            <li><a href="https://x.com/mturabisancak" rel="me noopener">X</a></li>
+            <li><a href="https://github.com/muhammedturabisancak" rel="me noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/muhammedturabisancak/" rel="me noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@muhammedturabisancak" rel="me noopener">Medium</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__copy">© 2026 Muhammed Turabi Sancak · Istanbul</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

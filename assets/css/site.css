@@ -2586,28 +2586,40 @@ main,
   .levh-hero__phones .phone:nth-child(3) { --phone-w: 142.6px; left: 200px; top: 50px; transform: rotate(-7deg); }
   .levh-hero__phones .phone:nth-child(2) { --phone-w: 193.2px; left: 78.4px; top: 6px; }
 
+  /* Metin üstte, telefon altta akar: kısa metinde telefon Figma'daki gibi 238 px'te, uzun metinde aşağı kayar */
   .feature-row,
   .feature-row--right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 740px;
+    padding: 32px 28px 0;
     border-radius: var(--radius-xl);
   }
 
   .feature-row .phone,
   .feature-row--right .phone {
     --phone-w: 218px;
-    left: calc(50% - 109px);
-    top: 238px;
+    position: relative;
+    left: auto;
+    top: auto;
+    flex-shrink: 0;
+    order: 1;
+    margin-top: var(--space-24);
     transform: none;
   }
 
   .feature-row__text,
   .feature-row--right .feature-row__text {
-    left: 28px;
-    right: 28px;
-    top: 32px;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
     gap: 10px;
-    width: auto;
+    width: 100%;
     max-width: 480px;
+    min-height: 182px;
+    align-self: flex-start;
   }
 
   .feature-row__glow--1,
