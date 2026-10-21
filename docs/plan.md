@@ -12,13 +12,13 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 3 | S01 Ana sayfa (TR) | bitti (commit atıldı; `main`'e toplu çıkışta, K-26) |
 | 4 | S02 Uygulamalar (TR) | bitti (commit atıldı) |
 | 5 | S03 Levh (TR) | bitti (commit atıldı; ekranlar 1x, 2x bekleniyor) |
-| 6 | S04 Şu an (TR) + `now/data.json` | bitti (commit bekliyor) |
-| 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bekliyor |
+| 6 | S04 Şu an (TR) + `now/data.json` | bitti (commit atıldı) |
+| 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bitti (commit bekliyor; gizlilik metni kullanıcı onayı bekliyor) |
 | 8 | İngilizce sayfalar `/en/…` | bekliyor |
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
 
-Son oturum: 21 Ekim 2026 — Aşama 6 `index-page` dalında. `now/index.html` (S04) + `now/data.json` (plandaki biçim; K-22 gereği örnek video/yazı yok). site.css: `.now-status`, `.todo`, `.timeline`, `.timeline-item` (+ --video/--post), `.now-board` (sol sütun yapışkan; 1000 altında tek sütun). site.js: data.json'u okuyup durum kartını, yapılacakları, zaman çizelgesini (tarihe göre gruplu) ve ana sayfa widget'ını (`[data-now-title/-percent/-progress]`) doldurur; `[data-today]` İstanbul saatine göre bugünün tarihi; sekmeler `[data-kind]`, boş türde 'Bu türde henüz kayıt yok.' (Figma'da çizim yok). Metinler textContent ile (innerHTML yok). 'Daha eski kayıtlar →' konmadı (eski kayıt sayfası yok). Kontrol: 1440/1240/1000/800/721/600/390 taşma yok (uzun kelime için overflow-wrap), sekme ve widget testi geçti. Sıradaki: Aşama 7 (S05 Gizlilik, S06 Destek, S07 404).
+Son oturum: 21 Ekim 2026 — Aşama 7 `index-page` dalında. `levh/privacy/index.html` (S05), `levh/support/index.html` (S06, SSS `#sss`), `404.html` (S07, noindex, alt bilgisiz). Metinler bu dosyadaki 'İçerik' bölümlerinden birebir. site.css: `.doc-header` (TR/EN dil düğmeleri), `.doc-section`, `.contact-card` (Kopyala → `[data-copy]`), `.doc`, `.not-found`, `.nf-moon`. Kontrol: sayfa yükseklikleri Figma'yla aynı (Gizlilik 1913/2359, Destek 1986/2247); 1440/1000/721/390 taşma yok; kopyalama testi geçti; konsol temiz. Açık: gizlilik metnine 'Verilerim' yedeği cümlesi (kullanıcıya soruldu); gizlilik metni yayından önce kullanıcı okuyacak. Sıradaki: Aşama 8 (İngilizce sayfalar).
 
 ## Aşama ayrıntıları
 
