@@ -42,7 +42,7 @@ CNAME                      muhammedturabisancak.dev (dokunma)
 ## Kod kuralları
 - Renk, boşluk, köşe, gölge, süre ve eğri **yalnızca `tokens.css`'teki değişkenlerden** (`var(--color-bg)` vb.). Sayfa/bileşen CSS'ine hex, sabit px süre ya da elle eğri yazılmaz. Değişken adları Figma'daki "code syntax" ile aynıdır (`docs/design.md`). İstisna: Figma bileşeninde değişkene bağlı olmayan ölçüler (ör. iç boşluk 13/22, aralık 28) Figma'daki px değeriyle aynen yazılır; tahmin edilmez, yuvarlanmaz.
 - Figma'da karşılığı olmayan bir şey (ör. bir bileşenin çizilmemiş hâli) koda yazılmadan önce Figma'da çizilir ve kullanıcı onaylar.
-- Tema: `:root` koyu değerler (site koyu öncelikli), açık tema `@media (prefers-color-scheme: light)` + `[data-theme="light"]`, kullanıcı seçimi `[data-theme]` ile; seçim `localStorage`'da (`theme`). Tema düğmesi: Sistem → Koyu → Açık.
+- Tema: `:root` koyu değerler (site koyu öncelikli), açık tema `@media (prefers-color-scheme: light)` + `[data-theme="light"]`, kullanıcı seçimi `[data-theme]` ile; seçim `localStorage`'da (`theme`). Tema düğmesi tek tıkla görünen temanın tersine geçer (Koyu ↔ Açık); seçim yoksa sistem teması geçerli (K-29).
 - Bileşen = bir CSS sınıfı ailesi (BEM benzeri, ör. `.app-icon`, `.app-icon--glyph`). Eşleme `docs/design.md`'de; yeni bileşen uydurma, önce Figma'da var mı bak.
 - Erişilebilirlik: anlamlı HTML (`header/nav/main/section/footer`), her görselde `alt`, odak halkası görünür, kontrast AA, dokunma hedefi ≥ 44 px.
 - `prefers-reduced-motion: reduce` açıksa tüm hareketler kapanır, yalnız kısa solma kalır (Motion › ReducedMotion modu).

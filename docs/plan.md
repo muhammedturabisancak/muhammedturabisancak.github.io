@@ -8,17 +8,22 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 |---|---|---|
 | 0 | Depoyu bu klasöre bağla, dal aç, eski dosyaları kaldır | bitti (PR #2, main'de) |
 | 1 | Temel: `tokens.css`, yazı tipleri, `site.css` iskeleti, tema düğmesi | bitti (PR #3, main'de) |
-| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (2a PR #4, menü PR #5; 2b commit bekliyor) |
+| 2 | Ortak bileşenler — 2a: Nav, Footer, Button, Chip, Avatar, AppIcon, SectionHeader · 2b: Dock, Widget'lar, HomeScreen, Phone, Tile'lar | bitti (PR #4, #5, #6, #7; main'de) |
 | 3 | S01 Ana sayfa (TR) | bitti (commit atıldı; `main`'e toplu çıkışta, K-26) |
 | 4 | S02 Uygulamalar (TR) | bitti (commit atıldı) |
 | 5 | S03 Levh (TR) | bitti (commit atıldı; ekranlar 1x, 2x bekleniyor) |
 | 6 | S04 Şu an (TR) + `now/data.json` | bitti (commit atıldı) |
 | 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bitti (commit atıldı; gizlilik metni kullanıcı onayı bekliyor) |
-| 8 | İngilizce sayfalar `/en/…` | bitti (commit bekliyor) |
-| 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bekliyor |
-| 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bekliyor |
+| 8 | İngilizce sayfalar `/en/…` | bitti (commit atıldı) |
+| 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bitti (commit bekliyor; aşağıdaki not) |
+| 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | kontroller bitti, commit bekliyor; kalan: kullanıcı onayları (aşağıdaki "Açık işler") ve canlıya çıkış |
 
-Son oturum: 21 Ekim 2026 — Aşama 8 `index-page` dalında. `en/` altında 6 sayfa (ana sayfa, apps, levh, levh/privacy, levh/support, now); TR sayfalardan bir Python betiğiyle üretildi (metin düğümü/öznitelik eşleştirmesi, iç bağlantılar /en/'e, dil düğmesi TR'ye döner, html lang=en, canonical EN). Betik oturumun geçici klasöründe, depoda değil: TR sayfa değişirse EN elle güncellenir ya da betik yeniden yazılır. `now/data.json`'a `title_en`/`text_en` eklendi; site.js `lang=en`'de bunları ve İngilizce tarih/yüzde biçimini kullanıyor. 404 tek (TR). Düzeltme: 1240 altında FeatureRow metin üstte, telefon altta akıyor (uzun EN metin telefonun üstüne binmesin; TR'de telefon ~238 px'te kalıyor). Kontrol: 6 EN sayfa koyu/açık × 1440/390, taşma yok, konsol temiz, EN Şu an + widget testi geçti. Sıradaki: Aşama 9 (hareketler + canlı saat/vakit).
+Son oturum: 24 Ekim 2026 — Aşama 9 + 10 `index-page` dalında (tek commit olacak, commit bekliyor).
+- **Canlı vakit:** `assets/js/vendor/adhan.min.js` (adhan-js 4.4.6, MIT, npm `lib/bundles/adhan.umd.min.js`, kaynak haritası satırı çıkarıldı). `site.js` İstanbul saatini Intl ile, sıradaki vakti adhan (Diyanet/Turkey, 41.0082 / 28.9784) ile hesaplar; her saniye günceller. HTML'de `data-clock`, `data-prayer-name`, `data-prayer-countdown`, `data-prayer-meta`; betik yalnız `/` ve `/en/`'de yüklü. Betik çalışmazsa değerler "--:--" kalır (örnek değer yazmıyoruz). Saat kutusu (Tile/Clock) K-27 ile kaldırıldı; canlı değerler yalnız Levh widget'ında (geri sayım, vakit adı, vakit saati) ve HomeScreen durum çubuğunda (saat) kalır.
+- **Hareketler (K-15):** hepsi `site.css` sonundaki "Hareket" bölümünde. Süre ve eğri token'lardan; Figma kartında yalnız metinle verilen zamanlar `--motion-*` değişkenlerinde (900/22/800/200/90/250/500/650/1050/1800/380/900/120/200 ms). A1 açılış (ad harf harf: gradyan her harfin kendisinde, `--x` em olarak ölçüldü; çünkü Chrome animasyonlu çocukları üst öğenin `background-clip:text`'inde çizmiyor), B1 ikon kalkışı, C3 imleç hâlesi (`[data-follow]`, `site.js`), D3 kutucuk üzerine gelince, E2 paralaks (`--p`, `site.js`; ≤1239 px'te etki yarım), F1 kutucuk büyür (`@view-transition`, `view-transition-name: levh-hero`, kutucuğa tıklanınca `site.js` adı verir, Levh girişi geçişten sonra `html.vt` ile gecikmeli gelir). `prefers-reduced-motion: reduce`: hepsi kapalı, yalnız 200 ms solma; `@view-transition` da kapalı. Ad harfleri artık satır içi blok olduğundan ad ~%0,9 genişledi (kerning kaybı, 551,9 px).
+- **Simge ve paylaşım görseli:** Figma'da yoktu, 01_Foundations'a çizildi (düğüm 113:2: Favicon 113:6, Apple touch 113:7, OG 113:27). Dosyalar: `favicon.svg` (Figma SVG dışa aktarımı), `favicon.ico` (16/32/48 PNG), `apple-touch-icon.png` (180), `assets/img/og.jpg` (1200×630, 125 KB; PNG 586 KB idi, WhatsApp 300 KB üstünü almıyor). Tüm sayfalarda `og:*`, `twitter:card`, simge bağlantıları; 404'te yalnız simge.
+- **Kontrol:** 13 sayfa × (1440 koyu, 390 açık): konsol temiz, yatay taşma yok, kırık görsel/bağlantı yok, `alt`, `lang`, tek `h1`, `canonical`, `hreflang` karşılıklı. Saat kutusu (K-27) ve İlkeler kutusu (K-28) kaldırıldı; ana sayfada Hakkımda uzun metinle 390×440 sütunda (≥1240 px), 721–1239 px'te tam genişlikte, mobilde 480 px+ (metne göre büyür); Süreç ve İçerik yarım yarıma. Dokunma hedefi: Figma ölçüleri (38 px düğme, 33 px filtre) değişmeden tıklanabilir alan 44 px'e büyütüldü (`site.css` sonu); alt bilgi liste bağlantıları ve satır içi bağlantılar 17–22 px kaldı (Figma yerleşimi).
+
 
 ## Aşama ayrıntıları
 
@@ -106,7 +111,17 @@ Sık sorulanlar:
 ## Açık işler (karar/girdi bekleyen)
 - Mağaza bağlantıları ve resmî rozetler (Levh yayınlanınca).
 - Gerçek video/yazı bağlantıları (K-22).
-- Hakkımda metninin son hâli (Figma'daki: "Bilgisayar mühendisiyim; kampüste GDG topluluğunu yönettim, DevFest Erzurum ekibindeydim.") — kullanıcı onaylasın.
+- Hakkımda metni **kesinleşti** (K-28; kullanıcının seçtiği 1. versiyon). Zaman kipi "çalıştım" kullanıcının yazdığı gibi bırakıldı (CV'de Base Interactive hâlâ devam ediyor; istenirse "çalışıyorum" yapılır).
 - Gizlilik metnine "Verilerim" yedeği cümlesi (yukarıdaki not).
 - Ana ekrandaki Tasarımlar (Figma profili?) ve Videolar (YouTube kanalı) ikonlarının adresleri.
 - Levh ekranlarının 2x dışa aktarımı (Figma MCP ekran görüntüsü 1x veriyor; gerekirse kullanıcı Figma'dan 2x PNG verir).
+- Favicon ("M" harfi) ve paylaşım görselinin onayı (Figma 113:2). Onaylanmazsa yalnız dosyalar yenilenir.
+- **Kontrast AA (token değeri, Figma'da değişir):** `textTertiary` koyu 4,04 / açık 2,96; `accent` açık 4,00; `accentAlt` açık 4,16 (11–13 px etiketlerde kullanılıyor, 4,5 gerekir). Önerilen değerler: textTertiary koyu #7C7F88, açık #6C707A; accent açık #15805C; accentAlt açık #2D66F2. Kullanıcı onaylayınca Figma değişkenleri + `tokens.css` birlikte değişir.
+- Alt bilgi liste bağlantılarının dokunma hedefi (44 px için satır aralığı Figma'dan büyür) — Figma'daki aralık korunsun mu, büyütelim mi?
+- **Saat kutusunun Figma'dan silinmesi (K-27):** S01 ve S04'ün 4+4 ekranında ve 02_Components'taki 22:143'te Tile/Clock duruyor. Ayrıca Tile/Principles (22:130 ve ekranlarda, K-28). Önerilen ana sayfa satırları 01_Foundations › 116:3383 (ilk öneri, geçersiz) ve 117:3397'de (güncel öneri) çizili; onaylanınca ekranlar güncellenir.
+
+- **360 px ve altı telefonlarda yatay kaydırma** (ana sayfada ad nowrap 345 px + 350 px HomeScreen, 10 px taşıyor). Figma'da yalnız 390 var; çözüm için küçük ekranda ölçekleme gerekir.
+- **Mail formu (K-31) ve tema/ikon işleri (K-29, K-30)** kodlandı, commit bekliyor. Figma'da Icon/github, Icon/linkedin (20:xx) eski çizgi hâlinde; ContactCard + form önerisi 121:249'da, S06 ekranları eski.
+- **S08 İletişim (`/contact/`, K-32)** kodlandı, commit bekliyor. Figma'da yalnız öneri çerçeveleri var (122:251 masaüstü, 122:390 mobil, koyu); onaylanınca S08 Desktop/Mobile × Dark/Light olarak 03_Ekranlar'a taşınır. "Bana yaz" düğmesi hâlâ mailto + Kopyala; istenirse `/contact/`'a bağlanır.
+- **FormSubmit (K-33):** kod hazır ve sahte ağ yanıtlarıyla test edildi (başarı, hata, 500, `success:false`, tuzak, geçersiz e-posta, çok uzun metin); gerçek servise hiç istek atılmadı. **Canlıya çıkıştan önce**: kullanıcı `/contact/`'tan bir deneme mesajı gönderir → gmail'e gelen onay mailine tıklar → ikinci deneme mesajı gelen kutuya düşmeli. Onaydan sonra servis rastgele bir adres (alias) verir; istenirse e-posta adresini sayfa kaynağından gizlemek için form adresi o alias ile değiştirilir.
+- İletişim formu (K-34): Cihaz/Sistem sürümü ve adres + Kopyala kaldırıldı; test betiği sahte ağla yeniden geçti.

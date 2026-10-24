@@ -272,6 +272,12 @@ button {
   vector-effect: non-scaling-stroke;
 }
 
+/* Marka işaretleri (GitHub, LinkedIn) dolu çizilir: simple-icons 13.21.0, CC0 */
+.icon--filled {
+  fill: currentColor;
+  stroke: none;
+}
+
 /* ---------- Button (Figma 20:104) ---------- */
 .btn {
   display: inline-flex;
@@ -745,10 +751,6 @@ button {
   text-transform: uppercase;
 }
 
-.tile--sm {
-  height: 210px;
-}
-
 .tile--md {
   height: 280px;
 }
@@ -817,79 +819,11 @@ button {
 .tile--app .tile__glow--1 { --x: -121px; --y: -161px; --w: 700px; --h: 520px; --c: var(--app-levh-primary); --b: 70px; }
 .tile--app .tile__glow--2 { --x: 419px; --y: -141px; --w: 420px; --h: 320px; --c: var(--app-levh-gold); --b: 55px; }
 
-/* Tile/Principles (22:130) */
-.tile--principles .tile__body {
-  gap: 10px;
-}
-
-.stats {
-  display: flex;
-  gap: 28px;
-  margin: 0;
-}
-
-.stats div {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 2px;
-}
-
-.stats dd {
-  margin: 0;
-  color: var(--color-accent);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 54px;
-  line-height: 1.08;
-  letter-spacing: -.04em;
-}
-
-.stats dt {
-  color: var(--color-text-secondary);
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-/* Tile/Clock (22:143) */
-.tile--clock {
-  background: var(--color-clock-bottom);
-}
-
-.tile--clock .tile__body {
-  gap: 6px;
-}
-
-.tile--clock .tile__label {
-  color: var(--color-accent-alt);
-}
-
-.tile__clock {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 58px;
-  line-height: 1;
-  letter-spacing: -.04em;
-  font-variant-numeric: tabular-nums;
-}
-
 .tile__meta {
   color: var(--color-text-secondary);
   font-size: 14px;
   line-height: 1.5;
 }
-
-.tile__celestial {
-  position: absolute;
-  right: 33px;
-  top: 29px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--color-celestial);
-  box-shadow: 0 0 30px color-mix(in srgb, var(--color-celestial) 45%, transparent);
-}
-
-.tile--clock .tile__glow { --x: -61px; --y: -121px; --w: 420px; --h: 260px; --c: var(--color-clock-top); --b: 45px; }
 
 /* Tile/Process (22:150) */
 .tile--process .tile__body {
@@ -979,15 +913,27 @@ button {
   line-height: 1.4;
 }
 
-/* Tile/About (22:180) */
+/* Tile/About (22:180) — ana sayfada uzun metin: masaüstünde 390×440 sütun, diğerlerinde metne göre büyür (Figma 117:3397) */
+.tile--about {
+  min-height: 280px;
+}
+
 .tile--about .tile__body {
+  position: relative;
+  inset: auto;
   gap: 14px;
+  padding: 27px 29px;
 }
 
 .tile--about p {
+  max-width: 560px;
   color: var(--color-text-secondary);
   font-size: 16px;
   line-height: 1.5;
+}
+
+.tile--about p + p {
+  margin-top: -2px;
 }
 
 /* Tile/Upcoming (29:251) */
@@ -1199,12 +1145,15 @@ button {
   left: 170px;
   top: 60px;
   transform-origin: 0 0;
-  transform: rotate(4deg);
+  transform: translateY(calc(var(--p, 0) * -60px)) rotate(calc(var(--dir, 1) * (4deg + var(--p, 0) * 6deg)));
+}
+
+.feature-row--right {
+  --dir: -1;
 }
 
 .feature-row--right .phone {
   left: 780px;
-  transform: rotate(-4deg);
 }
 
 .feature-row__text {
@@ -1647,6 +1596,107 @@ button {
   text-decoration: none;
   user-select: all;
   overflow-wrap: anywhere;
+}
+
+/* ---------- ContactForm (Figma 01_Foundations › 121:249, S08 122:251): İletişim sayfasında ContactCard'ın altında ---------- */
+.contact-form {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-top: var(--space-8);
+  padding-top: var(--space-20);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-12);
+}
+
+.contact-form__trap {
+  display: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.field__label {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.field__control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.field__control::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+textarea.field__control {
+  min-height: 128px;
+  resize: vertical;
+}
+
+.field__select {
+  position: relative;
+  display: block;
+}
+
+.field__select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.field__select::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--color-text-secondary);
+  border-bottom: 1.5px solid var(--color-text-secondary);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.contact-form__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px var(--space-16);
+}
+
+.contact-form__hint {
+  flex: 1 1 220px;
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@media (max-width: 720px) {
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- SectionHeader (Figma 22:212) ---------- */
@@ -2176,20 +2226,24 @@ main,
 
 .home-tiles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--space-20);
   padding-top: 10px;
   padding-bottom: var(--space-section);
 }
 
 .home-tiles .tile--app {
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
-.home-tiles__stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-20);
+.home-tiles .tile--about {
+  grid-column: span 2;
+  height: 440px;
+}
+
+.home-tiles .tile--process,
+.home-tiles .tile--content {
+  grid-column: span 3;
 }
 
 /* Figma'da çizim yok: 1240 altında (ad + 600 px ana ekran sığmaz) giriş alt alta, kutucuklar iki sütun */
@@ -2209,12 +2263,18 @@ main,
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .home-tiles__stack {
-    display: contents;
+  .home-tiles .tile--app,
+  .home-tiles .tile--about {
+    grid-column: span 2;
   }
 
   .home-tiles .tile--about {
-    grid-column: span 2;
+    height: auto;
+  }
+
+  .home-tiles .tile--process,
+  .home-tiles .tile--content {
+    grid-column: auto;
   }
 }
 
@@ -2267,9 +2327,6 @@ main,
     height: 250px;
   }
 
-  .home-tiles .tile--about {
-    height: 260px;
-  }
 }
 
 /* ---------- S02 Uygulamalar (Figma 30:1081 / 31:1289) ---------- */
@@ -2606,7 +2663,7 @@ main,
     flex-shrink: 0;
     order: 1;
     margin-top: var(--space-24);
-    transform: none;
+    transform: translateY(calc(var(--p, 0) * -30px)) rotate(calc(var(--dir, 1) * var(--p, 0) * 3deg));
   }
 
   .feature-row__text,
@@ -2821,10 +2878,6 @@ main,
     line-height: 1.06;
   }
 
-  .now-side .tile--clock {
-    height: 200px;
-  }
-
   .now-feed .filters {
     padding: var(--space-12) 0 18px;
   }
@@ -2959,4 +3012,228 @@ main,
   .not-found__text {
     font-size: 16px;
   }
+}
+
+/* ==========================================================================
+   Hareket (K-15) — Figma 01_Foundations › Hareket (53:11)
+   Süre ve eğri token'lardan. Figma kartında yalnız metinle verilen zamanlar
+   (değişkeni yok) aşağıdaki --motion-* değerlerinde tek yerde durur.
+   "Hareketi azalt" açıkken tüm hareketler kapanır, yalnız kısa solma kalır.
+   ========================================================================== */
+:root {
+  --motion-letter: 900ms;
+  --motion-letter-step: 22ms;
+  --motion-rise: 800ms;
+  --motion-rise-start: 200ms;
+  --motion-rise-step: 90ms;
+  --motion-screen-delay: 250ms;
+  --motion-widget-start: 500ms;
+  --motion-icon: 650ms;
+  --motion-icon-start: 650ms;
+  --motion-dock-start: 1050ms;
+  --motion-glow: 1800ms;
+  --motion-glow-step: 200ms;
+  --motion-lift: 380ms;
+  --motion-phone: 900ms;
+  --motion-phone-start: 120ms;
+  --motion-fade: 200ms;
+}
+
+@keyframes a1-letter { from { opacity: 0; transform: translateY(14px); filter: blur(8px); } }
+@keyframes a1-rise { from { opacity: 0; transform: translateY(10px); } }
+@keyframes a1-screen { from { opacity: 0; transform: scale(.92); filter: blur(12px); } }
+@keyframes a1-widget { from { opacity: 0; transform: translateY(14px) scale(.96); } }
+@keyframes a1-icon { from { opacity: 0; transform: scale(.4); } }
+@keyframes a1-dock { from { opacity: 0; transform: translateY(20px); } }
+@keyframes a1-glow { from { opacity: 0; } }
+@keyframes levh-text { from { opacity: 0; transform: translateY(12px); } }
+@keyframes levh-phone { from { opacity: 0; translate: 0 40px; } }
+@keyframes fade-in { from { opacity: 0; } }
+
+/* Ad: gradyan harflerin kendisinde (animasyonlu çocuklar üst öğenin metin kırpmasında görünmez).
+   --x harfin addaki sol konumu, --name-w adın genişliği (em, 64 px'te ölçüldü; ölçekle birlikte değişir). */
+.intro__name {
+  --name-w: 8.624em;
+}
+
+.intro__name.name-gradient {
+  background: none;
+}
+
+.intro__name .ch {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--color-name-from), var(--color-name-to)) no-repeat calc(var(--x) * -1) 0 / var(--name-w) 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* A1 Sahne: ana sayfa açılışı */
+  .intro__name .ch {
+    animation: a1-letter var(--motion-letter) var(--ease-expo) backwards;
+    animation-delay: calc(var(--i) * var(--motion-letter-step));
+  }
+
+  .intro__text > .avatar,
+  .intro__lead,
+  .intro__actions {
+    animation: a1-rise var(--motion-rise) var(--ease-expo) backwards;
+    animation-delay: calc(var(--motion-rise-start) + var(--n, 0) * var(--motion-rise-step));
+  }
+
+  .intro__lead { --n: 1; }
+  .intro__actions { --n: 2; }
+
+  .home-screen {
+    animation: a1-screen var(--duration-slow) var(--ease-expo) backwards;
+    animation-delay: var(--motion-screen-delay);
+  }
+
+  .home-screen .widget {
+    animation: a1-widget var(--motion-rise) var(--ease-expo) backwards;
+    animation-delay: calc(var(--motion-widget-start) + var(--n, 0) * var(--motion-rise-step));
+  }
+
+  .home-screen .widget--now { --n: 1; }
+
+  .home-screen__icons li {
+    animation: a1-icon var(--motion-icon) var(--ease-spring) backwards;
+    animation-delay: calc(var(--motion-icon-start) + var(--n, 0) * var(--duration-stagger));
+  }
+
+  .home-screen__icons li:nth-child(2) { --n: 1; }
+  .home-screen__icons li:nth-child(3) { --n: 2; }
+  .home-screen__icons li:nth-child(4) { --n: 3; }
+  .home-screen__icons li:nth-child(5) { --n: 4; }
+  .home-screen__icons li:nth-child(6) { --n: 5; }
+  .home-screen__icons li:nth-child(7) { --n: 6; }
+  .home-screen__icons li:nth-child(8) { --n: 7; }
+
+  .home-screen .dock {
+    animation: a1-dock var(--motion-rise) var(--ease-expo) backwards;
+    animation-delay: var(--motion-dock-start);
+  }
+
+  .page-glow .home-glow--a,
+  .page-glow .home-glow--b,
+  .page-glow .home-glow--c {
+    animation: a1-glow var(--motion-glow) ease-out backwards;
+    animation-delay: calc(var(--n, 0) * var(--motion-glow-step));
+  }
+
+  .page-glow .home-glow--b { --n: 1; }
+  .page-glow .home-glow--c { --n: 2; }
+
+  /* B1 Kalkış: ana ekran ikonları */
+  .home-screen .app-icon__tile {
+    transition: transform var(--motion-lift) var(--ease-spring);
+  }
+
+  .home-screen .app-icon:active .app-icon__tile {
+    transform: scale(.9);
+  }
+
+  /* D3 Sabit + üzerine gelince: kutucuklarda giriş yok, yalnız yükselme */
+  .tile {
+    transition: transform var(--duration-fast) var(--ease-expo), border-color var(--duration-fast) var(--ease-expo);
+  }
+
+  /* F1 Kutucuk büyür: Levh kutucuğundan Levh sayfasına (çapraz belge View Transitions) */
+  @view-transition {
+    navigation: auto;
+  }
+
+  /* Levh girişi: geçişten sonra metin, sonra telefonlar sırayla */
+  .levh-hero__text {
+    animation: levh-text var(--duration-base) var(--ease-expo) backwards;
+    animation-delay: var(--hero-delay, 0ms);
+  }
+
+  .levh-hero__phones .phone {
+    animation: levh-phone var(--motion-phone) var(--ease-expo) backwards;
+    animation-delay: calc(var(--hero-delay, 0ms) + var(--motion-phone-start) + var(--n, 0) * var(--motion-rise-step));
+  }
+
+  .levh-hero__phones .phone:nth-child(2) { --n: 1; }
+  .levh-hero__phones .phone:nth-child(3) { --n: 2; }
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .home-screen .app-icon:hover .app-icon__tile {
+    transform: translateY(-4px) scale(1.12);
+  }
+
+  .tile:hover {
+    transform: translateY(-4px);
+  }
+
+  /* C3 İmleç hâlesi: ana mavi ışık imleci izler (konumu site.js --fx / --fy ile verir) */
+  .glow[data-follow] {
+    translate: var(--fx, 0px) var(--fy, 0px);
+  }
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    border-color: var(--color-border);
+  }
+
+  .tile--app:hover {
+    border-color: var(--on-app-border-strong);
+  }
+
+  .tile--upcoming:hover {
+    border-color: var(--color-text-tertiary);
+  }
+}
+
+html.vt {
+  --hero-delay: var(--duration-base);
+}
+
+.levh-hero-wrap {
+  view-transition-name: levh-hero;
+}
+
+::view-transition-group(root) {
+  animation-duration: 0s;
+}
+
+::view-transition-group(levh-hero) {
+  animation-duration: var(--duration-base);
+  animation-timing-function: var(--ease-in-out);
+}
+
+::view-transition-old(levh-hero),
+::view-transition-new(levh-hero) {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hareketi azalt: yalnız kısa solma */
+@media (prefers-reduced-motion: reduce) {
+  .intro__text,
+  .home-screen,
+  .levh-hero__text,
+  .levh-hero__phones {
+    animation: fade-in var(--motion-fade) ease-out backwards;
+  }
+}
+
+/* ==========================================================================
+   Dokunma hedefi ≥ 44 px
+   Figma'daki ölçüler değişmez; tıklanabilir alan görünmez bir katmanla 44 px'e çıkar.
+   ========================================================================== */
+:where(.icon-btn, .filter, .btn--sm, .site-nav__lang, .site-nav__brand, .site-nav__links a, .doc-header__app) {
+  position: relative;
+}
+
+:where(.icon-btn, .filter, .btn--sm, .site-nav__lang, .site-nav__brand, .site-nav__links a, .doc-header__app)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
 }

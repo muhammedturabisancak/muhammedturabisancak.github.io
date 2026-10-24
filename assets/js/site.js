@@ -2,58 +2,52 @@
 (function () {
   "use strict";
 
-  // ---------- Tema: Sistem → Koyu → Açık ----------
-  // Seçim localStorage'da "theme" ("dark" | "light"); yoksa sistem.
-  // İlk boyama için aynı okuma <head> içindeki satır içi betikte de var.
+  // ---------- Tema: Koyu ↔ Açık ----------
+  // Düğme, görünen temanın tersine tek tıkla geçer. Seçim localStorage'da "theme" ("dark" | "light");
+  // hiç seçilmediyse sistem teması geçerlidir. İlk boyama için aynı okuma <head> içindeki satır içi betikte de var.
   var THEME_KEY = "theme";
-  var MODES = ["system", "dark", "light"];
   var LABELS = {
-    tr: { system: "Tema: sistem", dark: "Tema: koyu", light: "Tema: açık" },
-    en: { system: "Theme: system", dark: "Theme: dark", light: "Theme: light" }
+    tr: { toLight: "Açık temaya geç", toDark: "Koyu temaya geç" },
+    en: { toLight: "Switch to light theme", toDark: "Switch to dark theme" }
   };
   var root = document.documentElement;
   var labels = LABELS[root.lang === "en" ? "en" : "tr"];
+  var systemLight = window.matchMedia("(prefers-color-scheme: light)");
+  var chosen = null;
 
-  function readTheme() {
-    try {
-      var saved = localStorage.getItem(THEME_KEY);
-      return saved === "dark" || saved === "light" ? saved : "system";
-    } catch (e) {
-      return "system";
-    }
+  try {
+    var saved = localStorage.getItem(THEME_KEY);
+    if (saved === "dark" || saved === "light") chosen = saved;
+  } catch (e) {
+    // Depolama kapalıysa seçim yalnız bu sayfada geçerli kalır.
   }
 
-  var current = readTheme();
+  function shownTheme() {
+    return chosen || (systemLight.matches ? "light" : "dark");
+  }
 
-  function applyTheme(mode) {
-    current = mode;
-    if (mode === "system") {
-      root.removeAttribute("data-theme");
-    } else {
-      root.setAttribute("data-theme", mode);
-    }
-    try {
-      if (mode === "system") {
-        localStorage.removeItem(THEME_KEY);
-      } else {
-        localStorage.setItem(THEME_KEY, mode);
-      }
-    } catch (e) {
-      // Depolama kapalıysa seçim yalnız bu sayfada geçerli kalır.
-    }
+  function updateThemeButtons() {
+    var label = shownTheme() === "dark" ? labels.toLight : labels.toDark;
     document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
-      button.setAttribute("data-mode", mode);
-      button.setAttribute("aria-label", labels[mode]);
-      button.title = labels[mode];
+      button.setAttribute("aria-label", label);
+      button.title = label;
     });
   }
 
   document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
     button.addEventListener("click", function () {
-      applyTheme(MODES[(MODES.indexOf(current) + 1) % MODES.length]);
+      chosen = shownTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", chosen);
+      try {
+        localStorage.setItem(THEME_KEY, chosen);
+      } catch (e) {
+        // Depolama kapalıysa seçim yalnız bu sayfada geçerli kalır.
+      }
+      updateThemeButtons();
     });
   });
-  applyTheme(current);
+  systemLight.addEventListener("change", updateThemeButtons);
+  updateThemeButtons();
 
   // ---------- Mobil menü: sağdan panel ----------
   // Açılış: hidden kalkar, sonra .is-open ile panel kayar. Kapanış: kayma bitince hidden.
@@ -305,6 +299,224 @@
         if (other.tagName === "BUTTON") other.setAttribute("aria-pressed", String(other === button));
       });
       filterTimeline(button.getAttribute("data-kind"));
+    });
+  });
+
+  // ---------- Canlı saat ve vakit (İstanbul) ----------
+  // Saat Intl ile, sıradaki vakit adhan-js (Diyanet yöntemi, İstanbul koordinatı) ile tarayıcıda hesaplanır.
+  // Hesap yapılamazsa sayfadaki hazır metin kalır.
+  var PRAYERS = {
+    tr: { fajr: ["İmsak", "İmsak'a"], sunrise: ["Güneş", "Güneş'e"], dhuhr: ["Öğle", "Öğle'ye"], asr: ["İkindi", "İkindi'ye"], maghrib: ["Akşam", "Akşam'a"], isha: ["Yatsı", "Yatsı'ya"] },
+    en: { fajr: ["Fajr"], sunrise: ["Sunrise"], dhuhr: ["Dhuhr"], asr: ["Asr"], maghrib: ["Maghrib"], isha: ["Isha"] }
+  }[lang];
+  var PRAYER_ORDER = ["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"];
+  var timeFormat = new Intl.DateTimeFormat(lang === "en" ? "en-GB" : "tr-TR", { timeZone: "Europe/Istanbul", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+  var dayFormat = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Istanbul", year: "numeric", month: "2-digit", day: "2-digit" });
+  var timesCache = {};
+
+  function pad(number) {
+    return (number < 10 ? "0" : "") + number;
+  }
+
+  // adhan günü bilgisayarın yerel takvim günü olarak okur; İstanbul'un gününü o biçimde veriyoruz.
+  function prayerTimes(dayOffset) {
+    var p = dayFormat.format(new Date()).split("-");
+    var day = new Date(+p[0], p[1] - 1, +p[2] + dayOffset);
+    var key = day.getTime();
+    if (!timesCache[key]) {
+      timesCache[key] = new adhan.PrayerTimes(new adhan.Coordinates(41.0082, 28.9784), day, adhan.CalculationMethod.Turkey());
+    }
+    return timesCache[key];
+  }
+
+  function nextPrayer(now) {
+    for (var offset = 0; offset < 2; offset++) {
+      var times = prayerTimes(offset);
+      for (var i = 0; i < PRAYER_ORDER.length; i++) {
+        if (times[PRAYER_ORDER[i]] > now) return { key: PRAYER_ORDER[i], at: times[PRAYER_ORDER[i]] };
+      }
+    }
+  }
+
+  function tickClock() {
+    try {
+      var now = new Date();
+      setText("[data-clock]", timeFormat.format(now));
+      if (!window.adhan) return;
+      var next = nextPrayer(now);
+      var minutes = Math.ceil((next.at - now) / 60000);
+      var countdown = pad(Math.floor(minutes / 60)) + ":" + pad(minutes % 60);
+      var names = PRAYERS[next.key];
+      setText("[data-prayer-name]", lang === "en" ? "Until " + names[0] : names[1]);
+      setText("[data-prayer-countdown]", countdown);
+      setText("[data-prayer-meta]", (lang === "en" ? "Istanbul" : "İstanbul") + " · " + timeFormat.format(next.at));
+    } catch (e) {
+      // Hesap olmazsa sayfadaki hazır metin kalır.
+    }
+  }
+
+  if (document.querySelector("[data-clock]")) {
+    tickClock();
+    setInterval(tickClock, 1000);
+  }
+
+  // ---------- Hareket: imleç hâlesi (C3), paralaks (E2), sayfa geçişi (F1) ----------
+  // Hepsi "hareketi azalt" açıkken kapalı; imleç hâlesi yalnız fareli cihazlarda.
+  var motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+
+  // C3: ana ışık imleci her karede %5 yaklaşarak izler. Işığın durağan yeri CSS'te; fark --fx / --fy ile eklenir.
+  var halo = document.querySelector("[data-follow]");
+  if (halo && motionOk && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    var haloHost = halo.parentNode;
+    var targetX = 0;
+    var targetY = 0;
+    var haloX = 0;
+    var haloY = 0;
+    var haloFrame = 0;
+
+    var followHalo = function () {
+      haloX += (targetX - haloX) * 0.05;
+      haloY += (targetY - haloY) * 0.05;
+      halo.style.setProperty("--fx", haloX.toFixed(1) + "px");
+      halo.style.setProperty("--fy", haloY.toFixed(1) + "px");
+      haloFrame = Math.abs(targetX - haloX) > 0.2 || Math.abs(targetY - haloY) > 0.2 ? requestAnimationFrame(followHalo) : 0;
+    };
+
+    window.addEventListener("pointermove", function (event) {
+      // Işığın merkezi ışık alanının (sayfanın üst kısmı) dışına çıkmaz.
+      var rect = haloHost.getBoundingClientRect();
+      var pointerX = Math.max(0, Math.min(haloHost.offsetWidth, event.clientX - rect.left));
+      var pointerY = Math.max(0, Math.min(haloHost.offsetHeight, event.clientY - rect.top));
+      targetX = pointerX - (halo.offsetLeft + halo.offsetWidth / 2);
+      targetY = pointerY - (halo.offsetTop + halo.offsetHeight / 2);
+      if (!haloFrame) haloFrame = requestAnimationFrame(followHalo);
+    });
+  }
+
+  // E2: Levh satırlarında telefon, satırın ekrandaki konumuna (--p: -1…1) göre kayar ve eğimini değiştirir.
+  var featureRows = document.querySelectorAll(".feature-row");
+  if (featureRows.length && motionOk) {
+    var parallaxQueued = false;
+
+    var updateParallax = function () {
+      parallaxQueued = false;
+      featureRows.forEach(function (row) {
+        var rect = row.getBoundingClientRect();
+        var p = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+        row.style.setProperty("--p", Math.max(-1, Math.min(1, p)).toFixed(3));
+      });
+    };
+
+    var queueParallax = function () {
+      if (!parallaxQueued) {
+        parallaxQueued = true;
+        requestAnimationFrame(updateParallax);
+      }
+    };
+
+    window.addEventListener("scroll", queueParallax, { passive: true });
+    window.addEventListener("resize", queueParallax);
+    updateParallax();
+  }
+
+  // F1: Levh kutucuğuna basılınca kutucuk, Levh sayfasının girişiyle aynı adı alır (çapraz belge View Transitions).
+  document.querySelectorAll("[data-vt]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      link.style.viewTransitionName = link.getAttribute("data-vt");
+    });
+  });
+
+  // ---------- İletişim formu ----------
+  // Mesaj FormSubmit (form servisi) üzerinden gmail'e gider. Gönderilemezse ziyaretçiye, aynı metinle
+  // mail uygulamasını açan bir bağlantı gösterilir (mesaj kaybolmaz). Betik çalışmazsa form doğrudan servise gönderilir.
+  document.querySelectorAll("[data-mail-form]").forEach(function (form) {
+    var status = form.querySelector("[data-mail-status]");
+    var button = form.querySelector("[type=submit]");
+    var hint = status.textContent;
+
+    function value(name) {
+      return form.elements[name].value.trim();
+    }
+
+    function labelOf(name) {
+      return form.elements[name].closest(".field").querySelector(".field__label").textContent;
+    }
+
+    // Konu satırı: ilk uygulama seçeneği "Genel" ise sayfanın adı, değilse seçilen uygulamanın adı
+    function subject() {
+      var prefix = form.elements.app.selectedIndex === 0 ? form.getAttribute("data-subject") : value("app");
+      return prefix + " · " + value("topic");
+    }
+
+    // Servis çalışmazsa: aynı metinle mail uygulamasını açan bağlantı (çok uzunsa null)
+    function mailtoLink() {
+      var lines = ["email"].filter(function (name) {
+        return value(name) !== "";
+      }).map(function (name) {
+        return labelOf(name) + ": " + value(name);
+      });
+      var body = value("message").replace(/\r?\n/g, "\r\n");
+      if (lines.length) body += "\r\n\r\n—\r\n" + lines.join("\r\n");
+      var href = "mailto:" + form.getAttribute("data-to") + "?subject=" + encodeURIComponent(subject()) + "&body=" + encodeURIComponent(body);
+      return href.length > 1800 ? null : href;
+    }
+
+    // /contact/?app=levh bağlantısı uygulamayı hazır seçer
+    var wanted = new URLSearchParams(window.location.search).get("app");
+    if (wanted) {
+      Array.prototype.forEach.call(form.elements.app.options, function (option) {
+        if (option.value.toLowerCase() === wanted.toLowerCase()) form.elements.app.value = option.value;
+      });
+    }
+
+    function fail() {
+      status.textContent = form.getAttribute("data-failed") + " ";
+      var href = mailtoLink();
+      if (href) {
+        var link = document.createElement("a");
+        link.href = href;
+        link.textContent = form.getAttribute("data-fallback");
+        status.appendChild(link);
+      } else {
+        status.textContent += form.getAttribute("data-too-long");
+      }
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      // Gizli tuzak alanı dolduran bir bottur: sessizce yutulur.
+      if (form.elements._honey.value) return;
+      var data = new URLSearchParams();
+      data.append("_subject", subject());
+      data.append("_replyto", value("email"));
+      data.append("_captcha", "false");
+      data.append("_template", "table");
+      ["topic", "app", "email", "message"].forEach(function (name) {
+        if (value(name) !== "") data.append(labelOf(name), value(name));
+      });
+      button.disabled = true;
+      status.textContent = form.getAttribute("data-sending");
+      var controller = new AbortController();
+      var timer = setTimeout(function () {
+        controller.abort();
+      }, 15000);
+      fetch(form.getAttribute("data-endpoint"), { method: "POST", headers: { Accept: "application/json" }, body: data, signal: controller.signal })
+        .then(function (response) {
+          return response.json().catch(function () {
+            return {};
+          }).then(function (result) {
+            if (!response.ok || result.success === false || result.success === "false") throw new Error("gönderilemedi");
+          });
+        })
+        .then(function () {
+          form.reset();
+          status.textContent = form.getAttribute("data-done");
+        })
+        .catch(fail)
+        .then(function () {
+          clearTimeout(timer);
+          button.disabled = false;
+        });
     });
   });
 

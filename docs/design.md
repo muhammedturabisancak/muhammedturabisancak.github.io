@@ -25,12 +25,13 @@ Her sayfa: Desktop (1440) ve Mobile (390) × Dark ve Light.
 | S05 Gizlilik | `/levh/privacy/` | 51:2538 | 51:2632 | 51:2724 | 51:2814 |
 | S06 Destek | `/levh/support/` | 51:2905 | 51:3005 | 51:3103 | 51:3199 |
 | S07 404 | `/404.html` | 52:3186 | 52:3233 | 52:3276 | 52:3315 |
+| S08 İletişim (öneri, K-32) | `/contact/` | 122:251 (01_Foundations) | — | 122:390 (01_Foundations) | — |
 
 ### Sayfaların bölümleri (yukarıdan aşağı)
-- **S01 Ana sayfa:** Üst menü → Giriş (solda avatar 84, ad "Muhammed / Turabi Sancak" isim gradyanı, tanıtım cümlesi, düğmeler "Uygulamaları gör" + "Bana yaz"; sağda **HomeScreen**) → Izgara: Tile/App (Levh) + [Tile/Principles, Tile/Clock] / [Tile/Process, Tile/Content, Tile/About] → Footer. Mobil: menü → tanıtım → HomeScreen (Mobile) → kutucuklar alt alta → Footer.
+- **S01 Ana sayfa:** Üst menü → Giriş (solda avatar 84, ad "Muhammed / Turabi Sancak" isim gradyanı, tanıtım cümlesi, düğmeler "Uygulamaları gör" + "Bana yaz"; sağda **HomeScreen**) → Izgara (K-27, K-28; Figma'da hâlâ eski, öneri 117:3397): Tile/App (Levh) + Tile/About (uzun metin, 390×440) / Tile/Process + Tile/Content (590×280) → Footer. Mobil: menü → tanıtım → HomeScreen (Mobile) → kutucuklar alt alta → Footer.
 - **S02 Uygulamalar:** Giriş (etiket adın, "Uygulamalarım" isim gradyanı, cümle, 4 Stat, FilterChip'ler) → "Öne çıkan" (Tile/App + Tile/Upcoming) → "Tüm uygulamalar" (AppCard × 2) → Footer.
 - **S03 Levh:** Giriş (Levh renginde ışıklar; ikon 96, "UYGULAMA · iOS VE ANDROID", "Levh" 84 px, cümle, StoreBadge × 2; sağda 3 telefon: Keşfet −9°, Bugün düz ve büyük, Dini Günler +9°; mobilde M2 yelpaze) → 5 × FeatureRow (Bugün, Kıble, Zikir, Kaza Takibi, Dini Günler; sol/sağ sırayla) → Gizlilik (başlık + 3 PrivacyCard + bağlantılar) → DownloadCTA → Footer.
-- **S04 Şu an:** Masaüstü iki sütun: solda (380) avatar, tarih etiketi, "Şu an", cümle, NowStatus, Tile/Clock; sağda (780) FilterChip sekmeleri + tarih başlıklı TimelineItem listesi + "Daha eski kayıtlar →". Mobil: hepsi alt alta.
+- **S04 Şu an:** Masaüstü iki sütun: solda (380) avatar, tarih etiketi, "Şu an", cümle, NowStatus (Tile/Clock K-27 ile kaldırıldı); sağda (780) FilterChip sekmeleri + tarih başlıklı TimelineItem listesi + "Daha eski kayıtlar →". Mobil: hepsi alt alta.
 - **S05 Gizlilik / S06 Destek:** Tek sütun 680 (mobil 350): DocHeader → (Destek'te ContactCard + "Sık sorulanlar") → DocSection × n → Footer.
 - **S07 404:** Işıklar + ay, "404" (isim gradyanı, 160/96 px), "Aradığın sayfa burada değil.", "Taşınmış ya da hiç var olmamış olabilir.", düğmeler "Ana sayfa" + "Uygulamalar".
 
@@ -121,8 +122,8 @@ Metin sayfalarında gövde 17 / 165%.
 | HomeScreen | 25:260 (Device=Desktop/Mobile) | `.home-screen` | 600×840 / 350×620 |
 | Phone | 22:110 | `.phone` | ekran görseli `img` |
 | Tile/App | 25:156 (Device) | `.tile .tile--app` | 790×440 / 350×600 |
-| Tile/Principles | 22:130 | `.tile .tile--principles` | 0 reklam · 0 veri toplama · 2 dil |
-| Tile/Clock | 22:143 | `.tile .tile--clock` | canlı İstanbul saati + sıradaki vakit |
+| ~~Tile/Principles~~ | 22:130 | — | **kaldırıldı (K-28)**; Figma'da hâlâ duruyor, kodda yok |
+| ~~Tile/Clock~~ | 22:143 | — | **kaldırıldı (K-27)**; Figma'da hâlâ duruyor, kodda yok |
 | Tile/Process | 22:150 | `.tile .tile--process` | Figma → Flutter → mağaza |
 | Tile/Content | 22:164 | `.tile .tile--content` | |
 | Tile/About | 22:180 | `.tile .tile--about` | |
@@ -154,6 +155,15 @@ Metin sayfalarında gövde 17 / 165%.
 - **E2 Paralaks (Levh satırları):** satırın ekrandaki konumu p (−1…1): telefon `translateY(p × −60px) rotate(±(4° + p × 6°))`; scroll'da requestAnimationFrame ile. Mobilde etki yarıya iner.
 - **F1 Kutucuk büyür:** ana sayfa/uygulamalar Levh kutucuğundan `/levh/`'e geçişte View Transitions (çapraz belge): `@view-transition { navigation: auto; }`, kutucuk ve Levh girişi aynı `view-transition-name` (ör. `levh-hero`), 700 ms ease-in-out; ardından giriş metni ve telefonlar sırayla. Desteklemeyen tarayıcıda normal geçiş.
 - Laboratuvar (canlı örnekler): https://claude.ai/artifact/S4LwenUwQ2GGC9KhpuzfYE
+- **Koddaki yeri:** `site.css` sonu "Hareket" bölümü (`--motion-*` değişkenleri, `@keyframes a1-*`), `site.js` "Hareket" bölümü (C3, E2, F1 tıklaması). Ad harfleri HTML'de `<span class="ch" style="--i:N;--x:Em">` olarak yazılı (gradyan harf başına, `--name-w: 8.624em`); addaki harf değişirse `--x` değerleri yeniden ölçülür.
+
+## Simge ve paylaşım görseli (01_Foundations › 113:2)
+| Parça | Kimlik | Dosya |
+|---|---|---|
+| Favicon/512 (yuvarlak köşe 115) | 113:6 | `favicon.svg` (SVG dışa aktarımı), `favicon.ico` (16/32/48) |
+| Apple touch icon/512 (tam kare) | 113:7 | `apple-touch-icon.png` (180) |
+| OG/1200×630 | 113:27 | `assets/img/og.jpg` (JPEG, 125 KB) |
+Favicon: duvar kâğıdı gradyanı (wallTop → wallMid → wallBottom, 135°) + mavi ve yeşil ışık + "M" (Unbounded Bold, ad gradyanı). OG: koyu tema, avatar, ad, "Flutter · iOS · Android", alan adı ve HomeScreen.
 
 ## Görseller
 - Avatar: eski sitedeki `avatar.jpg` (1600 px) → 256 ve 512 px.
