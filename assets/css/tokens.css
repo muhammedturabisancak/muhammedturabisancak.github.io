@@ -14,7 +14,7 @@
   --color-border-subtle: #FFFFFF14;
   --color-text: #F4F5F7;
   --color-text-secondary: #A4A7B0;
-  --color-text-tertiary: #6E717B;
+  --color-text-tertiary: #7C7F88;
   --color-accent: #7FE3BE;
   --color-accent-alt: #7FB5FF;
   --color-button-primary: #FFFFFF;
@@ -58,6 +58,8 @@
   --device-to: #0E100F;
   --device-border: #FFFFFF1A;
   --device-island: #000000;
+  --store-badge-bg: #000000;          /* StoreBadge (yer tutucu, temadan bağımsız) */
+  --store-badge-border: #FFFFFF33;
 
   /* Layout · Desktop */
   --space-4: 4px;
@@ -71,7 +73,7 @@
   --space-56: 56px;
   --space-80: 80px;
   --space-section: 110px;
-  --space-gutter: 120px;
+  --space-gutter: clamp(20px, (100vw - 1200px) / 2, 120px); /* 1440'ta 120; arada akışkan (Figma'da yalnız 1440 ve 390 var) */
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -97,7 +99,7 @@
   --shadow-icon: 0 10px 24px -6px rgba(0, 0, 0, .35);
   --shadow-card-light: 0 8px 30px -8px rgba(0, 0, 0, .06);
   --blur-glass: 15px; /* Figma blur/glass "radius 30" = CSS blur(15px) (Figma'nın kendi CSS çıktısı) */
-  --blur-glow: 130px;
+  --blur-glow: 65px; /* Figma blur/glow 130 = CSS blur(65px) */
 
   /* Motion */
   --duration-fast: 300ms;
@@ -122,9 +124,9 @@
     --color-border-subtle: #0000000F;
     --color-text: #0D0F14;
     --color-text-secondary: #596070;
-    --color-text-tertiary: #8A909C;
-    --color-accent: #178A63;
-    --color-accent-alt: #2F6BFF;
+    --color-text-tertiary: #6C707A;
+    --color-accent: #15805C;
+    --color-accent-alt: #2D66F2;
     --color-button-primary: #0D0F14;
     --color-on-button-primary: #FFFFFF;
     --color-button-secondary: #0000000F;
@@ -154,9 +156,9 @@
   --color-border-subtle: #0000000F;
   --color-text: #0D0F14;
   --color-text-secondary: #596070;
-  --color-text-tertiary: #8A909C;
-  --color-accent: #178A63;
-  --color-accent-alt: #2F6BFF;
+  --color-text-tertiary: #6C707A;
+  --color-accent: #15805C;
+  --color-accent-alt: #2D66F2;
   --color-button-primary: #0D0F14;
   --color-on-button-primary: #FFFFFF;
   --color-button-secondary: #0000000F;
