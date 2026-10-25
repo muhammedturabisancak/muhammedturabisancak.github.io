@@ -14,7 +14,7 @@
   --color-border-subtle: #FFFFFF14;
   --color-text: #F4F5F7;
   --color-text-secondary: #A4A7B0;
-  --color-text-tertiary: #6E717B;
+  --color-text-tertiary: #7C7F88;
   --color-accent: #7FE3BE;
   --color-accent-alt: #7FB5FF;
   --color-button-primary: #FFFFFF;
@@ -124,9 +124,9 @@
     --color-border-subtle: #0000000F;
     --color-text: #0D0F14;
     --color-text-secondary: #596070;
-    --color-text-tertiary: #8A909C;
-    --color-accent: #178A63;
-    --color-accent-alt: #2F6BFF;
+    --color-text-tertiary: #6C707A;
+    --color-accent: #15805C;
+    --color-accent-alt: #2D66F2;
     --color-button-primary: #0D0F14;
     --color-on-button-primary: #FFFFFF;
     --color-button-secondary: #0000000F;
@@ -156,9 +156,9 @@
   --color-border-subtle: #0000000F;
   --color-text: #0D0F14;
   --color-text-secondary: #596070;
-  --color-text-tertiary: #8A909C;
-  --color-accent: #178A63;
-  --color-accent-alt: #2F6BFF;
+  --color-text-tertiary: #6C707A;
+  --color-accent: #15805C;
+  --color-accent-alt: #2D66F2;
   --color-button-primary: #0D0F14;
   --color-on-button-primary: #FFFFFF;
   --color-button-secondary: #0000000F;

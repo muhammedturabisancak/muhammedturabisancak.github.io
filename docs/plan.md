@@ -15,10 +15,19 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 6 | S04 Şu an (TR) + `now/data.json` | bitti (commit atıldı) |
 | 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bitti (commit atıldı; gizlilik metni kullanıcı onayı bekliyor) |
 | 8 | İngilizce sayfalar `/en/…` | bitti (commit atıldı) |
-| 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bitti (commit bekliyor; aşağıdaki not) |
-| 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | kontroller bitti, commit bekliyor; kalan: kullanıcı onayları (aşağıdaki "Açık işler") ve canlıya çıkış |
+| 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bitti (commit atıldı, c9b9ce3) |
+| 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | kontroller bitti (c9b9ce3); 25 Ekim düzeltmeleri ve favicon commit bekliyor; kalan: canlıya çıkış |
 
-Son oturum: 24 Ekim 2026 — Aşama 9 + 10 `index-page` dalında (tek commit olacak, commit bekliyor).
+Son oturum: 25 Ekim 2026 — kullanıcı onaylarıyla düzeltmeler (commit bekliyor):
+- Gizlilik (TR + EN) 03. bölüme "Verilerim" yedeği cümlesi; tarih 25 Ekim 2026. EN'de bölüm adı "My Data" yazıldı (uygulamadaki İngilizce adla aynı olmalı, kontrol edilecek).
+- Kontrast AA (K-35): `tokens.css` + Figma değişkenleri.
+- "Bana yaz" → `/contact/` (K-36).
+- 390 px altı (K-37): 320/360/390'da 13 sayfa yatay taşmasız; 390'da görünüm öncekiyle aynı (ekran görüntüsüyle karşılaştırıldı).
+- Alt bilgi dokunma alanı (K-38).
+- Figma: S08 İletişim 03_Ekranlar'a dört ekran olarak eklendi (bölüm 129:4479; açık ekranlarda kartın sabit Koyu kipi kaldırıldı, kart gölgesi S06'dakiyle aynı). Favicon: üç tur öneriden (132:369, 133:740, 135:2315) **Hayalet** seçildi (K-39); favicon.svg/ico, apple-touch-icon.png ve og.jpg Figma 113:2'den yenilendi.
+- FormSubmit onayı kullanıcı tarafından yapıldı.
+
+Önceki oturum: 24 Ekim 2026 — Aşama 9 + 10 (c9b9ce3).
 - **Canlı vakit:** `assets/js/vendor/adhan.min.js` (adhan-js 4.4.6, MIT, npm `lib/bundles/adhan.umd.min.js`, kaynak haritası satırı çıkarıldı). `site.js` İstanbul saatini Intl ile, sıradaki vakti adhan (Diyanet/Turkey, 41.0082 / 28.9784) ile hesaplar; her saniye günceller. HTML'de `data-clock`, `data-prayer-name`, `data-prayer-countdown`, `data-prayer-meta`; betik yalnız `/` ve `/en/`'de yüklü. Betik çalışmazsa değerler "--:--" kalır (örnek değer yazmıyoruz). Saat kutusu (Tile/Clock) K-27 ile kaldırıldı; canlı değerler yalnız Levh widget'ında (geri sayım, vakit adı, vakit saati) ve HomeScreen durum çubuğunda (saat) kalır.
 - **Hareketler (K-15):** hepsi `site.css` sonundaki "Hareket" bölümünde. Süre ve eğri token'lardan; Figma kartında yalnız metinle verilen zamanlar `--motion-*` değişkenlerinde (900/22/800/200/90/250/500/650/1050/1800/380/900/120/200 ms). A1 açılış (ad harf harf: gradyan her harfin kendisinde, `--x` em olarak ölçüldü; çünkü Chrome animasyonlu çocukları üst öğenin `background-clip:text`'inde çizmiyor), B1 ikon kalkışı, C3 imleç hâlesi (`[data-follow]`, `site.js`), D3 kutucuk üzerine gelince, E2 paralaks (`--p`, `site.js`; ≤1239 px'te etki yarım), F1 kutucuk büyür (`@view-transition`, `view-transition-name: levh-hero`, kutucuğa tıklanınca `site.js` adı verir, Levh girişi geçişten sonra `html.vt` ile gecikmeli gelir). `prefers-reduced-motion: reduce`: hepsi kapalı, yalnız 200 ms solma; `@view-transition` da kapalı. Ad harfleri artık satır içi blok olduğundan ad ~%0,9 genişledi (kerning kaybı, 551,9 px).
 - **Simge ve paylaşım görseli:** Figma'da yoktu, 01_Foundations'a çizildi (düğüm 113:2: Favicon 113:6, Apple touch 113:7, OG 113:27). Dosyalar: `favicon.svg` (Figma SVG dışa aktarımı), `favicon.ico` (16/32/48 PNG), `apple-touch-icon.png` (180), `assets/img/og.jpg` (1200×630, 125 KB; PNG 586 KB idi, WhatsApp 300 KB üstünü almıyor). Tüm sayfalarda `og:*`, `twitter:card`, simge bağlantıları; 404'te yalnız simge.
@@ -87,16 +96,16 @@ Son oturum: 24 Ekim 2026 — Aşama 9 + 10 `index-page` dalında (tek commit ola
 - Canlıya çıkış: kullanıcı onayıyla `main`'e birleştirme → GitHub Pages yayını → `https://muhammedturabisancak.dev/levh/privacy/` açılıyor mu kontrol.
 
 ## İçerik: Levh gizlilik politikası (TR, Figma S05)
-Son güncelleme: 20 Ekim 2026. Levh'in kodu incelenerek yazıldı: ağ isteği yok; iOS'ta yalnız "kullanırken konum"; Android'de ACCESS_COARSE_LOCATION, RECEIVE_BOOT_COMPLETED, SCHEDULE_EXACT_ALARM; tüm kayıtlar cihazda (SharedPreferences). Hukuki görüş değildir; yayından önce kullanıcı okuyacak.
+Son güncelleme: 25 Ekim 2026 (ilk sürüm 20 Ekim). Levh'in kodu incelenerek yazıldı: ağ isteği yok; iOS'ta yalnız "kullanırken konum"; Android'de ACCESS_COARSE_LOCATION, RECEIVE_BOOT_COMPLETED, SCHEDULE_EXACT_ALARM; tüm kayıtlar cihazda (SharedPreferences). Hukuki görüş değildir; yayından önce kullanıcı okuyacak.
 1. **Kısaca** — Levh hiçbir kişisel verini toplamaz ve bize ya da başka birine göndermez. Uygulamada hesap, reklam, analiz aracı ya da takip yoktur; internet bağlantısı kullanmaz.
 2. **Konum** — İzin verirsen yaklaşık konumun yalnızca en yakın ilçeyi bulmak ve namaz vakitlerini hesaplamak için telefonunda kullanılır. Konum hiçbir yere gönderilmez; saklanan yalnızca seçtiğin il ve ilçenin adıdır. İzin vermek istemezsen il ve ilçeyi listeden seçebilirsin.
-3. **Telefonunda saklananlar** — Tema, dil ve yazı boyutu tercihlerin; seçtiğin konum; bildirim tercihlerin; kaydettiğin ayet, hadis ve isimler; zikir sayıların ve hedeflerin; namaz ve oruç kazası kayıtların. Hepsi yalnızca telefonunda durur ve uygulamayı sildiğinde silinir.
+3. **Telefonunda saklananlar** — Tema, dil ve yazı boyutu tercihlerin; seçtiğin konum; bildirim tercihlerin; kaydettiğin ayet, hadis ve isimler; zikir sayıların ve hedeflerin; namaz ve oruç kazası kayıtların. Hepsi yalnızca telefonunda durur ve uygulamayı sildiğinde silinir. İstersen bu kayıtları Verilerim bölümünden bir yedek dosyası olarak dışa aktarıp sonra geri yükleyebilirsin. Dosya senin seçtiğin yere kaydedilir; Levh onu hiçbir yere göndermez.
 4. **Bildirimler** — Vakit hatırlatmaları telefonunda planlanır; bildirim sunucusu yoktur. Android'de telefon yeniden başladığında hatırlatmaları kurmak ve tam vaktinde göstermek için sistem izinleri kullanılır. Bildirim iznini telefonunun ayarlarından istediğin zaman kapatabilirsin.
 5. **Paylaşım** — Bir içeriği ya da tebrik kartını paylaştığında telefonunun paylaşım menüsü açılır. Ne paylaşılacağını ve kime gideceğini sen seçersin; Levh bu işleme aracılık etmez.
 6. **Çocuklar** — Levh kimseden kişisel veri toplamadığı için çocuklardan da toplamaz.
 7. **Değişiklikler ve iletişim** — Bu politika değişirse bu sayfa güncellenir ve üstteki tarih değişir. Soruların için muhammedturabisancak@gmail.com adresine yazabilirsin.
 
-> Not: Levh'te sonradan "Verilerim" yedek dosyası (dışa/içe aktarma) eklendi. Yedek dosyası kullanıcının kendi seçtiği yere, kendi isteğiyle kaydedilir; gizlilik metnine bir cümle eklenmesi gerekebilir — yazmadan önce kullanıcıya sor.
+> Not: "Verilerim" yedeği cümlesi 25 Ekim 2026'da eklendi (kullanıcı onayı).
 
 ## İçerik: Levh destek (TR, Figma S06)
 İletişim kartı: "BANA YAZ · Bir sorun mu var, bir fikrin mi? · Hatayı, cihaz modelini ve iOS ya da Android sürümünü yazarsan daha hızlı yardımcı olabilirim." + muhammedturabisancak@gmail.com + Kopyala.
@@ -111,17 +120,9 @@ Sık sorulanlar:
 ## Açık işler (karar/girdi bekleyen)
 - Mağaza bağlantıları ve resmî rozetler (Levh yayınlanınca).
 - Gerçek video/yazı bağlantıları (K-22).
-- Hakkımda metni **kesinleşti** (K-28; kullanıcının seçtiği 1. versiyon). Zaman kipi "çalıştım" kullanıcının yazdığı gibi bırakıldı (CV'de Base Interactive hâlâ devam ediyor; istenirse "çalışıyorum" yapılır).
-- Gizlilik metnine "Verilerim" yedeği cümlesi (yukarıdaki not).
 - Ana ekrandaki Tasarımlar (Figma profili?) ve Videolar (YouTube kanalı) ikonlarının adresleri.
 - Levh ekranlarının 2x dışa aktarımı (Figma MCP ekran görüntüsü 1x veriyor; gerekirse kullanıcı Figma'dan 2x PNG verir).
-- Favicon ("M" harfi) ve paylaşım görselinin onayı (Figma 113:2). Onaylanmazsa yalnız dosyalar yenilenir.
-- **Kontrast AA (token değeri, Figma'da değişir):** `textTertiary` koyu 4,04 / açık 2,96; `accent` açık 4,00; `accentAlt` açık 4,16 (11–13 px etiketlerde kullanılıyor, 4,5 gerekir). Önerilen değerler: textTertiary koyu #7C7F88, açık #6C707A; accent açık #15805C; accentAlt açık #2D66F2. Kullanıcı onaylayınca Figma değişkenleri + `tokens.css` birlikte değişir.
-- Alt bilgi liste bağlantılarının dokunma hedefi (44 px için satır aralığı Figma'dan büyür) — Figma'daki aralık korunsun mu, büyütelim mi?
-- **Saat kutusunun Figma'dan silinmesi (K-27):** S01 ve S04'ün 4+4 ekranında ve 02_Components'taki 22:143'te Tile/Clock duruyor. Ayrıca Tile/Principles (22:130 ve ekranlarda, K-28). Önerilen ana sayfa satırları 01_Foundations › 116:3383 (ilk öneri, geçersiz) ve 117:3397'de (güncel öneri) çizili; onaylanınca ekranlar güncellenir.
-
-- **360 px ve altı telefonlarda yatay kaydırma** (ana sayfada ad nowrap 345 px + 350 px HomeScreen, 10 px taşıyor). Figma'da yalnız 390 var; çözüm için küçük ekranda ölçekleme gerekir.
-- **Mail formu (K-31) ve tema/ikon işleri (K-29, K-30)** kodlandı, commit bekliyor. Figma'da Icon/github, Icon/linkedin (20:xx) eski çizgi hâlinde; ContactCard + form önerisi 121:249'da, S06 ekranları eski.
-- **S08 İletişim (`/contact/`, K-32)** kodlandı, commit bekliyor. Figma'da yalnız öneri çerçeveleri var (122:251 masaüstü, 122:390 mobil, koyu); onaylanınca S08 Desktop/Mobile × Dark/Light olarak 03_Ekranlar'a taşınır. "Bana yaz" düğmesi hâlâ mailto + Kopyala; istenirse `/contact/`'a bağlanır.
-- **FormSubmit (K-33):** kod hazır ve sahte ağ yanıtlarıyla test edildi (başarı, hata, 500, `success:false`, tuzak, geçersiz e-posta, çok uzun metin); gerçek servise hiç istek atılmadı. **Canlıya çıkıştan önce**: kullanıcı `/contact/`'tan bir deneme mesajı gönderir → gmail'e gelen onay mailine tıklar → ikinci deneme mesajı gelen kutuya düşmeli. Onaydan sonra servis rastgele bir adres (alias) verir; istenirse e-posta adresini sayfa kaynağından gizlemek için form adresi o alias ile değiştirilir.
-- İletişim formu (K-34): Cihaz/Sistem sürümü ve adres + Kopyala kaldırıldı; test betiği sahte ağla yeniden geçti.
+- **Saat ve İlkeler kutularının Figma'dan silinmesi (K-27, K-28):** S01 ve S04 ekranlarında, 22:143 ve 22:130 bileşenlerinde duruyor. Önerilen ana sayfa satırları 01_Foundations › 117:3397'de; kullanıcı onayı bekleniyor.
+- Figma'da Icon/github, Icon/linkedin (K-30) eski çizgi hâlinde; S06 ekranları mail formundan önceki hâlde (K-31/K-32).
+- Hakkımda metni kesin (K-28); "çalıştım" kipi kullanıcının yazdığı gibi (istenirse "çalışıyorum").
+- **Canlıya çıkış:** `index-page` dalı → `main` (kullanıcı ayrıca onaylar) → GitHub Pages → `https://muhammedturabisancak.dev/levh/privacy/` ve `/contact/` formu canlıda denenir.

@@ -25,7 +25,7 @@ Her sayfa: Desktop (1440) ve Mobile (390) × Dark ve Light.
 | S05 Gizlilik | `/levh/privacy/` | 51:2538 | 51:2632 | 51:2724 | 51:2814 |
 | S06 Destek | `/levh/support/` | 51:2905 | 51:3005 | 51:3103 | 51:3199 |
 | S07 404 | `/404.html` | 52:3186 | 52:3233 | 52:3276 | 52:3315 |
-| S08 İletişim (öneri, K-32) | `/contact/` | 122:251 (01_Foundations) | — | 122:390 (01_Foundations) | — |
+| S08 İletişim | `/contact/` | 129:4480 | 129:4533 | 129:4586 | 129:4638 |
 
 ### Sayfaların bölümleri (yukarıdan aşağı)
 - **S01 Ana sayfa:** Üst menü → Giriş (solda avatar 84, ad "Muhammed / Turabi Sancak" isim gradyanı, tanıtım cümlesi, düğmeler "Uygulamaları gör" + "Bana yaz"; sağda **HomeScreen**) → Izgara (K-27, K-28; Figma'da hâlâ eski, öneri 117:3397): Tile/App (Levh) + Tile/About (uzun metin, 390×440) / Tile/Process + Tile/Content (590×280) → Footer. Mobil: menü → tanıtım → HomeScreen (Mobile) → kutucuklar alt alta → Footer.
@@ -49,9 +49,9 @@ Değişken adı = Figma code syntax. Koyu `:root`; açık tema bloğunda yalnız
 | color/borderSubtle | `--color-border-subtle` | #FFFFFF14 | #0000000F |
 | color/text | `--color-text` | #F4F5F7 | #0D0F14 |
 | color/textSecondary | `--color-text-secondary` | #A4A7B0 | #596070 |
-| color/textTertiary | `--color-text-tertiary` | #6E717B | #8A909C |
-| color/accent | `--color-accent` | #7FE3BE | #178A63 |
-| color/accentAlt | `--color-accent-alt` | #7FB5FF | #2F6BFF |
+| color/textTertiary | `--color-text-tertiary` | #7C7F88 | #6C707A |
+| color/accent | `--color-accent` | #7FE3BE | #15805C |
+| color/accentAlt | `--color-accent-alt` | #7FB5FF | #2D66F2 |
 | color/buttonPrimary | `--color-button-primary` | #FFFFFF | #0D0F14 |
 | color/onButtonPrimary | `--color-on-button-primary` | #0A0B0F | #FFFFFF |
 | color/buttonSecondary | `--color-button-secondary` | #FFFFFF0F | #0000000F |
@@ -163,7 +163,7 @@ Metin sayfalarında gövde 17 / 165%.
 | Favicon/512 (yuvarlak köşe 115) | 113:6 | `favicon.svg` (SVG dışa aktarımı), `favicon.ico` (16/32/48) |
 | Apple touch icon/512 (tam kare) | 113:7 | `apple-touch-icon.png` (180) |
 | OG/1200×630 | 113:27 | `assets/img/og.jpg` (JPEG, 125 KB) |
-Favicon: duvar kâğıdı gradyanı (wallTop → wallMid → wallBottom, 135°) + mavi ve yeşil ışık + "M" (Unbounded Bold, ad gradyanı). OG: koyu tema, avatar, ad, "Flutter · iOS · Android", alan adı ve HomeScreen.
+Favicon (K-39): Hayalet, 10×10 piksel (hücre 40, kenar 56 / 512), beyaz #F4F5F7, gözler #0D2A55, yanaklar #F2A9A0, zemin #2A1A55. OG: koyu tema, avatar, ad, "Flutter · iOS · Android", alan adı (solunda 44 px hayalet) ve HomeScreen. Eski "M" hâli arşivde (137:2574).
 
 ## Görseller
 - Avatar: eski sitedeki `avatar.jpg` (1600 px) → 256 ve 512 px.

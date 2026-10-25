@@ -2107,8 +2107,9 @@ main,
     line-height: 1.1;
   }
 
+  /* 384 px altında kutunun iç genişliğine iner (kenar 20 + iç boşluk 27) */
   .tile__text {
-    width: 290px;
+    width: min(290px, 100vw - 2 * var(--space-gutter) - 2 * 27px);
   }
 
   .tile--app .phone {
@@ -2329,6 +2330,28 @@ main,
 
 }
 
+/* Figma'da çizim yok: 390 altında ad ve ana ekran sütuna sığacak kadar küçülür
+   (ad 40 px'te 345 px, ana ekran 350 px). zoom sayı ister, vw'den hesaplanamaz; iki adım. */
+@media (max-width: 389px) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .intro__name {
+    font-size: min(40px, (100vw - 2 * var(--space-gutter)) * 40 / 350);
+  }
+
+  .intro .home-screen {
+    zoom: .914; /* 360 px: 320 / 350 */
+  }
+}
+
+@media (max-width: 359px) {
+  .intro .home-screen {
+    zoom: .8; /* 320 px: 280 / 350 */
+  }
+}
+
 /* ---------- S02 Uygulamalar (Figma 30:1081 / 31:1289) ---------- */
 .apps-glow--a { --x: 300px; --y: -40px; --w: 560px; --h: 380px; --c: var(--color-glow-a); }
 .apps-glow--b { --x: 640px; --y: -20px; --w: 520px; --h: 340px; --c: var(--color-glow-c); }
@@ -2432,8 +2455,9 @@ main,
     text-align: left;
   }
 
+  /* Tek kelimelik başlık ("Uygulamalarım" 309 px) bölünemez: 355 px altında küçülür */
   .page-head__title {
-    font-size: 34px;
+    font-size: min(34px, (100vw - 2 * var(--space-gutter)) * 34 / 315);
     line-height: 1.06;
   }
 
@@ -3236,4 +3260,16 @@ html.vt {
   width: max(100%, 44px);
   height: max(100%, 44px);
   transform: translate(-50%, -50%);
+}
+
+/* Alt bilgi bağlantıları: satır aralığı Figma'daki gibi kalır; tıklanabilir alan
+   aradaki boşluğu da kaplar (~29 px, WCAG 2.2 AA 24 px). */
+.site-footer__col a {
+  position: relative;
+}
+
+.site-footer__col a::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--space-12) / -2) 0;
 }
