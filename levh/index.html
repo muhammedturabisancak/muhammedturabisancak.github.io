@@ -25,7 +25,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-  <script>try{addEventListener("pagereveal",function(e){if(e.viewTransition)document.documentElement.classList.add("vt")})}catch(e){}</script>
+  <script>try{addEventListener("pagereveal",function(e){if(e.viewTransition&&sessionStorage.getItem("vt"))document.documentElement.classList.add("vt");sessionStorage.removeItem("vt")})}catch(e){}</script>
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/unbounded-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/tokens.css">
@@ -204,15 +204,16 @@
           <ul>
             <li><a href="/apps/">Tüm uygulamalar</a></li>
             <li><a href="/levh/">Levh</a></li>
-            <li><a href="/apps/#yakinda">Yakında</a></li>
+            <li><a href="/ilim-kervani/">İlim Kervanı</a></li>
           </ul>
         </div>
         <div class="site-footer__col">
           <h2 class="site-footer__title">Yardım</h2>
           <ul>
-            <li><a href="/levh/support/">Destek</a></li>
-            <li><a href="/levh/privacy/">Gizlilik</a></li>
-            <li><a href="/levh/support/#sss">SSS</a></li>
+            <li><a href="/levh/support/">Levh destek</a></li>
+            <li><a href="/ilim-kervani/support/">İlim Kervanı destek</a></li>
+            <li><a href="/levh/privacy/">Levh gizlilik</a></li>
+            <li><a href="/ilim-kervani/privacy/">İlim Kervanı gizlilik</a></li>
             <li><a href="/contact/">İletişim</a></li>
           </ul>
         </div>

@@ -16,9 +16,16 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 7 | S05 Gizlilik, S06 Destek, S07 404 (TR) | bitti (commit atıldı; gizlilik metni kullanıcı onayı bekliyor) |
 | 8 | İngilizce sayfalar `/en/…` | bitti (commit atıldı) |
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bitti (commit atıldı, c9b9ce3) |
-| 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | kontroller bitti (c9b9ce3); 25 Ekim düzeltmeleri ve favicon commit bekliyor; kalan: canlıya çıkış |
+| 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bitti (PR #8, #9 `main`'de, site canlıda) |
+| 11 | İlim Kervanı: tanıtım, gizlilik, destek (TR + EN) ve site geneli (K-40…K-43) | kod bitti, `ilim-kervani` dalında commit bekliyor; gizlilik taslağı kullanıcı onayı bekliyor; yayın uygulama hazır olunca |
 
-Son oturum: 25 Ekim 2026 — kullanıcı onaylarıyla düzeltmeler (commit bekliyor):
+Son oturum: 4 Kasım 2026 — Aşama 11 İlim Kervanı (K-40…K-44).
+- Yayından önce teyit: "6 şehir, 120 seviye" hâlâ doğru mu; gizlilik metni uygulamanın son durumuyla uyuşuyor mu (reklam kişiselleştirme, onay değiştirme seçeneği, Ayarlar'daki Gizlilik/İletişim bağlantıları, Android yayın derlemesi izinleri). Uygulama tarafı çözülmeden metne "reklamlar kişiselleştirilmez" ve "Ayarlar'dan onayı değiştir" yazılmaz.
+- `/now/` İlim Kervanı'na geçti (%60; Levh incelemede, 2 Kasım). `update` kaydında `url` / `url_en` de çalışır. "Her şehir bir konu" metni uygulamadaki D-94'e göre düzeltildi; ürün metni uygulamada değişirse site de kontrol edilir.
+- Test turu düzeltmeleri: `/now/` filtresi, mobilde özellik kartı metne göre uzar (K-12'deki 740 px artık en az yükseklik), giriş ışıkları menü ve metinden uzaklaştı, açıklama metinleri `--color-text`, `robots.txt` + `sitemap.xml`. Figma'daki ışık konumları ve kart yüksekliği güncel değil.
+- `soru-dogru.jpg` Figma bağlantısı koptuğu için daha küçük kopyadan büyütüldü; istenirse 71:187 yeniden dışa aktarılır.
+
+Önceki oturum: 25 Ekim 2026 — kullanıcı onaylarıyla düzeltmeler (sonra commit edildi):
 - Gizlilik (TR + EN) 03. bölüme "Verilerim" yedeği cümlesi; tarih 25 Ekim 2026. EN'de bölüm adı "My Data" yazıldı (uygulamadaki İngilizce adla aynı olmalı, kontrol edilecek).
 - Kontrast AA (K-35): `tokens.css` + Figma değişkenleri.
 - "Bana yaz" → `/contact/` (K-36).
@@ -120,9 +127,8 @@ Sık sorulanlar:
 ## Açık işler (karar/girdi bekleyen)
 - Mağaza bağlantıları ve resmî rozetler (Levh yayınlanınca).
 - Gerçek video/yazı bağlantıları (K-22).
-- Ana ekrandaki Tasarımlar (Figma profili?) ve Videolar (YouTube kanalı) ikonlarının adresleri.
 - Levh ekranlarının 2x dışa aktarımı (Figma MCP ekran görüntüsü 1x veriyor; gerekirse kullanıcı Figma'dan 2x PNG verir).
 - **Saat ve İlkeler kutularının Figma'dan silinmesi (K-27, K-28):** S01 ve S04 ekranlarında, 22:143 ve 22:130 bileşenlerinde duruyor. Önerilen ana sayfa satırları 01_Foundations › 117:3397'de; kullanıcı onayı bekleniyor.
 - Figma'da Icon/github, Icon/linkedin (K-30) eski çizgi hâlinde; S06 ekranları mail formundan önceki hâlde (K-31/K-32).
 - Hakkımda metni kesin (K-28); "çalıştım" kipi kullanıcının yazdığı gibi (istenirse "çalışıyorum").
-- **Canlıya çıkış:** `index-page` dalı → `main` (kullanıcı ayrıca onaylar) → GitHub Pages → `https://muhammedturabisancak.dev/levh/privacy/` ve `/contact/` formu canlıda denenir.
+- **İlim Kervanı yayını:** `ilim-kervani` dalı → `main` (kullanıcı ayrıca onaylar) → GitHub Pages; adresler canlıda denenir.

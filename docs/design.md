@@ -28,8 +28,8 @@ Her sayfa: Desktop (1440) ve Mobile (390) × Dark ve Light.
 | S08 İletişim | `/contact/` | 129:4480 | 129:4533 | 129:4586 | 129:4638 |
 
 ### Sayfaların bölümleri (yukarıdan aşağı)
-- **S01 Ana sayfa:** Üst menü → Giriş (solda avatar 84, ad "Muhammed / Turabi Sancak" isim gradyanı, tanıtım cümlesi, düğmeler "Uygulamaları gör" + "Bana yaz"; sağda **HomeScreen**) → Izgara (K-27, K-28; Figma'da hâlâ eski, öneri 117:3397): Tile/App (Levh) + Tile/About (uzun metin, 390×440) / Tile/Process + Tile/Content (590×280) → Footer. Mobil: menü → tanıtım → HomeScreen (Mobile) → kutucuklar alt alta → Footer.
-- **S02 Uygulamalar:** Giriş (etiket adın, "Uygulamalarım" isim gradyanı, cümle, 4 Stat, FilterChip'ler) → "Öne çıkan" (Tile/App + Tile/Upcoming) → "Tüm uygulamalar" (AppCard × 2) → Footer.
+- **S01 Ana sayfa:** Üst menü → Giriş (solda avatar 84, ad "Muhammed / Turabi Sancak" isim gradyanı, tanıtım cümlesi, düğmeler "Uygulamaları gör" + "Bana yaz"; sağda **HomeScreen**) → Izgara (K-46; Figma'da hâlâ eski): 2 × Tile/App (Levh, İlim Kervanı; 590×440) / Tile/About (tam genişlik) / Tile/Process + Tile/Content (590×280) → Footer. Mobil: menü → tanıtım → HomeScreen (Mobile) → kutucuklar alt alta → Footer.
+- **S02 Uygulamalar:** Giriş (etiket adın, "Uygulamalarım" isim gradyanı, cümle, 4 Stat; Figma'daki FilterChip'ler K-44 ile kodda yok) → "Öne çıkan" (2 × Tile/App, K-42; Figma'da Tile/App + Tile/Upcoming) → "Tüm uygulamalar" (AppCard × 2, eşit) → Footer.
 - **S03 Levh:** Giriş (Levh renginde ışıklar; ikon 96, "UYGULAMA · iOS VE ANDROID", "Levh" 84 px, cümle, StoreBadge × 2; sağda 3 telefon: Keşfet −9°, Bugün düz ve büyük, Dini Günler +9°; mobilde M2 yelpaze) → 5 × FeatureRow (Bugün, Kıble, Zikir, Kaza Takibi, Dini Günler; sol/sağ sırayla) → Gizlilik (başlık + 3 PrivacyCard + bağlantılar) → DownloadCTA → Footer.
 - **S04 Şu an:** Masaüstü iki sütun: solda (380) avatar, tarih etiketi, "Şu an", cümle, NowStatus (Tile/Clock K-27 ile kaldırıldı); sağda (780) FilterChip sekmeleri + tarih başlıklı TimelineItem listesi + "Daha eski kayıtlar →". Mobil: hepsi alt alta.
 - **S05 Gizlilik / S06 Destek:** Tek sütun 680 (mobil 350): DocHeader → (Destek'te ContactCard + "Sık sorulanlar") → DocSection × n → Footer.
@@ -73,6 +73,7 @@ Duvar kâğıdı (HomeScreen): `linear-gradient(135deg, var(--color-wall-top), v
 
 ### Apps (temadan bağımsız)
 `--app-levh-primary #0E5A3C` · `--app-levh-deep #022D1A` · `--app-levh-gold #E5BA72` · `--app-levh-cream #FDFAEB`
+İlim Kervanı: `--app-ilim-primary #A4502F` · `--app-ilim-deep #7E3B22` · `--app-ilim-gold #D9A23A` · `--app-ilim-cream #FBF3E4`. Koyu temada kiremit, açık temada altın yazı AA'yı geçmez; bu renkler yalnız zemin ve ışıkta kullanılır, küçük yazı `--color-accent` kalır (K-40).
 Marka (ikon zeminleri): `--brand-github #24292F` · `--brand-linkedin #0A66C2` · `--brand-x #000000` · `--brand-youtube #E02020` · `--brand-mail #007AFF` · `--brand-figma #A259FF` · `--brand-flutter #4FC3F7` · `--brand-slate #4A5568`
 Levh zemini: `linear-gradient(180deg, var(--app-levh-primary), var(--app-levh-deep))` + altın ışık.
 
@@ -178,6 +179,19 @@ Favicon (K-39): Hayalet, 10×10 piksel (hücre 40, kenar 56 / 512), beyaz #F4F5F
 | Zikir oturumu (S27_ZikirOturum) | 357:145 | 362:273 | satır 3 |
 | Kaza Takibi (S18_KazaTakibi) | 281:8547 | 281:8453 | satır 4, Tile/App |
 | Dini gün detay (S30 Kandil) | 474:11792 | 474:11716 | Levh girişi (sağ), satır 5 |
+
+- İlim Kervanı ikonu: uygulama deposu `assets/branding/app_icon.png` → `assets/img/ilim-kervani-icon-192/384.png`.
+- İlim Kervanı ekranları: Figma `KIzNkZBjzpvcf8QSxxTH6R`, sayfa `03 · Ekranlar` (1x, tek sürüm; Dark sayfası kullanılmaz; gölge payı kırpılır, 390×844). `assets/img/ilim-kervani/`:
+
+| Dosya | Düğüm | Kullanıldığı yer |
+|---|---|---|
+| harita | 64:3 | giriş (orta) |
+| soru-dogru | 71:187 | giriş (sol) |
+| gunluk | 97:3 | giriş (sağ), satır 3 |
+| seviye-karti | 64:192 | satır 1 |
+| soru | 71:3 | satır 2 |
+| hizli-rekor | 102:156 | satır 4 |
+| rutbe | 75:253 | satır 5 |
 
 ## Bilinen Figma notu
 Değişkene bağlı boyaya verilen opaklık bazı katmanlarda kayboluyor; Figma'da ince izler `color/border` ile çizildi. Kodda sorun değil: saydam renkler token'da zaten alfa ile tanımlı.

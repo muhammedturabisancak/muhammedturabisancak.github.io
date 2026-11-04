@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
   <title>My apps · Muhammed Turabi Sancak</title>
-  <meta name="description" content="Calm, ad-free, carefully made apps. Each one taken from Figma to the store by one person.">
+  <meta name="description" content="Calm, carefully made apps. Each one taken from Figma to the store by one person.">
   <link rel="canonical" href="https://muhammedturabisancak.dev/en/apps/">
   <link rel="alternate" hreflang="tr" href="https://muhammedturabisancak.dev/apps/">
   <link rel="alternate" hreflang="en" href="https://muhammedturabisancak.dev/en/apps/">
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="tr_TR">
   <meta property="og:title" content="My apps · Muhammed Turabi Sancak">
-  <meta property="og:description" content="Calm, ad-free, carefully made apps. Each one taken from Figma to the store by one person.">
+  <meta property="og:description" content="Calm, carefully made apps. Each one taken from Figma to the store by one person.">
   <meta property="og:url" content="https://muhammedturabisancak.dev/en/apps/">
   <meta property="og:image" content="https://muhammedturabisancak.dev/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -97,19 +97,13 @@
     <header class="page-head container">
       <p class="page-head__eyebrow">Muhammed Turabi Sancak</p>
       <h1 class="page-head__title name-gradient">My apps</h1>
-      <p class="page-head__lead">Calm, ad-free and carefully made. Each one goes from Figma to the store in one pair of hands.</p>
+      <p class="page-head__lead">Calm and carefully made. Each one goes from Figma to the store in one pair of hands.</p>
       <dl class="stats-row">
-        <div class="stat"><dt>app</dt><dd>1</dd></div>
+        <div class="stat"><dt>app</dt><dd>2</dd></div>
         <div class="stat"><dt>platforms</dt><dd>2</dd></div>
         <div class="stat"><dt>languages</dt><dd>2</dd></div>
-        <div class="stat"><dt>ads</dt><dd>0</dd></div>
+        <div class="stat"><dt>accounts</dt><dd>0</dd></div>
       </dl>
-      <div class="filters" role="group" aria-label="Filter apps">
-        <button type="button" class="filter" aria-pressed="true" data-filter="">All</button>
-        <button type="button" class="filter" aria-pressed="false" data-filter="iphone">iPhone</button>
-        <button type="button" class="filter" aria-pressed="false" data-filter="android">Android</button>
-        <button type="button" class="filter" aria-pressed="false" data-filter="free">Free</button>
-      </div>
     </header>
 
     <section class="apps-section container" aria-labelledby="one-cikan">
@@ -117,7 +111,7 @@
         <h2 class="section-header__title" id="one-cikan">Featured</h2>
       </div>
       <div class="apps-featured">
-        <a class="tile tile--app" href="/en/levh/" data-tags="iphone android free" data-vt="levh-hero">
+        <a class="tile tile--app" href="/en/levh/" data-vt="levh-hero">
           <span class="glow tile__glow--1"></span>
           <span class="glow tile__glow--2"></span>
           <span class="tile__body">
@@ -129,13 +123,18 @@
           </span>
           <span class="phone"><img class="phone__screen" src="/assets/img/levh/kaza-takibi-dark.jpg" width="390" height="851" alt=""><span class="phone__island"></span></span>
         </a>
-        <div class="tile tile--upcoming" id="yakinda" data-tags="">
-          <div class="tile__body">
-            <span class="tile__placeholder"></span>
-            <h3 class="tile__heading">Next app</h3>
-            <p>I'm working on it. When it ships, it'll be here in its own colours.</p>
-          </div>
-        </div>
+        <a class="tile tile--app app--ilim" href="/en/ilim-kervani/" data-vt="ilim-hero">
+          <span class="glow tile__glow--1"></span>
+          <span class="glow tile__glow--2"></span>
+          <span class="tile__body">
+            <img class="tile__icon" src="/assets/img/ilim-kervani-icon-192.png" width="72" height="72" alt="">
+            <span class="tile__label">App</span>
+            <span class="tile__name">İlim Kervanı</span>
+            <span class="tile__text">An Islamic knowledge quiz: 6 cities and 120 levels from Mecca to Istanbul.</span>
+            <span class="tile__more">Explore <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12L10 8L6 4"/></svg></span>
+          </span>
+          <span class="phone"><img class="phone__screen" src="/assets/img/ilim-kervani/harita.jpg" width="390" height="844" alt=""><span class="phone__island"></span></span>
+        </a>
       </div>
     </section>
 
@@ -144,7 +143,7 @@
         <h2 class="section-header__title" id="tum-uygulamalar">All apps</h2>
       </div>
       <ul class="app-list">
-        <li data-tags="iphone android free">
+        <li>
           <a class="app-card" href="/en/levh/">
             <img class="app-card__icon" src="/assets/img/levh-icon-192.png" width="72" height="72" alt="">
             <span class="app-card__body">
@@ -154,15 +153,15 @@
             </span>
           </a>
         </li>
-        <li data-tags="">
-          <div class="app-card">
-            <span class="app-card__icon app-card__icon--placeholder"></span>
+        <li>
+          <a class="app-card" href="/en/ilim-kervani/">
+            <img class="app-card__icon" src="/assets/img/ilim-kervani-icon-192.png" width="72" height="72" alt="">
             <span class="app-card__body">
-              <span class="app-card__name">Next app</span>
-              <span class="app-card__text">In progress</span>
-              <span class="app-card__tags"><span class="chip">Coming soon</span></span>
+              <span class="app-card__name">İlim Kervanı</span>
+              <span class="app-card__text">An Islamic knowledge quiz</span>
+              <span class="app-card__tags"><span class="chip">Free</span><span class="chip">In-app purchases</span><span class="chip">iPhone</span><span class="chip">Android</span></span>
             </span>
-          </div>
+          </a>
         </li>
       </ul>
     </section>
@@ -176,15 +175,16 @@
           <ul>
             <li><a href="/en/apps/">All apps</a></li>
             <li><a href="/en/levh/">Levh</a></li>
-            <li><a href="/en/apps/#yakinda">Coming soon</a></li>
+            <li><a href="/en/ilim-kervani/">İlim Kervanı</a></li>
           </ul>
         </div>
         <div class="site-footer__col">
           <h2 class="site-footer__title">Help</h2>
           <ul>
-            <li><a href="/en/levh/support/">Support</a></li>
-            <li><a href="/en/levh/privacy/">Privacy</a></li>
-            <li><a href="/en/levh/support/#sss">FAQ</a></li>
+            <li><a href="/en/levh/support/">Levh support</a></li>
+            <li><a href="/en/ilim-kervani/support/">İlim Kervanı support</a></li>
+            <li><a href="/en/levh/privacy/">Levh privacy</a></li>
+            <li><a href="/en/ilim-kervani/privacy/">İlim Kervanı privacy</a></li>
             <li><a href="/en/contact/">Contact</a></li>
           </ul>
         </div>

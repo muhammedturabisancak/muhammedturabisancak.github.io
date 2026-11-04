@@ -26,6 +26,7 @@ apps/index.html            uygulamalar
 levh/index.html            Levh
 levh/privacy/index.html    Levh gizlilik politikası
 levh/support/index.html    Levh destek
+ilim-kervani/…             İlim Kervanı tanıtım, privacy/, support/ (Levh ile aynı yapı)
 now/index.html             şu an
 now/data.json              şu an verisi (durum + zaman çizelgesi); ana sayfa widget'ı da buradan okur
 404.html                   GitHub Pages bulunamadı sayfası
@@ -36,6 +37,7 @@ assets/js/site.js          tema, dil bağlantısı, menü, kopyala, canlı saat/
 assets/js/vendor/adhan.min.js
 assets/fonts/              Inter, Unbounded
 assets/img/                avatar, levh-icon, levh/*.jpg (ekranlar, koyu/açık, 2x)
+robots.txt, sitemap.xml    arama motorları için; yeni sayfa eklenince sitemap.xml de güncellenir
 CNAME                      muhammedturabisancak.dev (dokunma)
 ```
 
