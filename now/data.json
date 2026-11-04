@@ -1,17 +1,22 @@
 {
   "status": {
-    "title": "Levh 1.0'ı App Store'a hazırlıyorum",
-    "title_en": "Getting Levh 1.0 ready for the App Store",
-    "progress": 80,
-    "updated": "2026-10-19",
+    "title": "İlim Kervanı'nı yayına hazırlıyorum",
+    "title_en": "Getting İlim Kervanı ready for release",
+    "progress": 60,
+    "updated": "2026-11-04",
     "todo": [
-      { "text": "Uygulama App Store Connect'e yüklendi", "text_en": "App uploaded to App Store Connect", "done": true },
-      { "text": "Geliştirici sözleşmesi kabul edildi", "text_en": "Developer agreement accepted", "done": true },
-      { "text": "Gizlilik ve destek sayfaları", "text_en": "Privacy and support pages", "done": false },
-      { "text": "Mağaza ekran görüntüleri ve açıklama", "text_en": "Store screenshots and description", "done": false }
+      { "text": "Oyun, reklam ve mağaza ekranları", "text_en": "Game, ad and store screens", "done": true },
+      { "text": "Tanıtım, gizlilik ve destek sayfaları", "text_en": "Website, privacy and support pages", "done": true },
+      { "text": "Soruların yazımı", "text_en": "Writing the questions", "done": false },
+      { "text": "Soruların tek tek kontrolü", "text_en": "Checking every question", "done": false },
+      { "text": "Mağaza kaydı ve reklam ayarları", "text_en": "Store listing and ad setup", "done": false }
     ]
   },
   "timeline": [
+    { "date": "2026-11-04", "kind": "update", "app": "ilim-kervani", "title": "İkinci uygulamam: İlim Kervanı", "text": "Mekke'den İstanbul'a 6 şehir, 120 seviyelik bir İslami bilgi yarışması.", "title_en": "My second app: İlim Kervanı", "text_en": "An Islamic knowledge quiz: 6 cities and 120 levels from Mecca to Istanbul.", "url": "/ilim-kervani/", "url_en": "/en/ilim-kervani/" },
+    { "date": "2026-11-02", "kind": "update", "app": "levh", "title": "Levh incelemeye gönderildi", "text": "Mağaza incelemesinin sonucunu bekliyorum.", "title_en": "Levh submitted for review", "text_en": "Waiting for the store review." },
+    { "date": "2026-11-02", "kind": "update", "app": "levh", "title": "Levh'in mağaza öncesi son sürümü hazır", "text": "1.0.0 için son düzeltmeler tamamlandı.", "title_en": "Levh's final pre-store build is ready", "text_en": "The last fixes for 1.0.0 are done." },
+    { "date": "2026-10-25", "kind": "update", "app": "site", "title": "muhammedturabisancak.dev yeni haliyle yayında", "text": "Tasarım, sayfalar ve iki dil tamamlandı.", "title_en": "muhammedturabisancak.dev is live in its new form", "text_en": "The design, pages and both languages are done." },
     { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Levh 1.0.0 App Store Connect'e yüklendi", "text": "İnceleme öncesi son adımlar: gizlilik sayfası ve ekran görüntüleri.", "title_en": "Levh 1.0.0 uploaded to App Store Connect", "text_en": "Last steps before review: the privacy page and screenshots." },
     { "date": "2026-10-19", "kind": "update", "app": "levh", "title": "Alt menüde canlı kıble halkası", "text": "Kıble'ye ne kadar yakın olduğunu alt menüden gösteren halka.", "title_en": "A live qibla ring in the tab bar", "text_en": "A ring in the tab bar that shows how close you are to the qibla." },
     { "date": "2026-10-19", "kind": "update", "app": "site", "title": "muhammedturabisancak.dev baştan tasarlanıyor", "text": "Bu sayfa da onun bir parçası.", "title_en": "muhammedturabisancak.dev is being redesigned", "text_en": "This page is part of it." },

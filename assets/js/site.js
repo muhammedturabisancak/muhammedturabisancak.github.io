@@ -119,22 +119,6 @@
     if (event.matches && menuOpen) setMenu(false);
   });
 
-  // ---------- Uygulama filtreleri (FilterChip) ----------
-  // Seçilen etiketi taşımayan [data-tags] öğeleri gizlenir; "Hepsi" (boş) hepsini gösterir.
-  var filters = document.querySelectorAll("[data-filter]");
-  filters.forEach(function (button) {
-    button.addEventListener("click", function () {
-      var tag = button.getAttribute("data-filter");
-      filters.forEach(function (other) {
-        other.setAttribute("aria-pressed", String(other === button));
-      });
-      document.querySelectorAll("[data-tags]").forEach(function (item) {
-        var tags = item.getAttribute("data-tags").split(" ");
-        item.hidden = tag !== "" && tags.indexOf(tag) === -1;
-      });
-    });
-  });
-
   // ---------- Şu an verisi (now/data.json) ----------
   // Şu an sayfası ve ana sayfadaki widget aynı dosyadan okur. Dosya okunamazsa sayfadaki hazır metin kalır.
   var lang = root.lang === "en" ? "en" : "tr";
@@ -144,7 +128,8 @@
   }[lang];
   var APPS = {
     levh: { name: "Levh", icon: "/assets/img/levh-icon-192.png" },
-    site: { name: lang === "en" ? "Site" : "Site", icon: "/assets/img/avatar-256.jpg" }
+    "ilim-kervani": { name: "İlim Kervanı", icon: "/assets/img/ilim-kervani-icon-192.png" },
+    site: { name: lang === "en" ? "Site" : "Site", icon: "/favicon.svg" }
   };
 
   function el(tag, className, text) {
@@ -197,9 +182,10 @@
   function renderItem(item) {
     var li = el("li", "timeline-item timeline-item--" + item.kind);
     li.setAttribute("data-kind", item.kind);
-    var card = el(item.url ? "a" : "div", "timeline-item__card");
-    if (item.url) {
-      card.href = item.url;
+    var url = localized(item, "url");
+    var card = el(url ? "a" : "div", "timeline-item__card");
+    if (url) {
+      card.href = url;
       card.rel = "noopener";
     }
     if (item.kind === "update") {
@@ -277,7 +263,7 @@
   }
 
   if (document.querySelector("[data-now], [data-now-title]")) {
-    fetch("/now/data.json")
+    fetch("/now/data.json", { cache: "no-cache" })
       .then(function (response) {
         return response.ok ? response.json() : null;
       })
@@ -419,11 +405,27 @@
     updateParallax();
   }
 
-  // F1: Levh kutucuğuna basılınca kutucuk, Levh sayfasının girişiyle aynı adı alır (çapraz belge View Transitions).
-  document.querySelectorAll("[data-vt]").forEach(function (link) {
+  // F1: Uygulama kutucuğuna basılınca kutucuk, uygulama sayfasının girişiyle aynı adı alır (çapraz belge View Transitions).
+  var vtLinks = document.querySelectorAll("[data-vt]");
+  vtLinks.forEach(function (link) {
     link.addEventListener("click", function () {
       link.style.viewTransitionName = link.getAttribute("data-vt");
+      // Uygulama sayfası bekleme süresini yalnız karttan gelince uygular (levh/ ve ilim-kervani/ index.html).
+      try {
+        sessionStorage.setItem("vt", "1");
+      } catch (error) {}
     });
+  });
+
+  // Geri dönüldüğünde ad kartta kalmasın; yoksa sonraki tıklamada kart başka sayfaya dönüşür.
+  window.addEventListener("pagereveal", function (event) {
+    function clearNames() {
+      vtLinks.forEach(function (link) {
+        link.style.viewTransitionName = "";
+      });
+    }
+    if (event.viewTransition) event.viewTransition.finished.then(clearNames, clearNames);
+    else clearNames();
   });
 
   // ---------- İletişim formu ----------
@@ -461,11 +463,11 @@
       return href.length > 1800 ? null : href;
     }
 
-    // /contact/?app=levh bağlantısı uygulamayı hazır seçer
+    // /contact/?app=levh ya da ?app=ilim-kervani bağlantısı uygulamayı hazır seçer
     var wanted = new URLSearchParams(window.location.search).get("app");
     if (wanted) {
       Array.prototype.forEach.call(form.elements.app.options, function (option) {
-        if (option.value.toLowerCase() === wanted.toLowerCase()) form.elements.app.value = option.value;
+        if ((option.getAttribute("data-app") || option.value).toLowerCase() === wanted.toLowerCase()) form.elements.app.value = option.value;
       });
     }
 
