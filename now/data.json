@@ -13,6 +13,7 @@
     ]
   },
   "timeline": [
+    { "date": "2026-11-06", "kind": "update", "app": "levh", "title": "Levh App Store'da yayında", "text": "iPhone'a indirebilirsin. Android'de 12 kişilik 14 günlük kapalı test sürüyor.", "title_en": "Levh is live on the App Store", "text_en": "You can get it on iPhone. On Android, a 14-day closed test with 12 testers is under way.", "url": "https://apps.apple.com/tr/app/id6821683928", "url_en": "https://apps.apple.com/app/id6821683928" },
     { "date": "2026-11-04", "kind": "update", "app": "ilim-kervani", "title": "İkinci uygulamam: İlim Kervanı", "text": "Mekke'den İstanbul'a 6 şehir, 120 seviyelik bir İslami bilgi yarışması.", "title_en": "My second app: İlim Kervanı", "text_en": "An Islamic knowledge quiz: 6 cities and 120 levels from Mecca to Istanbul.", "url": "/ilim-kervani/", "url_en": "/en/ilim-kervani/" },
     { "date": "2026-11-02", "kind": "update", "app": "levh", "title": "Levh incelemeye gönderildi", "text": "Mağaza incelemesinin sonucunu bekliyorum.", "title_en": "Levh submitted for review", "text_en": "Waiting for the store review." },
     { "date": "2026-11-02", "kind": "update", "app": "levh", "title": "Levh'in mağaza öncesi son sürümü hazır", "text": "1.0.0 için son düzeltmeler tamamlandı.", "title_en": "Levh's final pre-store build is ready", "text_en": "The last fixes for 1.0.0 are done." },

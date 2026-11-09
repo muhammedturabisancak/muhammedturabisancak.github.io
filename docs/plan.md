@@ -17,9 +17,17 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 8 | İngilizce sayfalar `/en/…` | bitti (commit atıldı) |
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bitti (commit atıldı, c9b9ce3) |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bitti (PR #8, #9 `main`'de, site canlıda) |
-| 11 | İlim Kervanı: tanıtım, gizlilik, destek (TR + EN) ve site geneli (K-40…K-43) | kod bitti, `ilim-kervani` dalında commit bekliyor; gizlilik taslağı kullanıcı onayı bekliyor; yayın uygulama hazır olunca |
+| 11 | İlim Kervanı: tanıtım, gizlilik, destek (TR + EN) ve site geneli (K-40…K-46) | bitti (PR #10, 4 Kasım'da `main`'de, canlıda); gizlilik metni uygulamanın son durumuyla teyit bekliyor |
+| 12 | Levh App Store'da: resmî Apple rozeti, `/now/` kaydı (K-47) | kod bitti, `levh-yayin` dalında commit bekliyor |
 
-Son oturum: 4 Kasım 2026 — Aşama 11 İlim Kervanı (K-40…K-44).
+Son oturum: 9 Kasım 2026 — Aşama 12 Levh App Store'da (K-47).
+- Levh 6 Kasım'da App Store'a çıktı; Android'de 12 test kullanıcılı 14 günlük kapalı test sürüyor (Google Play "Yakında" kaldı).
+- `/levh/` + `/en/levh/`: App Store düğmesi resmî Apple rozeti (`assets/img/badges/`), giriş ve "Levh'i indir" bölümünde; `.store-badge--live`.
+- `now/data.json`: 6 Kasım kaydı (App Store bağlantılı, Android testi metinde).
+- Figma: StoreBadge `State` Soon/Live (Live 156:429), S03 ekranları ve DownloadCTA güncel.
+- Kontrol: 1440 + 390, koyu + açık, TR + EN ekran görüntüleri (başsız Chrome; 390 için iframe sarmalayıcı). Android yayına çıkınca Google Play rozeti aynı yolla eklenir.
+
+Önceki oturum: 4 Kasım 2026 — Aşama 11 İlim Kervanı (K-40…K-44).
 - Yayından önce teyit: "6 şehir, 120 seviye" hâlâ doğru mu; gizlilik metni uygulamanın son durumuyla uyuşuyor mu (reklam kişiselleştirme, onay değiştirme seçeneği, Ayarlar'daki Gizlilik/İletişim bağlantıları, Android yayın derlemesi izinleri). Uygulama tarafı çözülmeden metne "reklamlar kişiselleştirilmez" ve "Ayarlar'dan onayı değiştir" yazılmaz.
 - `/now/` İlim Kervanı'na geçti (%60; Levh incelemede, 2 Kasım). `update` kaydında `url` / `url_en` de çalışır. "Her şehir bir konu" metni uygulamadaki D-94'e göre düzeltildi; ürün metni uygulamada değişirse site de kontrol edilir.
 - Test turu düzeltmeleri: `/now/` filtresi, mobilde özellik kartı metne göre uzar (K-12'deki 740 px artık en az yükseklik), giriş ışıkları menü ve metinden uzaklaştı, açıklama metinleri `--color-text`, `robots.txt` + `sitemap.xml`. Figma'daki ışık konumları ve kart yüksekliği güncel değil.
@@ -125,10 +133,10 @@ Sık sorulanlar:
 6. **Levh ücretli mi, reklam var mı?** — Levh ücretsizdir ve reklam içermez.
 
 ## Açık işler (karar/girdi bekleyen)
-- Mağaza bağlantıları ve resmî rozetler (Levh yayınlanınca).
+- Google Play bağlantısı ve resmî rozeti (Levh Android kapalı testi bitip yayınlanınca); İlim Kervanı mağaza rozetleri (yayınlanınca).
 - Gerçek video/yazı bağlantıları (K-22).
 - Levh ekranlarının 2x dışa aktarımı (Figma MCP ekran görüntüsü 1x veriyor; gerekirse kullanıcı Figma'dan 2x PNG verir).
 - **Saat ve İlkeler kutularının Figma'dan silinmesi (K-27, K-28):** S01 ve S04 ekranlarında, 22:143 ve 22:130 bileşenlerinde duruyor. Önerilen ana sayfa satırları 01_Foundations › 117:3397'de; kullanıcı onayı bekleniyor.
 - Figma'da Icon/github, Icon/linkedin (K-30) eski çizgi hâlinde; S06 ekranları mail formundan önceki hâlde (K-31/K-32).
 - Hakkımda metni kesin (K-28); "çalıştım" kipi kullanıcının yazdığı gibi (istenirse "çalışıyorum").
-- **İlim Kervanı yayını:** `ilim-kervani` dalı → `main` (kullanıcı ayrıca onaylar) → GitHub Pages; adresler canlıda denenir.
+- **İlim Kervanı gizlilik metni teyidi:** sayfalar canlıda; "6 şehir, 120 seviye", reklam kişiselleştirme, onay değiştirme, Ayarlar bağlantıları ve Android izinleri uygulamanın son hâliyle karşılaştırılacak.

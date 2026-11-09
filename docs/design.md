@@ -133,7 +133,7 @@ Metin sayfalarında gövde 17 / 165%.
 | SectionHeader | 22:212 | `.section-header` | |
 | Stat | 29:227 | `.stat` | |
 | FilterChip | 29:237 (Default/Selected) | `.filter` + `aria-pressed` | |
-| StoreBadge | 36:233 | `.store-badge` | yer tutucu (K-21) |
+| StoreBadge | 36:233 (Store × State: App Store/Google Play × Soon/Live) | `.store-badge`, Live: `.store-badge--live` | Soon = "Yakında" yer tutucu (K-21); Live = Apple'ın resmî rozeti, 55 px (K-47) |
 | FeatureRow | 36:267 (Desktop-Left/Right, Mobile) | `.feature-row .feature-row--left/--right` | |
 | PrivacyCard | 36:271 | `.privacy-card` | |
 | DownloadCTA | 36:303 (Device) | `.download-cta` | |
