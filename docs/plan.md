@@ -18,9 +18,16 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 9 | Hareketler (K-15) + canlı saat/vakit (adhan-js) | bitti (commit atıldı, c9b9ce3) |
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bitti (PR #8, #9 `main`'de, site canlıda) |
 | 11 | İlim Kervanı: tanıtım, gizlilik, destek (TR + EN) ve site geneli (K-40…K-46) | bitti (PR #10, 4 Kasım'da `main`'de, canlıda); gizlilik metni uygulamanın son durumuyla teyit bekliyor |
-| 12 | Levh App Store'da: resmî Apple rozeti, `/now/` kaydı (K-47) | kod bitti, `levh-yayin` dalında commit bekliyor |
+| 12 | Levh App Store'da: resmî Apple rozeti, `/now/` kaydı (K-47) | bitti (PR #11, 20 Kasım'da canlıda; takılı Pages yayını yeniden başlatıldı) |
+| 13 | Levh v1.1.0 gizlilik: gizlilik (12 bölüm), destek (7 soru), tanıtım gizlilik kartları — Firebase + Meta | metin bitti, `levh-privacy-v1-1` dalında commit bekliyor |
 
-Son oturum: 9 Kasım 2026 — Aşama 12 Levh App Store'da (K-47).
+Son oturum: 20 Kasım 2026 — Aşama 13 Levh v1.1.0 gizlilik metinleri.
+- `/levh/privacy/` + EN: 12 bölüm; yeni 07 Çökme raporları ve kullanım verileri (Firebase; Crashlytics 90 gün Firebase belgesinden doğrulandı, Analytics süresi yazılmadı, yalnız bağlantı), 08 Reklam ölçümü (Meta), 09 Üçüncü taraflar, 11 Hakların (KVKK ve GDPR); 02'ye seyahat modu, 04'e "Hayır" denen yerler. Meta açıklamaları düzeltildi.
+- `/levh/support/` + EN: 05 yeniden yazıldı, yeni 06 "Kullanım verilerini nasıl kapatırım?", 04'e MagSafe.
+- `/levh/` + EN gizlilik kartları: "Veri toplamaz / No data collected" → "Hesap yok / No account", "İnternetsiz" → "İnternetsiz çalışır"; "takip" ifadesi çıktı. Figma S03 kartlarını kullanıcı güncelleyecek.
+- Uygulamadaki anahtar adları: TR Ayarlar · Verilerim · "Kullanım verilerini paylaş"; EN Settings · My data · "Share usage data".
+
+Önceki oturum: 9 Kasım 2026 — Aşama 12 Levh App Store'da (K-47).
 - Levh 6 Kasım'da App Store'a çıktı; Android'de 12 test kullanıcılı 14 günlük kapalı test sürüyor (Google Play "Yakında" kaldı).
 - `/levh/` + `/en/levh/`: App Store düğmesi resmî Apple rozeti (`assets/img/badges/`), giriş ve "Levh'i indir" bölümünde; `.store-badge--live`.
 - `now/data.json`: 6 Kasım kaydı (App Store bağlantılı, Android testi metinde).

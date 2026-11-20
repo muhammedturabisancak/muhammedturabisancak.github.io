@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
   <title>Levh · Privacy policy</title>
-  <meta name="description" content="Levh collects none of your personal data and sends nothing to us or anyone else.">
+  <meta name="description" content="Levh has no accounts and your personal records stay on your phone. Anonymous crash and usage measurement (Firebase) and ad measurement (Meta) can be turned off in Settings.">
   <link rel="canonical" href="https://muhammedturabisancak.dev/en/levh/privacy/">
   <link rel="alternate" hreflang="tr" href="https://muhammedturabisancak.dev/levh/privacy/">
   <link rel="alternate" hreflang="en" href="https://muhammedturabisancak.dev/en/levh/privacy/">
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="tr_TR">
   <meta property="og:title" content="Levh · Privacy policy">
-  <meta property="og:description" content="Levh collects none of your personal data and sends nothing to us or anyone else.">
+  <meta property="og:description" content="Levh has no accounts and your personal records stay on your phone. Anonymous crash and usage measurement (Firebase) and ad measurement (Meta) can be turned off in Settings.">
   <meta property="og:url" content="https://muhammedturabisancak.dev/en/levh/privacy/">
   <meta property="og:image" content="https://muhammedturabisancak.dev/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -90,7 +90,7 @@
         <a class="doc-header__app" href="/en/levh/"><img src="/assets/img/levh-icon-192.png" width="40" height="40" alt="">Levh</a>
         <h1 class="doc-header__title">Privacy policy</h1>
         <div class="doc-header__info">
-          <span>Last updated: November 4, 2026</span>
+          <span>Last updated: November 20, 2026</span>
           <nav class="doc-header__langs" aria-label="Language">
             <a class="filter" href="/levh/privacy/" hreflang="tr" lang="tr">TR</a>
             <a class="filter" href="#" aria-current="page" lang="en">EN</a>
@@ -100,12 +100,13 @@
       <section class="doc-section">
         <p class="doc-section__number">01</p>
         <h2>In short</h2>
-        <p>Levh collects none of your personal data and sends nothing to us or anyone else. The app has no accounts, ads, analytics or tracking, and it does not use an internet connection.</p>
+        <p>Levh has no accounts or sign-in, and the app shows no ads. Your personal records (preferences, locations, dhikr and missed-prayer records) stay only on your phone. The app uses two outside services: Google Firebase for anonymous crash reports and usage measurement, and Meta for ad measurement. You can turn both off with Settings · My data · "Share usage data". Details below.</p>
       </section>
       <section class="doc-section">
         <p class="doc-section__number">02</p>
         <h2>Location</h2>
-        <p>If you allow it, your approximate location is used on your phone only to find the nearest district and calculate prayer times. It is never sent anywhere. Only the name of the province and district you chose, and the location of that district's centre, are stored on your phone — never where you actually are. If you'd rather not grant permission, you can pick your province and district from a list.</p>
+        <p>If you allow it, your approximate location is used on your phone only to find the nearest district, calculate prayer times and for travel mode, described below. It is never sent anywhere. Only the name of the province and district you chose, and the location of that district's centre, are stored on your phone (abroad, the city's name and the location of its centre) — never where you actually are. If you'd rather not grant permission, you can pick your province and district from a list; abroad, you can pick your country and city.</p>
+        <p>Travel mode: if you have already granted location permission, Levh checks your approximate location on your phone when the app opens or comes to the foreground. If your province (abroad, your city) has changed, it shows a card saying you're somewhere new and asking whether to update your prayer times. It never asks for permission for this; without permission, it does nothing. Your location still never leaves your phone.</p>
       </section>
       <section class="doc-section">
         <p class="doc-section__number">03</p>
@@ -115,7 +116,7 @@
       <section class="doc-section">
         <p class="doc-section__number">04</p>
         <h2>What stays on your phone</h2>
-        <p>Theme, language, text size, bold text and high contrast preferences; your selected location and saved locations (with the names you give them, such as Home or Work); notification preferences; saved content; your dhikr journal (day-by-day dhikr records); missed prayer and missed fast records. All of it stays only on your phone and is deleted when you delete the app. If you like, you can export these records as a backup file from My data and restore them later. The file is saved wherever you choose; Levh never sends it anywhere.</p>
+        <p>Theme, language, text size, bold text and high contrast preferences; your selected location and saved locations (with the names you give them, such as Home or Work); places where you said "No" on the travel card; notification preferences; saved content; your dhikr journal (day-by-day dhikr records); missed prayer and missed fast records. All of it stays only on your phone and is deleted when you delete the app. If you like, you can export these records as a backup file from My data and restore them later. The file is saved wherever you choose; Levh never sends it anywhere.</p>
       </section>
       <section class="doc-section">
         <p class="doc-section__number">05</p>
@@ -129,11 +130,39 @@
       </section>
       <section class="doc-section">
         <p class="doc-section__number">07</p>
-        <h2>Children</h2>
-        <p>Levh collects no personal data from anyone, so it collects none from children either.</p>
+        <h2>Crash reports and usage data</h2>
+        <p>Levh uses Google's Firebase service to find and fix bugs and to see how the app is used. Two parts of Firebase are active: Crashlytics and Analytics.</p>
+        <p>Crashlytics sends a crash report when the app crashes or an error occurs. The report contains the error log, device model, operating system version and app version. Google keeps these records for 90 days (<a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy and retention information</a>).</p>
+        <p>Analytics measures which screens are opened (only the screen's name, not what's on it), app opens and sessions, and whether people come back to the app (retention). For this it uses Firebase's app instance ID: a random ID created when the app is installed, unique to the app on that device. Google may infer your approximate country and city from your IP address (the address your device is given when it connects to the internet). How long Analytics data is kept is explained in <a href="https://support.google.com/analytics/answer/7667196" rel="noopener">Google's data retention document</a>.</p>
+        <p>No advertising ID is sent to Firebase (on iPhone or Android), and ad personalisation is turned off. Your name, email, location and personal records are not sent, and the data is not linked to you.</p>
+        <p>If you turn off Settings · My data · "Share usage data", no crash reports or usage data are sent to Firebase. Below the switch it says "Anonymous · includes crash reports and ad measurement". The switch is on by default.</p>
       </section>
       <section class="doc-section">
         <p class="doc-section__number">08</p>
+        <h2>Ad measurement (Meta)</h2>
+        <p>Meta's Facebook SDK is used to measure how many installs Levh's app install ads on Instagram and Facebook bring in. An SDK is a ready-made piece of software a company provides for adding to apps. The app itself shows no ads.</p>
+        <p>Meta receives the information that the app was installed and opened (automatic app events), along with device and app information. Additional event data, such as screen titles and links, is turned off.</p>
+        <p>On iPhone, the advertising ID (IDFA) is not collected. The IDFA is an ID Apple gives each device for measuring ads. You are also not asked for app tracking permission (ATT); ATT is the permission iPhone asks for when an app wants to track you across other companies' apps and websites. Measurement uses Apple's SKAdNetwork, a system that reports anonymously whether an ad led to an install, without revealing who you are.</p>
+        <p>On Android, the advertising ID (Advertising ID) is sent to Meta for ad measurement. The advertising ID is an ID Google gives Android devices for ad measurement. You can reset or delete it in your phone's Settings · Google · Ads.</p>
+        <p>If you turn off "Share usage data", no ad measurement events (and on Android, no advertising ID) are sent to Meta. Because the switch is on by default, the install information from the app's first launch is sent before you have a chance to turn it off.</p>
+      </section>
+      <section class="doc-section">
+        <p class="doc-section__number">09</p>
+        <h2>Third parties</h2>
+        <p>The outside services Levh uses are Google (Firebase Crashlytics and Analytics) and Meta Platforms (Facebook SDK). These companies handle the data they receive under their own privacy policies: <a href="https://policies.google.com/privacy" rel="noopener">Google privacy policy</a>, <a href="https://www.facebook.com/privacy/policy/" rel="noopener">Meta privacy policy</a>. Data is not sold.</p>
+      </section>
+      <section class="doc-section">
+        <p class="doc-section__number">10</p>
+        <h2>Children</h2>
+        <p>Levh is an app for everyone, not one made specifically for children. No accounts or personal records are collected from anyone; only the crash reports, usage measurement and ad measurement data described above are sent.</p>
+      </section>
+      <section class="doc-section">
+        <p class="doc-section__number">11</p>
+        <h2>Your rights (KVKK and GDPR)</h2>
+        <p>In Turkey, KVKK (Personal Data Protection Law No. 6698) and in the European Union, GDPR (General Data Protection Regulation) give you rights over your personal data, such as asking for information about it and asking for it to be deleted. Levh keeps no personal records about you; your personal records are only on your phone and are deleted when you delete the app, so there is no need to send a deletion request. You can turn off sending to Firebase and Meta at any time with Settings · My data · "Share usage data". If you have any questions, write to <a href="mailto:muhammedturabisancak@gmail.com">muhammedturabisancak@gmail.com</a>.</p>
+      </section>
+      <section class="doc-section">
+        <p class="doc-section__number">12</p>
         <h2>Changes and contact</h2>
         <p>If this policy changes, this page is updated and the date above changes. If you have any questions, write to <a href="mailto:muhammedturabisancak@gmail.com">muhammedturabisancak@gmail.com</a>.</p>
       </section>
