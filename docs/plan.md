@@ -19,12 +19,13 @@ Bir oturumda en fazla 1–2 aşama yap. Her aşama sonunda: ekran görüntüleri
 | 10 | Son kontrol: erişilebilirlik, performans, meta/OG, `hreflang`, kırık bağlantı; kullanıcıyla canlıya çıkış | bitti (PR #8, #9 `main`'de, site canlıda) |
 | 11 | İlim Kervanı: tanıtım, gizlilik, destek (TR + EN) ve site geneli (K-40…K-46) | bitti (PR #10, 4 Kasım'da `main`'de, canlıda); gizlilik metni uygulamanın son durumuyla teyit bekliyor |
 | 12 | Levh App Store'da: resmî Apple rozeti, `/now/` kaydı (K-47) | bitti (PR #11, 20 Kasım'da canlıda; takılı Pages yayını yeniden başlatıldı) |
-| 13 | Levh v1.1.0 gizlilik: gizlilik (12 bölüm), destek (7 soru), tanıtım gizlilik kartları — Firebase + Meta | metin bitti, `levh-privacy-v1-1` dalında commit bekliyor |
+| 13 | Levh v1.1.0 gizlilik: gizlilik (12 bölüm), destek (7 soru), tanıtım gizlilik kartları — Firebase + Meta | bitti (d5e35e0 doğrudan `main`'e push edildi, canlıda); 07 ve 11'e ek düzeltme commit bekliyor |
 
 Son oturum: 20 Kasım 2026 — Aşama 13 Levh v1.1.0 gizlilik metinleri.
 - `/levh/privacy/` + EN: 12 bölüm; yeni 07 Çökme raporları ve kullanım verileri (Firebase; Crashlytics 90 gün Firebase belgesinden doğrulandı, Analytics süresi yazılmadı, yalnız bağlantı), 08 Reklam ölçümü (Meta), 09 Üçüncü taraflar, 11 Hakların (KVKK ve GDPR); 02'ye seyahat modu, 04'e "Hayır" denen yerler. Meta açıklamaları düzeltildi.
 - `/levh/support/` + EN: 05 yeniden yazıldı, yeni 06 "Kullanım verilerini nasıl kapatırım?", 04'e MagSafe.
 - `/levh/` + EN gizlilik kartları: "Veri toplamaz / No data collected" → "Hesap yok / No account", "İnternetsiz" → "İnternetsiz çalışır"; "takip" ifadesi çıktı. Figma S03 kartlarını kullanıcı güncelleyecek.
+- Ek düzeltme (kullanıcı incelemesi): 07'ye ilk açılış bilgisinin Firebase'e de gittiği, 11'e Google/Meta politikalarındaki haklar ve Android reklam kimliğini sıfırlama eklendi. EN travel card düğmesi uygulamada birebir "No".
 - Uygulamadaki anahtar adları: TR Ayarlar · Verilerim · "Kullanım verilerini paylaş"; EN Settings · My data · "Share usage data".
 
 Önceki oturum: 9 Kasım 2026 — Aşama 12 Levh App Store'da (K-47).
